@@ -1,0 +1,20 @@
+{
+  "name": "laro-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "LARO Advertising PLC website — Next.js, scroll animations and a WebGL showroom.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "lenis": "^1.1.13",
+    "next": "^15.5.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "engines": {
+    "node": ">=18.18"
+  }
+}
