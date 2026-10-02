@@ -1,52 +1,60 @@
 'use client';
 import { useState, type FormEvent } from 'react';
 import { services } from '@/lib/content';
-import { Arrow } from './Icons';
+import { ArrowUpRight, Check } from './Icons';
 
+const budgets = ['Under ETB 30,000', 'ETB 30k – 100k', 'ETB 100k – 500k', 'Above ETB 500k', 'Not sure yet'];
+
+// Quote request: service chips, underline fields, budget chips.
 export default function QuoteForm() {
   const [state, setState] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
-
+  const [picked, setPicked] = useState<string[]>([]);
+  const [budget, setBudget] = useState('');
+  const toggle = (s: string) => setPicked((p) => (p.includes(s) ? p.filter((x) => x !== s) : [...p, s]));
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = e.currentTarget;
     setState('sending');
-    const data = Object.fromEntries(new FormData(form).entries());
+    const data = { ...Object.fromEntries(new FormData(form).entries()), services: picked.join(', '), budget };
     try {
       const res = await fetch('/api/quote', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
-      if (!res.ok) throw new Error('Request failed');
-      setState('sent');
-      form.reset();
-    } catch {
-      setState('error');
-    }
+      if (!res.ok) throw new Error();
+      setState('sent'); form.reset(); setPicked([]); setBudget('');
+    } catch { setState('error'); }
   }
-
+  if (state === 'sent') {
+    return (
+      <div className="qform sent" role="status">
+        <span className="sent-ic"><Check size={34} /></span>
+        <h3>Thank you. Your request is in.</h3>
+        <p>Our team will review your brief and contact you within one working day.</p>
+        <button className="pill-btn dark" type="button" onClick={() => setState('idle')}><span>Send another request</span></button>
+      </div>
+    );
+  }
   return (
-    <form className="form" onSubmit={onSubmit} aria-labelledby="quote-title">
-      <div className="full form-foot" style={{ marginBottom: 4 }}>
-        <span id="quote-title" className="mono" style={{ color: 'var(--ink)' }}>Request a quote</span>
-        <span className="mono" style={{ color: 'var(--green-deep)' }}>Reply within one working day</span>
+    <form className="qform" onSubmit={onSubmit} aria-label="Request a quote">
+      <fieldset className="full">
+        <legend>I’m interested in</legend>
+        <div className="chips">
+          {services.map((s) => (<button key={s.slug} type="button" className="chip" aria-pressed={picked.includes(s.short)} onClick={() => toggle(s.short)}>{s.short}</button>))}
+        </div>
+      </fieldset>
+      <div className="ul-field"><label htmlFor="q-name">Name *</label><input id="q-name" name="name" autoComplete="name" required /></div>
+      <div className="ul-field"><label htmlFor="q-org">Organization</label><input id="q-org" name="organization" autoComplete="organization" /></div>
+      <div className="ul-field"><label htmlFor="q-phone">Phone *</label><input id="q-phone" name="phone" type="tel" autoComplete="tel" required /></div>
+      <div className="ul-field"><label htmlFor="q-email">Email</label><input id="q-email" name="email" type="email" autoComplete="email" /></div>
+      <div className="ul-field"><label htmlFor="q-qty">Quantity</label><input id="q-qty" name="quantity" /></div>
+      <div className="ul-field"><label htmlFor="q-date">Deadline or event date</label><input id="q-date" name="date" type="date" /></div>
+      <fieldset className="full">
+        <legend>Budget</legend>
+        <div className="chips">{budgets.map((b) => (<button key={b} type="button" className="chip" aria-pressed={budget === b} onClick={() => setBudget(budget === b ? '' : b)}>{b}</button>))}</div>
+      </fieldset>
+      <div className="ul-field full"><label htmlFor="q-msg">Project details</label><textarea id="q-msg" name="message" rows={3} /></div>
+      <div className="full cn-send">
+        <span className="muted">{state === 'error' ? 'Could not send. Please call +251 954 676 767.' : 'Branding packages start at ETB 30,000.'}</span>
+        <button type="submit" className="arrow-link" disabled={state === 'sending'}><ArrowUpRight size={22} /><span>{state === 'sending' ? 'Sending…' : 'Send request'}</span></button>
       </div>
-      <div className="field"><label htmlFor="q-name">Name</label><input id="q-name" name="name" autoComplete="name" required placeholder="Full name" /></div>
-      <div className="field"><label htmlFor="q-org">Organization</label><input id="q-org" name="organization" autoComplete="organization" placeholder="Ministry, bank, NGO…" /></div>
-      <div className="field"><label htmlFor="q-phone">Phone</label><input id="q-phone" name="phone" type="tel" autoComplete="tel" required placeholder="+251 …" /></div>
-      <div className="field"><label htmlFor="q-email">Email</label><input id="q-email" name="email" type="email" autoComplete="email" placeholder="name@organization.org" /></div>
-      <div className="field"><label htmlFor="q-service">Service</label>
-        <select id="q-service" name="service" defaultValue="">
-          <option value="" disabled>Choose a service</option>
-          {services.map((s) => <option key={s.slug} value={s.title}>{s.title}</option>)}
-          <option value="Integrated solution">Integrated solution (several services)</option>
-        </select>
-      </div>
-      <div className="field"><label htmlFor="q-date">Deadline or event date</label><input id="q-date" name="date" type="date" /></div>
-      <div className="field full"><label htmlFor="q-qty">Quantity</label><input id="q-qty" name="quantity" placeholder="e.g. 300 gift sets, 40 table flags" /></div>
-      <div className="field full"><label htmlFor="q-msg">Project details</label><textarea id="q-msg" name="message" placeholder="Objectives, specifications, sizes, delivery or installation needs" /></div>
-      <div className="full form-foot">
-        <span className="form-note">Branding packages start at ETB 30,000.</span>
-        <button className="btn btn-primary" type="submit" disabled={state === 'sending'}>{state === 'sending' ? 'Sending…' : 'Send request'} <Arrow size={16} /></button>
-      </div>
-      {state === 'sent' ? <p className="full form-status" role="status">Thank you. Your request has been received and our team will contact you shortly.</p> : null}
-      {state === 'error' ? <p className="full form-status" role="alert" style={{ background: 'rgba(200,40,40,0.1)', color: '#9b1c1c' }}>Something went wrong. Please call +251 954 676 767 or try again.</p> : null}
     </form>
   );
 }

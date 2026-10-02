@@ -185,18 +185,19 @@ export const legalDocs = [
   { t: 'VAT Registration Certificate', d: 'Ethiopian Ministry of Revenues' },
 ];
 
-export type WorkItem = { title: string; cat: string; image: string; pos?: string; size?: 'tall' | 'wide' | 'std' };
+export type WorkItem = { title: string; cat: string; image: string; pos?: string; size?: 'tall' | 'wide' | 'std'; tags?: string[] };
 // Placeholder portfolio built from LARO product renders. Replace with real project photos.
 export const work: WorkItem[] = [
-  { title: '3D corporate flag system', cat: 'Signage', image: '/images/hero.jpg', pos: '78% 45%', size: 'tall' },
-  { title: 'Reception 3D illuminated logo', cat: 'Signage', image: '/images/signage.jpg', pos: '45% 40%', size: 'wide' },
-  { title: 'Executive gift box', cat: 'Promotional', image: '/images/gifts.jpg', pos: '70% 50%', size: 'std' },
-  { title: 'Conference stage branding', cat: 'Events', image: '/images/events.jpg', pos: '72% 45%', size: 'std' },
-  { title: 'Corporate identity & stationery', cat: 'Branding', image: '/images/stationery.jpg', pos: '50% 50%', size: 'wide' },
-  { title: 'Eco welcome kit', cat: 'Eco', image: '/images/eco.jpg', pos: '50% 62%', size: 'std' },
-  { title: 'Annual report & publications', cat: 'Printing', image: '/images/print.jpg', pos: '50% 50%', size: 'std' },
-  { title: 'Red carpet arrival', cat: 'Events', image: '/images/carpet.jpg', pos: '35% 60%', size: 'std' },
-  { title: 'Boardroom & outdoor flags', cat: 'Signage', image: '/images/flags.jpg', pos: '55% 40%', size: 'std' },
+  { title: '3D corporate flag system', cat: 'Signage', image: '/images/hero.jpg', pos: '78% 45%', size: 'tall', tags: ['Signage','Sourcing'] },
+  { title: 'Reception 3D illuminated logo', cat: 'Signage', image: '/images/signage.jpg', pos: '45% 40%', size: 'wide', tags: ['Signage','Branding'] },
+  { title: 'Executive gift box', cat: 'Promotional', image: '/images/gifts.jpg', pos: '70% 50%', size: 'std', tags: ['Promotional','Branding'] },
+  { title: 'Conference stage branding', cat: 'Events', image: '/images/events.jpg', pos: '72% 45%', size: 'std', tags: ['Events','Signage','Printing'] },
+  { title: 'Corporate identity & stationery', cat: 'Branding', image: '/images/stationery.jpg', pos: '50% 50%', size: 'wide', tags: ['Branding','Printing'] },
+  { title: 'Eco welcome kit', cat: 'Eco', image: '/images/eco.jpg', pos: '50% 62%', size: 'std', tags: ['Eco','Promotional'] },
+  { title: 'Annual report & publications', cat: 'Printing', image: '/images/print.jpg', pos: '50% 50%', size: 'std', tags: ['Printing','Creative'] },
+  { title: 'Campaign & catalogue design', cat: 'Creative', image: '/images/print.jpg', pos: '80% 45%', size: 'std', tags: ['Creative','Printing'] },
+  { title: 'Red carpet arrival', cat: 'Events', image: '/images/carpet.jpg', pos: '35% 60%', size: 'std', tags: ['Events','Sourcing'] },
+  { title: 'Boardroom & outdoor flags', cat: 'Signage', image: '/images/flags.jpg', pos: '55% 40%', size: 'std', tags: ['Signage','Events'] },
 ];
 export const workCats = ['All', 'Branding', 'Creative', 'Printing', 'Signage', 'Promotional', 'Eco', 'Events'];
 
@@ -213,4 +214,23 @@ export const heroSlides = [
   { image: '/images/signage.jpg', caption: 'Illuminated 3D signage', pos: '50% 40%' },
   { image: '/images/events.jpg', caption: 'Event & stage branding', pos: '70% 45%' },
   { image: '/images/gifts.jpg', caption: 'Corporate gifts', pos: '70% 50%' },
+];
+
+export const navImages: Record<string, string> = {
+  '/': '/images/hero.jpg',
+  '/work': '/images/gifts.jpg',
+  '/services': '/images/signage.jpg',
+  '/solutions': '/images/events.jpg',
+  '/about': '/images/stationery.jpg',
+  '/clients': '/images/flags.jpg',
+  '/contact': '/images/print.jpg',
+};
+
+export const tickerWords = ['Brand Strategy', 'Corporate Identity', 'Creative Campaigns', 'Printing & Publishing', 'Signage & Outdoor', '3D Corporate Flags', 'Corporate Gifts', 'Eco-Friendly Products', 'Events & Activation', 'Sourcing & Installation'];
+
+export const logoLetters = [
+  { c: 'g', d: 'M61,1 L9,19 L0,210 L106,210 L160,161 L142,110 L54,184 L52,183 Z' },
+  { c: 'g', d: 'M190,0 L223,100 L224,11 L282,61 L228,118 L246,163 L291,210 L359,210 L286,136 L292,127 L355,60 L292,0 Z' },
+  { c: 'w', d: 'M319,0 L319,11 L369,59 L404,68 L411,151 L410,154 L365,155 L363,153 L363,68 L320,114 L320,159 L372,210 L463,210 L441,20 Z' },
+  { c: 'w', d: 'M74,0 L66,157 L123,108 L126,14 L190,209 L245,209 L177,1 Z' },
 ];
