@@ -2,6 +2,7 @@ import Link from 'next/link';
 import type { ReactNode } from 'react';
 import { Letters } from './Text';
 import { ArrowUpRight } from './Icons';
+import Marquee from './Marquee';
 
 export function PageHero({ crumb, title, lead, image, imagePos, children }: { crumb: string; title: string; lead?: string; image?: string; imagePos?: string; children?: ReactNode }) {
   return (
@@ -41,10 +42,16 @@ export function SecFoot({ left, href, label }: { left: ReactNode; href: string; 
   );
 }
 
+// Client logos on two rows drifting in opposite directions (speed follows scrolling)
 export function LogoGrid({ count = 24 }: { count?: number }) {
+  const half = Math.ceil(count / 2);
+  const row = (from: number, n: number) => Array.from({ length: n }).map((_, i) => (
+    <span key={i} className="logo-cell" data-cursor="Client">[LOGO {String(from + i + 1).padStart(2, '0')}]</span>
+  ));
   return (
-    <div className="logo-grid">
-      {Array.from({ length: count }).map((_, i) => (<span key={i} className="logo-cell reveal" style={{ ['--d' as string]: `${(i % 8) * 40}ms` }} data-cursor="Client">[LOGO {String(i + 1).padStart(2, '0')}]</span>))}
+    <div className="logo-rows reveal">
+      <Marquee speed={0.5}><div className="logo-row">{row(0, half)}</div></Marquee>
+      <Marquee speed={0.5} reverse><div className="logo-row">{row(half, count - half)}</div></Marquee>
     </div>
   );
 }

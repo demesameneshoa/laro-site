@@ -5,7 +5,8 @@ import { services } from '@/lib/content';
 import { ArrowUpRight } from './Icons';
 
 // "OUR SERVICES": the section pins, a green disc sweeps across the title, then the title panel
-// slides away and the eight service columns travel in horizontally. Phones get a vertical list.
+// slides away and the eight service columns travel in horizontally, on every screen size.
+// With reduced motion it falls back to a vertical list.
 export default function PinnedServices() {
   const sec = useRef<HTMLElement>(null);
   const track = useRef<HTMLDivElement>(null);
@@ -14,7 +15,7 @@ export default function PinnedServices() {
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     let raf = 0;
     const layout = () => {
-      const pin = !reduce && s.clientWidth > 900;
+      const pin = !reduce;
       s.classList.toggle('pinned', pin);
       if (!pin) { s.style.height = ''; t.style.transform = ''; return; }
       const dist = t.scrollWidth - s.clientWidth;

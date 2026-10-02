@@ -24,7 +24,7 @@ export default function HoverRows({ rows }: { rows: Row[] }) {
   return (
     <div className="hrows" ref={wrap} onPointerLeave={() => setHover(null)}>
       {rows.map((r, i) => (
-        <div key={r.n + r.t} className={`hrow reveal${hover === i ? ' on' : ''}`} onPointerEnter={() => setHover(i)}>
+        <div key={r.n + r.t} className="hrow reveal" data-active={hover === i ? 'true' : undefined} onPointerEnter={() => setHover(i)}>
           <span className="hr-a"><span className="hr-n">{r.n}</span><span className="hr-t">{r.t}</span></span>
           {r.mid ? <span className="hr-m">{r.mid}</span> : <span />}
           <span className="hr-r">{r.r}</span>
