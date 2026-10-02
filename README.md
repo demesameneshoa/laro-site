@@ -1,72 +1,60 @@
-# LARO Advertising PLC — website
+# LARO Advertising PLC website
 
-Next.js site with scroll animations, a WebGL 3D showroom, smooth scrolling, page transitions
-and a working quote form. Hosted on Vercel. **No software needs to be installed on your computer**:
-GitHub stores the files, Vercel builds and publishes them.
+A multi-page marketing site built with Next.js 15 (App Router) and React 19. It runs on Vercel with no extra configuration.
 
-## Publish it (about 15 minutes, all in the browser)
+## Pages
 
-1. **GitHub** — sign in at github.com (create a free account if needed).
-   Click **New repository**, name it `laro-site`, choose Private, click **Create repository**.
-2. On the new repository page click **uploading an existing file**.
-   Unzip `laro-site.zip` on your computer, open the `laro-site` folder, select **everything inside it**
-   (`app`, `components`, `content`, `lib`, `public`, `package.json`, …) and drag it onto the page.
-   Wait for the upload to finish, then click **Commit changes**.
-3. **Vercel** — go to vercel.com, choose **Sign up → Continue with GitHub** (Hobby plan is free).
-   Click **Add New → Project**, find `laro-site`, click **Import**, then **Deploy**.
-   Vercel detects Next.js by itself. After about a minute you get a live link like `laro-site.vercel.app`.
-
-From then on, every change you commit on GitHub is published automatically.
-
-## Make the quote form send email
-
-The form emails requests through [Resend](https://resend.com) (free for 3,000 emails a month).
-
-1. Sign up at resend.com with the email address that should receive quote requests.
-2. **API Keys → Create API Key** → copy the key (starts with `re_`).
-3. In Vercel: **Project → Settings → Environment Variables**, add:
-   - `RESEND_API_KEY` = the key
-   - `QUOTE_TO_EMAIL` = the address that receives requests (must be your Resend login email
-     until you verify a domain)
-4. **Deployments → ⋯ → Redeploy**.
-
-Optional, after verifying `laroadvertising.com` in Resend (Domains → Add domain):
-`QUOTE_FROM_EMAIL` = `LARO Website <website@laroadvertising.com>`, and `QUOTE_TO_EMAIL` can then be any address.
-
-Until this is set up, the form tells visitors to call or WhatsApp instead.
-
-## Use your own domain
-
-Vercel → **Project → Settings → Domains** → add `laroadvertising.com` (and `www.laroadvertising.com`).
-Vercel shows the DNS records to add at your domain registrar. Once they are added it switches over and
-issues the HTTPS certificate automatically. Optionally add `NEXT_PUBLIC_SITE_URL` = `https://laroadvertising.com`
-so share previews and the sitemap use the domain.
-
-## Change text, phone numbers and images
-
-- **All words, phone numbers, address, menu, team, projects and the showroom scenes** are in
-  `content/site.js`. On GitHub open the file, click the ✏️ pencil, edit the text between the quotes,
-  then **Commit changes**. Vercel republishes in about a minute.
-- **Images** are in `public/img`. To replace one, upload a new file with the **same name**
-  (Add file → Upload files inside `public/img`). To add a new one, upload it and put its name in
-  `content/site.js`, e.g. `img: '/img/new-project.jpg'`.
-- **Portfolio**: in `projects`, set `placeholder: false` once a real photo is used.
-- **Team portraits**: upload to `public/img/team/` and set `photo: '/img/team/lealem.jpg'`.
-- **Client logos**: upload to `public/img/clients/` and set `logo: '/img/clients/bank.png'`.
-- If a change breaks the build, Vercel keeps the previous version online and shows the error under
-  **Deployments**; undo the last edit on GitHub to fix it.
-
-## What is where
-
-| Path | What it is |
+| Route | Page |
 | --- | --- |
-| `content/site.js` | All site content |
-| `app/*/page.js` | The six pages (Home, Services, Eco Range, Portfolio, About, Contact) |
-| `app/api/quote/route.js` | Quote form email sender |
-| `components/` | Header, footer, showroom and the page blocks |
-| `lib/engine.js` | Scroll animations and the WebGL showroom |
-| `app/globals.css` | Colours, type and layout |
-| `public/img` | Images and logos |
+| `/` | Home: hero slideshow, intro, selected work, 8 services, integrated solutions, approach, who we serve, why LARO, partner logos, closing CTA |
+| `/services` | Services overview |
+| `/services/[slug]` | 8 service detail pages, generated statically from `lib/content.ts` |
+| `/solutions` | Integrated solutions, example projects, approach |
+| `/work` | Portfolio with category filter |
+| `/about` | Story, commitment, why LARO, leadership team, legal documents |
+| `/clients` | Sectors served, partner logos, testimonials |
+| `/contact` | Quote form, phones, WhatsApp, address, map |
+| `/api/quote` | Receives the quote form (POST JSON) |
 
-Visitors who ask their device for reduced motion get still scenes and simple fades. Phones use
-native scrolling with the same pinned scenes.
+## Run locally
+
+```bash
+npm install
+npm run dev      # http://localhost:3000
+npm run build && npm start
+```
+
+## Deploy to Vercel
+
+1. Push this folder to a GitHub, GitLab or Bitbucket repository.
+2. In Vercel, choose **Add New → Project**, import the repository and keep the detected **Next.js** preset.
+3. Optional environment variables (Project → Settings → Environment Variables):
+   - `NEXT_PUBLIC_SITE_URL`: the live domain, e.g. `https://laroadvertising.com` (used for metadata, sitemap and robots).
+   - `RESEND_API_KEY`, `QUOTE_TO_EMAIL`, `QUOTE_FROM_EMAIL`: to email quote requests through [Resend](https://resend.com). Without them, requests are logged in Vercel's function logs.
+4. Add your domain under Project → Settings → Domains.
+
+## Editing content
+
+All copy lives in `lib/content.ts`: services, approach, sectors, why LARO, team, legal documents, portfolio items and contact details. Edit it there and every page updates.
+
+## Before launch: replace the placeholders
+
+These are marked on the site in yellow:
+
+- **Portfolio images** in `public/images/` are 3D product renders. Replace them with real project photos and update `work` in `lib/content.ts`.
+- **Client logos** on Home and Clients: add logos you have permission to use.
+- **Testimonials** on Clients.
+- **Team portraits** on About.
+- **Legal documents** on About: put the PDFs in `public/docs/` and link them in `legalDocs`.
+- **Email address and social links** in `company` in `lib/content.ts`.
+
+## Structure
+
+```
+app/            routes, layout, global styles, API route, sitemap, robots
+components/     Header, Footer, floating contact, cards, work filter, quote form
+lib/content.ts  all site copy
+public/images/  renders, logos
+```
+
+Styling is plain CSS in `app/globals.css`. Responsive rules use container queries on `.site`. Fonts (Archivo, Geist, Geist Mono) load through `next/font`. Scroll reveals and the hero slideshow respect `prefers-reduced-motion`.
