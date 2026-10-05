@@ -177,17 +177,18 @@ export const team = [
   { name: 'Samrawit Kassahun', role: 'Graphic Designer', exp: '2 years', note: 'Brand & print design', initials: 'SK' },
 ];
 
-// Credentials gallery: registration documents, certificates and recognitions. Placeholders until the scans are supplied.
-export type Credential = { t: string; org: string; year: string; kind: 'Registration' | 'Certificate' | 'Recognition' };
+// Credentials gallery: certificates and recognitions from the organizations we work with.
+// Placeholders until the scans are supplied; add `image: '/images/credentials/<file>.jpg'` to each item when ready.
+export type Credential = { t: string; org: string; year: string; kind: 'Certificate' | 'Recognition'; image?: string };
 export const credentials: Credential[] = [
-  { t: 'Commercial Registration Certificate', org: 'Ministry of Trade and Regional Integration', year: '[Year]', kind: 'Registration' },
-  { t: 'Business License', org: 'Advertising, printing & promotional services', year: '[Year]', kind: 'Registration' },
-  { t: 'TIN Certificate', org: 'Ministry of Revenues', year: '[Year]', kind: 'Registration' },
-  { t: 'VAT Registration Certificate', org: 'Ministry of Revenues', year: '[Year]', kind: 'Registration' },
-  { t: '[Supplier registration certificate]', org: '[Government or international organization]', year: '[Year]', kind: 'Certificate' },
+  { t: '[Certificate title]', org: '[Issuing organization]', year: '[Year]', kind: 'Certificate' },
   { t: '[Certificate of appreciation]', org: '[Client organization]', year: '[Year]', kind: 'Recognition' },
-  { t: '[Quality or product certification]', org: '[Certifying body]', year: '[Year]', kind: 'Certificate' },
+  { t: '[Supplier certificate]', org: '[Government or international organization]', year: '[Year]', kind: 'Certificate' },
   { t: '[Recognition award]', org: '[Awarding organization]', year: '[Year]', kind: 'Recognition' },
+  { t: '[Quality or product certification]', org: '[Certifying body]', year: '[Year]', kind: 'Certificate' },
+  { t: '[Certificate of participation]', org: '[Event or exhibition organizer]', year: '[Year]', kind: 'Certificate' },
+  { t: '[Partnership certificate]', org: '[Partner organization]', year: '[Year]', kind: 'Recognition' },
+  { t: '[Training or membership certificate]', org: '[Association or institute]', year: '[Year]', kind: 'Certificate' },
 ];
 
 export const brochure = {

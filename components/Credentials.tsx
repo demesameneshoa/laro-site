@@ -3,14 +3,11 @@ import { useEffect, useState } from 'react';
 import { credentials } from '@/lib/content';
 import LogoMark from './Logo';
 
-const KINDS = ['All', 'Registration', 'Certificate', 'Recognition'] as const;
-
-// Gallery of certificates and credentials with a filter and a lightbox. Each card is a framed
+// Gallery of certificates and credentials with a lightbox. Each card is a framed
 // placeholder until the real scans are added (set `image` on an item in lib/content.ts).
 export default function Credentials() {
-  const [kind, setKind] = useState<(typeof KINDS)[number]>('All');
   const [open, setOpen] = useState<number | null>(null);
-  const items = credentials.filter((c) => kind === 'All' || c.kind === kind);
+  const items = credentials;
 
   useEffect(() => {
     if (open === null) return;
@@ -26,6 +23,7 @@ export default function Credentials() {
 
   const Cert = ({ c, big = false }: { c: (typeof credentials)[number]; big?: boolean }) => (
     <span className={`cert${big ? ' big' : ''}`}>
+      {c.image ? <img className="cert-img" src={c.image} alt={`${c.t}, ${c.org}`} /> : (<>
       <span className="cert-in">
         <LogoMark width={big ? 90 : 54} light={false} />
         <span className="cert-kind">{c.kind}</span>
@@ -35,15 +33,13 @@ export default function Credentials() {
         <span className="cert-year">{c.year}</span>
       </span>
       <span className="ph-tag">Placeholder · add scan</span>
+      </>)}
     </span>
   );
 
   return (
     <>
-      <div className="filters" role="group" aria-label="Filter credentials">
-        {KINDS.map((k) => (<button key={k} type="button" className="filter" aria-pressed={k === kind} onClick={() => setKind(k)}>{k}</button>))}
-      </div>
-      <div className="cred-grid" key={kind}>
+      <div className="cred-grid">
         {items.map((c, i) => (
           <button key={c.t} type="button" className="cred in-anim" style={{ ['--d' as string]: `${(i % 4) * 70}ms` }} onClick={() => setOpen(i)} data-cursor="View" aria-label={`View ${c.t}`}>
             <Cert c={c} />

@@ -419,6 +419,7 @@ html:not(.js) .we-green { clip-path: circle(64cqi at -12cqi 50%); }
 .filter:hover { background: #e0e0de; }
 .filter[aria-pressed='true'] { background: var(--green-ui); color: var(--white); }
 .sec-head + .filters { margin-top: 0; }
+.cert-img { position: absolute; inset: 12px; width: calc(100% - 24px); height: calc(100% - 24px); object-fit: contain; }
 
 /* forms */
 .contact { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 24px; padding-top: 56px; margin-bottom: 80px; }

@@ -61,7 +61,7 @@ These are marked on the site in yellow:
 - **Client logos** on Home and Clients: add logos you have permission to use.
 - **Testimonials** on Clients.
 - **Team portraits** on About.
-- **Credentials** on About: add scans of certificates and registrations to `public/docs/` or `public/images/` and update `credentials` in `lib/content.ts` (placeholders are shown until then).
+- **Credentials** on About: add certificate scans to `public/images/credentials/` and set `image` on each item in `credentials` in `lib/content.ts` (placeholders are shown until then).
 - **Company overview brochure**: `public/docs/LARO-Company-Overview.pdf` is a generated starter; replace it with the final designed brochure (keep the file name, or change `brochure.file`).
 - **Email address and social links** in `company` in `lib/content.ts`.
 

@@ -60,7 +60,7 @@ export default function AboutPage() {
       </section>
       <section className="sec sec-gray" id="credentials">
         <div className="container">
-          <SecHead eyebrow="Credentials" title="Certificates & Credentials" lead="Registration documents, certificates and recognitions from the organizations we work with. Select any item to view it larger." />
+          <SecHead eyebrow="Credentials" title="Certificates & Credentials" lead="Certificates and recognitions from the organizations we work with. Select any item to view it larger." />
           <Credentials />
         </div>
       </section>
