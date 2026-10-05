@@ -14,7 +14,7 @@ export default function ContactPage() {
       <section className="sec" style={{ paddingTop: 0 }}>
         <div className="container contact">
           <aside className="ct-info reveal">
-            <div className="price"><span className="label">Branding packages from</span><b>ETB <span data-count="30000">30,000</span></b></div>
+            <div className="price"><span className="eyebrow">Branding packages from</span><b>ETB <span data-count="30000">30,000</span></b></div>
             <ul className="cn-info dark">
               <li><span className="ic"><Phone size={15} /></span><a href={company.phoneHref[0]}>{company.phones[0]}</a></li>
               <li><span className="ic"><Phone size={15} /></span><a href={company.phoneHref[1]}>{company.phones[1]}</a></li>

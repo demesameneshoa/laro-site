@@ -3,13 +3,9 @@ import HeroWordmark from '@/components/HeroWordmark';
 import MasonryWork from '@/components/MasonryWork';
 import PinnedServices from '@/components/PinnedServices';
 import WeAre from '@/components/WeAre';
-import HoverRows from '@/components/HoverRows';
+import ApproachJourney from '@/components/ApproachJourney';
 import LensWord from '@/components/LensWord';
-import Marquee from '@/components/Marquee';
-import { LogoGrid, SecFoot, Title } from '@/components/Blocks';
-import { Letters } from '@/components/Text';
-
-const stepImages = ['/images/stationery.jpg', '/images/print.jpg', '/images/gifts.jpg', '/images/signage.jpg', '/images/flags.jpg', '/images/events.jpg'];
+import { LogoGrid, SecFoot, SecHead } from '@/components/Blocks';
 
 export default function Home() {
   return (
@@ -21,24 +17,26 @@ export default function Home() {
 
       <section className="sec sec-gray">
         <div className="container">
-          <div className="aw-head">
-            <Letters text="Our Approach" />
-            <p className="aw-quote reveal">“{approach.lead}”</p>
-          </div>
-          <HoverRows rows={approach.steps.map((s, i) => ({ n: s.n, t: s.t, mid: 'Step', r: s.d, img: stepImages[i] }))} />
+          <SecHead eyebrow="Our approach" title="From Brief to Delivery" lead={approach.lead} />
+          <ApproachJourney />
         </div>
       </section>
 
-      <section className="sec lens-sec">
-        <LensWord word="SECTORS" left="Across every sector" right="Built for institutions" image="/images/flags.jpg" />
-        <Marquee className="sector-band" speed={0.5}>
-          <div className="sector-row">{sectors.list.map((s) => (<span key={s} className="sector-chip">{s}</span>))}</div>
-        </Marquee>
+      <section className="sec sectors-sec">
+        <div className="container">
+          <SecHead eyebrow="Who we serve" title="Built for Institutions" lead={sectors.lead} />
+        </div>
+        <LensWord word="SECTORS" left="Sectors we serve" right="One standard of delivery" image="/images/flags.jpg" />
+        <div className="container">
+          <ul className="sector-tiles">
+            {sectors.list.map((s, i) => (<li key={s} className="reveal" style={{ ['--d' as string]: `${(i % 4) * 60}ms` }}><span>{String(i + 1).padStart(2, '0')}</span>{s}</li>))}
+          </ul>
+        </div>
       </section>
 
       <section className="sec">
         <div className="container">
-          <Title text="Why LARO" />
+          <SecHead eyebrow="Why LARO" title="Professional Communication. Dependable Delivery." lead="Seven reasons institutions and businesses trust us with their brand, from the first brief to the final installation." />
           <div className="why-cols">
             {why.map((w, i) => (
               <div key={w.t} className="why-col reveal" style={{ ['--d' as string]: `${(i % 4) * 70}ms` }}>
@@ -51,14 +49,14 @@ export default function Home() {
 
       <section className="sec">
         <div className="container">
-          <Title text="Our Clients" sub="Placeholder logos. Add client logos you have permission to show." />
+          <SecHead eyebrow="Trusted by" title="Our Clients" lead="A trusted partner to organizations that expect professional communication, quality execution and dependable delivery." />
           <LogoGrid count={24} />
         </div>
       </section>
 
       <section className="sec sec-gray">
         <div className="container">
-          <Title text="What Clients Say" />
+          <SecHead eyebrow="Testimonials" title="What Clients Say" />
           <div className="feat">
             {['/images/events.jpg', '/images/gifts.jpg', '/images/signage.jpg'].map((img, i) => (
               <figure key={img} className="feat-card reveal" style={{ ['--d' as string]: `${i * 90}ms` }} data-cursor="Read">
@@ -74,11 +72,11 @@ export default function Home() {
 
       <section className="sec">
         <div className="container">
-          <Title text="One Brief. One Partner." sub={integrated.lead} />
+          <SecHead eyebrow="Integrated solutions" title="One Brief. One Partner." lead={integrated.lead} />
           <ol className="net">
             {integrated.chain.map((c, i) => (<li key={c} className="reveal" style={{ ['--d' as string]: `${i * 60}ms` }}><span>0{i + 1}</span>{c}</li>))}
           </ol>
-          <SecFoot left={<>{integrated.body.split('. ')[0]}.</>} href="/solutions" label="Integrated solutions" />
+          <SecFoot left={integrated.body} href="/solutions" label="Integrated solutions" />
         </div>
       </section>
     </>

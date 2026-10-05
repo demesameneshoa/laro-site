@@ -9,10 +9,12 @@ export function PageHero({ crumb, title, lead, image, imagePos, children }: { cr
     <section className="phero">
       <div className="container">
         <nav className="crumbs reveal" aria-label="Breadcrumb"><Link href="/">Home</Link><span aria-hidden="true">/</span><span>{crumb}</span></nav>
-        <Letters as="h1" text={title} className="ph-title" />
-        <div className="ph-row">
-          {lead ? <p className="lead reveal">{lead}</p> : <span />}
-          {children ? <div className="reveal">{children}</div> : null}
+        <div className="ph-grid">
+          <Letters as="h1" text={title} className={`ph-title${title.length > 22 ? ' long' : ''}`} />
+          <div className="ph-side">
+            {lead ? <p className="lead reveal">{lead}</p> : null}
+            {children ? <div className="reveal">{children}</div> : null}
+          </div>
         </div>
       </div>
       {image ? (
@@ -22,6 +24,29 @@ export function PageHero({ crumb, title, lead, image, imagePos, children }: { cr
       ) : null}
     </section>
   );
+}
+
+// Section header: eyebrow + title on the left, lead (and optional action) on the right
+export function SecHead({ eyebrow, title, lead, action }: { eyebrow?: string; title: string; lead?: string; action?: ReactNode }) {
+  return (
+    <div className="sec-head">
+      <div className="sh-l">
+        {eyebrow ? <span className="eyebrow reveal">{eyebrow}</span> : null}
+        <Letters text={title} />
+      </div>
+      {lead || action ? (
+        <div className="sh-r">
+          {lead ? <p className="lead reveal">{lead}</p> : null}
+          {action ? <div className="reveal">{action}</div> : null}
+        </div>
+      ) : null}
+    </div>
+  );
+}
+
+// Green pill link with white text, used for "View all works", "Integrated solutions" etc.
+export function GoBtn({ href, children, light = false }: { href: string; children: ReactNode; light?: boolean }) {
+  return <Link href={href} className={`go-btn${light ? ' light' : ''}`}><span>{children}</span><ArrowUpRight size={18} /></Link>;
 }
 
 export function Title({ text, sub }: { text: string; sub?: string }) {
@@ -36,7 +61,7 @@ export function Title({ text, sub }: { text: string; sub?: string }) {
 export function SecFoot({ left, href, label }: { left: ReactNode; href: string; label: string }) {
   return (
     <>
-      <div className="sec-foot"><span>{left}</span><Link href={href} className="arrow-link"><ArrowUpRight size={22} /><span>{label}</span></Link></div>
+      <div className="sec-foot"><p>{left}</p><GoBtn href={href}>{label}</GoBtn></div>
       <hr className="rule" />
     </>
   );

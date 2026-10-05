@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { services, work } from '@/lib/content';
-import { ArrowBtn, PageHero, SecFoot } from '@/components/Blocks';
-import { Letters, ScrollText, Dots } from '@/components/Text';
+import { ArrowBtn, PageHero, SecFoot, SecHead } from '@/components/Blocks';
+import { ScrollText, Dots } from '@/components/Text';
 import { ArrowUpRight } from '@/components/Icons';
 
 type Props = { params: Promise<{ slug: string }> };
@@ -28,13 +28,13 @@ export default async function ServicePage({ params }: Props) {
       </PageHero>
       <section className="sec">
         <div className="container two-col">
-          <span className="label reveal">Service {s.n}</span>
+          <span className="eyebrow reveal">{s.short}</span>
           <ScrollText text={s.intro.join(' ')} />
         </div>
       </section>
       <section className="sec sec-gray">
         <div className="container">
-          <div className="aw-head"><Letters text="What We Do" /><p className="aw-quote reveal">{s.outro}</p></div>
+          <SecHead eyebrow={`Service ${s.n}`} title="What We Do" lead={s.outro} />
           <ol className="do-list">
             {s.items.map((it, i) => (<li key={it} className="reveal" style={{ ['--d' as string]: `${(i % 3) * 50}ms` }}><span>{String(i + 1).padStart(2, '0')}</span>{it}</li>))}
           </ol>
@@ -44,7 +44,7 @@ export default async function ServicePage({ params }: Props) {
       {related.length ? (
         <section className="sec">
           <div className="container">
-            <div className="title-c"><Letters text="Related Work" /></div>
+            <SecHead eyebrow="Portfolio" title="Related Work" />
             <div className="wgrid">
               {related.map((w) => (
                 <Link key={w.title} href="/work" className="mw-card reveal" data-cursor="View">
@@ -53,7 +53,7 @@ export default async function ServicePage({ params }: Props) {
                 </Link>
               ))}
             </div>
-            <SecFoot left="Every item branded to your guidelines" href="/work" label="View all works" />
+            <SecFoot left="Every item is produced and branded to your guidelines." href="/work" label="View all works" />
           </div>
         </section>
       ) : null}

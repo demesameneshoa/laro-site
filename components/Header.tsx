@@ -6,23 +6,15 @@ import { company, nav, services } from '@/lib/content';
 import { ArrowUpRight, Phone } from './Icons';
 
 // Logo left, pill navigation centred (Services opens a dropdown), "Contact us" right.
-// Hides on scroll down, returns on scroll up. Phones get a full-screen green menu.
+// Stays fixed at the top on every scroll; turns solid once the page moves. Phones get a full-screen green menu.
 export default function Header() {
   const pathname = usePathname() || '/';
   const [open, setOpen] = useState(false);
-  const [hidden, setHidden] = useState(false);
   const [solid, setSolid] = useState(false);
   const [drop, setDrop] = useState(false);
 
   useEffect(() => {
-    let last = scrollY;
-    const onScroll = () => {
-      const y = scrollY;
-      setSolid(y > 30);
-      if (y > 400 && y > last + 4) { setHidden(true); setDrop(false); }
-      else if (y < last - 4 || y <= 400) setHidden(false);
-      last = y;
-    };
+    const onScroll = () => setSolid(scrollY > 30);
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
@@ -40,7 +32,7 @@ export default function Header() {
 
   return (
     <>
-      <header className={`hdr${hidden && !open ? ' hide' : ''}${solid ? ' solid' : ''}${open ? ' open' : ''}`}>
+      <header className={`hdr${solid ? ' solid' : ''}${open ? ' open' : ''}`}>
         <div className="hdr-inner">
           <Link href="/" className="hdr-logo" aria-label={`${company.name}, home`}>
             <img src="/images/logo-mark-dark.png" alt={company.name} width={159} height={84} />

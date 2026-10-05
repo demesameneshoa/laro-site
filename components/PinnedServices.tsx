@@ -44,8 +44,8 @@ export default function PinnedServices() {
       <div className="ps-sticky">
         <div className="ps-track" ref={track}>
           <div className="ps-title">
-            <span className="ps-disc" aria-hidden="true" />
             <h2 id="ps-h" className="ps-h">Our Services</h2>
+            <span className="ps-disc" aria-hidden="true"><span className="ps-h">Our Services</span></span>
           </div>
           {services.map((s) => (
             <Link key={s.slug} href={`/services/${s.slug}`} className="ps-col" data-cursor="Explore">

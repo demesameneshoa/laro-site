@@ -39,20 +39,24 @@ export default function WeAre({ line1 = 'We Are', line2 = 'LARO!', link = true }
     s.addEventListener('pointermove', move);
     return () => { window.removeEventListener('scroll', onScroll); s.removeEventListener('pointermove', move); cancelAnimationFrame(raf); };
   }, []);
+  const content = (dup: boolean) => (
+    <div className="container we-inner">
+      <p className="we-big" aria-hidden="true"><span>{line1}</span><span>{line2}</span></p>
+      {link ? (
+        <div className="sec-foot">
+          <p>Strategy, creativity, production and execution, brought together under one partner.</p>
+          <Link href="/about" className={`go-btn${dup ? ' light' : ''}`} tabIndex={dup ? -1 : undefined}><span>Go to about us</span><ArrowUpRight size={18} /></Link>
+        </div>
+      ) : null}
+      <hr className="rule" />
+    </div>
+  );
   return (
     <section className="we" ref={sec} aria-label={`${line1} ${line2}`}>
-      <span className="we-disc" aria-hidden="true" />
+      {content(false)}
+      {/* green disc: a clipped layer holding a white copy of the same content, so text turns white where the disc passes */}
+      <div className="we-green" aria-hidden="true">{content(true)}</div>
       <div className="we-layer" ref={layer} aria-hidden="true" />
-      <div className="container we-inner">
-        <p className="we-big" aria-hidden="true"><span>{line1}</span><span>{line2}</span></p>
-        {link ? (
-          <div className="sec-foot">
-            <span>Strategy, creativity, production<br />and execution under one partner</span>
-            <Link href="/about" className="arrow-link"><ArrowUpRight size={22} /><span>Go to about us</span></Link>
-          </div>
-        ) : null}
-        <hr className="rule" />
-      </div>
     </section>
   );
 }

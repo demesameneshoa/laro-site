@@ -47,8 +47,8 @@ export default function MasonryWork({ limit = 9, heading = true }: { limit?: num
         </div>
         {heading ? (
           <div className="sec-foot">
-            <span>Leading corporate branding partner<br />in Addis Ababa, Ethiopia</span>
-            <Link href="/work" className="arrow-link"><ArrowUpRight size={22} /><span>View all works</span></Link>
+            <p>Corporate branding, 3D corporate flags, premium corporate gifts and event branding, produced in Addis Ababa.</p>
+            <Link href="/work" className="go-btn"><span>View all works</span><ArrowUpRight size={18} /></Link>
           </div>
         ) : null}
         {heading ? <hr className="rule" /> : null}

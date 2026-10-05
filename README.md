@@ -13,7 +13,7 @@ A multi-page marketing site built with Next.js 15 (App Router) and React 19. Its
 - We Are LARO!: disc sweep plus an image trail that follows the pointer
 - Approach / Why rows: hovering a row floats its image at the pointer
 - SECTORS: a glass lens follows the pointer over the word
-- Header hides on scroll down and returns on scroll up; Services dropdown with thumbnails; full-screen menu on phones
+- Header stays fixed at the top while scrolling; Services dropdown with thumbnails; full-screen menu on phones
 - Green "Let's connect!" footer with a working form
 
 All motion respects prefers-reduced-motion. Pinned and horizontal effects switch to simple stacked layouts on phones.
@@ -27,7 +27,7 @@ All motion respects prefers-reduced-motion. Pinned and horizontal effects switch
 | `/services/[slug]` | 8 service detail pages, generated statically from `lib/content.ts` |
 | `/solutions` | Integrated solutions, example projects, approach |
 | `/work` | Portfolio with category filter |
-| `/about` | Story, commitment, why LARO, leadership team, legal documents |
+| `/about` | Story, stats, commitment, why LARO, leadership team, credentials gallery, company overview download |
 | `/clients` | Sectors served, partner logos, testimonials |
 | `/contact` | Quote form, phones, WhatsApp, address, map |
 | `/api/quote` | Receives the quote form (POST JSON) |
@@ -51,7 +51,7 @@ npm run build && npm start
 
 ## Editing content
 
-All copy lives in `lib/content.ts`: services, approach, sectors, why LARO, team, legal documents, portfolio items and contact details. Edit it there and every page updates.
+All copy lives in `lib/content.ts`: services, approach, sectors, why LARO, team, credentials, brochure, portfolio items and contact details. Edit it there and every page updates.
 
 ## Before launch: replace the placeholders
 
@@ -61,7 +61,8 @@ These are marked on the site in yellow:
 - **Client logos** on Home and Clients: add logos you have permission to use.
 - **Testimonials** on Clients.
 - **Team portraits** on About.
-- **Legal documents** on About: put the PDFs in `public/docs/` and link them in `legalDocs`.
+- **Credentials** on About: add scans of certificates and registrations to `public/docs/` or `public/images/` and update `credentials` in `lib/content.ts` (placeholders are shown until then).
+- **Company overview brochure**: `public/docs/LARO-Company-Overview.pdf` is a generated starter; replace it with the final designed brochure (keep the file name, or change `brochure.file`).
 - **Email address and social links** in `company` in `lib/content.ts`.
 
 ## Structure

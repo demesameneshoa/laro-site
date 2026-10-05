@@ -53,7 +53,7 @@ export default function QuoteForm() {
       <div className="ul-field full"><label htmlFor="q-msg">Project details</label><textarea id="q-msg" name="message" rows={3} /></div>
       <div className="full cn-send">
         <span className="muted">{state === 'error' ? 'Could not send. Please call +251 954 676 767.' : 'Branding packages start at ETB 30,000.'}</span>
-        <button type="submit" className="arrow-link" disabled={state === 'sending'}><ArrowUpRight size={22} /><span>{state === 'sending' ? 'Sending…' : 'Send request'}</span></button>
+        <button type="submit" className="go-btn" disabled={state === 'sending'}><span>{state === 'sending' ? 'Sending…' : 'Send request'}</span><ArrowUpRight size={18} /></button>
       </div>
     </form>
   );

@@ -7,7 +7,7 @@ export const metadata: Metadata = { title: 'Work', description: 'Selected brandi
 export default function WorkPage() {
   return (
     <>
-      <PageHero crumb="Work" title="Our Works" lead="Brand identities, publications, signage, flags, gifts and event environments, produced and installed for institutions and businesses across Ethiopia." />
+      <PageHero crumb="Work" title="Our Works" lead="Brand identities, publications, signage, 3D corporate flags, premium corporate gifts and event environments, produced and installed for institutions and businesses across Ethiopia." />
       <section className="sec" style={{ paddingTop: 0 }}><div className="container"><WorkGrid /></div></section>
     </>
   );

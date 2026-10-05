@@ -32,7 +32,7 @@ export const nav = [
 export const intro = {
   title: 'Elevate Your Brand. Elevate Your Business.',
   lead: 'At LARO Advertising PLC, we bring strategy, creativity, production, and execution together to help organizations build stronger brands and communicate with greater impact.',
-  body: 'From brand identity and creative campaigns to premium printing, outdoor advertising, corporate gifts, sustainable promotional products, and event branding, we provide integrated solutions tailored to the needs of businesses, government institutions, NGOs, development organizations, and corporate clients.',
+  body: 'From brand identity and creative campaigns to premium printing, outdoor advertising, 3D corporate flags, premium corporate gifts, sustainable promotional products, and event branding, we provide integrated solutions tailored to the needs of businesses, government institutions, NGOs, development organizations, and corporate clients.',
   oneLiner: 'One partner. Multiple capabilities. Seamless execution.',
   purpose: 'Our purpose is simple: to help you elevate your business through better branding, better communication, and better experiences.',
 };
@@ -84,16 +84,16 @@ export const services: Service[] = [
     slug: 'signage-displays-outdoor-advertising', n: '04', title: 'Signage, Displays & Outdoor Advertising', short: 'Signage & Outdoor', tag: 'Signage',
     tagline: 'Make your brand impossible to miss.',
     intro: ['We create physical brand experiences that give organizations a strong and visible presence across offices, commercial spaces, public environments, and outdoor locations.'],
-    items: ['Outdoor advertising', 'Billboard solutions', 'LED display screens', 'Digital signage', '3D letters & logos', 'Illuminated signage', 'Building signage', 'Reception & office branding', 'Wayfinding systems', 'Directional signage', 'Indoor displays', 'Outdoor displays', 'Corporate flags', '3D corporate flags', 'Event backdrops', 'Exhibition displays', 'Display stands', 'Signage structures & installation'],
+    items: ['Outdoor advertising', 'Billboard solutions', 'LED display screens', 'Digital signage', '3D letters & logos', 'Illuminated signage', 'Building signage', 'Reception & office branding', 'Wayfinding systems', 'Directional signage', 'Indoor displays', 'Outdoor displays', '3D corporate flags', 'Indoor & outdoor flag systems', 'Event backdrops', 'Exhibition displays', 'Display stands', 'Signage structures & installation'],
     outro: 'From a single sign to a complete branded environment, we deliver visibility with purpose.',
     closer: 'Elevate your business by making your brand visible.',
     image: '/images/signage.jpg', imagePos: '45% 40%',
   },
   {
-    slug: 'promotional-products-corporate-gifts', n: '05', title: 'Promotional Products & Corporate Gifts', short: 'Promotional & Gifts', tag: 'Promotional',
+    slug: 'promotional-products-premium-corporate-gifts', n: '05', title: 'Promotional Products & Premium Corporate Gifts', short: 'Premium Corporate Gifts', tag: 'Promotional',
     tagline: 'Put your brand in people’s hands.',
     intro: ['Promotional products turn everyday interactions into opportunities for brand recognition and engagement.', 'We source, customize, brand, package, and deliver promotional products for corporate campaigns, employee engagement, events, conferences, client appreciation, and institutional programs.'],
-    items: ['Corporate gifts', 'Executive gifts', 'Promotional merchandise', 'Branded notebooks', 'Pens & writing instruments', 'Bags & backpacks', 'Bottles & drinkware', 'Umbrellas', 'Caps & apparel', 'Keyholders', 'Desk accessories', 'Technology accessories', 'Conference materials', 'Employee gifts', 'Client appreciation gifts', 'Custom promotional products', 'Premium gift sets', 'Institutional and campaign merchandise'],
+    items: ['Premium corporate gifts', 'Executive gifts', 'Promotional merchandise', 'Branded notebooks', 'Pens & writing instruments', 'Bags & backpacks', 'Bottles & drinkware', 'Umbrellas', 'Caps & apparel', 'Keyholders', 'Desk accessories', 'Technology accessories', 'Conference materials', 'Employee gifts', 'Client appreciation gifts', 'Custom promotional products', 'Premium gift sets', 'Institutional and campaign merchandise'],
     outro: 'Thoughtfully selected. Professionally branded. Memorable by design.',
     closer: 'Thoughtfully selected. Professionally branded.',
     image: '/images/gifts.jpg', imagePos: '68% 50%',
@@ -101,8 +101,8 @@ export const services: Service[] = [
   {
     slug: 'eco-friendly-promotional-advertising', n: '06', title: 'Eco-Friendly Promotional & Advertising Solutions', short: 'Eco-Friendly', tag: 'Eco',
     tagline: 'Sustainable ideas. Responsible impact.',
-    intro: ['We help organizations communicate their brands through more environmentally conscious promotional and advertising solutions.', 'From sustainable corporate gifts to reusable promotional products and environmentally conscious event materials, we help clients make responsible choices while maintaining quality and brand impact.'],
-    items: ['Bamboo promotional products', 'Wooden promotional products', 'Cork products', 'Recycled-material products', 'Recycled paper products', 'Sustainable notebooks', 'Eco-friendly pens', 'Reusable shopping bags', 'Cotton & canvas bags', 'Jute promotional bags', 'Reusable bottles & cups', 'Eco-friendly lanyards', 'Sustainable badges', 'Eco-friendly corporate gifts', 'Sustainable gift sets', 'Reusable event materials', 'Environmentally conscious event branding', 'Sustainable promotional campaigns'],
+    intro: ['We help organizations communicate their brands through more environmentally conscious promotional and advertising solutions.', 'From sustainable premium corporate gifts to reusable promotional products and environmentally conscious event materials, we help clients make responsible choices while maintaining quality and brand impact.'],
+    items: ['Bamboo promotional products', 'Wooden promotional products', 'Cork products', 'Recycled-material products', 'Recycled paper products', 'Sustainable notebooks', 'Eco-friendly pens', 'Reusable shopping bags', 'Cotton & canvas bags', 'Jute promotional bags', 'Reusable bottles & cups', 'Eco-friendly lanyards', 'Sustainable badges', 'Eco-friendly premium corporate gifts', 'Sustainable gift sets', 'Reusable event materials', 'Environmentally conscious event branding', 'Sustainable promotional campaigns'],
     outro: 'We work with clients to select materials and products that align with their sustainability objectives, campaign requirements, and budgets.',
     closer: 'Elevate your business. Make a positive impact.',
     image: '/images/eco.jpg', imagePos: '50% 62%',
@@ -111,7 +111,7 @@ export const services: Service[] = [
     slug: 'events-brand-activation', n: '07', title: 'Events & Brand Activation', short: 'Events & Activation', tag: 'Events',
     tagline: 'Turn events into brand experiences.',
     intro: ['We create branded environments that help organizations engage audiences, communicate messages, and create memorable experiences.'],
-    items: ['Event branding', 'Conference branding', 'Exhibition branding', 'Corporate events', 'Product launches', 'Promotional activations', 'Event backdrops', 'Stage branding', 'Directional signage', 'Registration areas', 'Exhibition booths', 'Promotional displays', 'Branded flags', 'Banners & displays', 'Adey Abeba & red carpets', 'Corporate merchandise', 'Conference materials', 'Event printing', 'On-site branding & installation'],
+    items: ['Event branding', 'Conference branding', 'Exhibition branding', 'Corporate events', 'Product launches', 'Promotional activations', 'Event backdrops', 'Stage branding', 'Directional signage', 'Registration areas', 'Exhibition booths', 'Promotional displays', '3D corporate flags', 'Banners & displays', 'Adey Abeba & red carpets', 'Corporate merchandise', 'Conference materials', 'Event printing', 'On-site branding & installation'],
     outro: 'From concept and design to production and installation, we help create cohesive brand experiences from entrance to exit.',
     closer: 'Your event is temporary. Your brand impression can last much longer.',
     image: '/images/events.jpg', imagePos: '72% 45%',
@@ -135,7 +135,7 @@ export const integrated = {
   examples: [
     { title: 'Corporate Rebranding', parts: ['Brand Strategy', 'Identity', 'Guidelines', 'Stationery', 'Signage', 'Promotional Products'], image: '/images/stationery.jpg' },
     { title: 'Government & Institutional Communication', parts: ['Publications', 'Reports', 'Printing', 'Signage', 'Corporate Materials', 'Events'], image: '/images/print.jpg' },
-    { title: 'Corporate Event', parts: ['Event Concept', 'Branding', 'Backdrops', 'Flags', 'Displays', 'Promotional Products', 'Installation'], image: '/images/events.jpg' },
+    { title: 'Corporate Event', parts: ['Event Concept', 'Branding', 'Backdrops', '3D Corporate Flags', 'Displays', 'Promotional Products', 'Installation'], image: '/images/events.jpg' },
     { title: 'Sustainable Campaign', parts: ['Campaign Design', 'Eco-Friendly Promotional Products', 'Sustainable Printing', 'Event Branding'], image: '/images/eco.jpg' },
   ],
 };
@@ -177,27 +177,40 @@ export const team = [
   { name: 'Samrawit Kassahun', role: 'Graphic Designer', exp: '2 years', note: 'Brand & print design', initials: 'SK' },
 ];
 
-// Placeholders until the real documents are supplied.
-export const legalDocs = [
-  { t: 'Commercial Registration Certificate', d: 'Ministry of Trade and Regional Integration' },
-  { t: 'Business License', d: 'Advertising, printing and promotional services' },
-  { t: 'TIN Certificate', d: 'Ethiopian Ministry of Revenues' },
-  { t: 'VAT Registration Certificate', d: 'Ethiopian Ministry of Revenues' },
+// Credentials gallery: registration documents, certificates and recognitions. Placeholders until the scans are supplied.
+export type Credential = { t: string; org: string; year: string; kind: 'Registration' | 'Certificate' | 'Recognition' };
+export const credentials: Credential[] = [
+  { t: 'Commercial Registration Certificate', org: 'Ministry of Trade and Regional Integration', year: '[Year]', kind: 'Registration' },
+  { t: 'Business License', org: 'Advertising, printing & promotional services', year: '[Year]', kind: 'Registration' },
+  { t: 'TIN Certificate', org: 'Ministry of Revenues', year: '[Year]', kind: 'Registration' },
+  { t: 'VAT Registration Certificate', org: 'Ministry of Revenues', year: '[Year]', kind: 'Registration' },
+  { t: '[Supplier registration certificate]', org: '[Government or international organization]', year: '[Year]', kind: 'Certificate' },
+  { t: '[Certificate of appreciation]', org: '[Client organization]', year: '[Year]', kind: 'Recognition' },
+  { t: '[Quality or product certification]', org: '[Certifying body]', year: '[Year]', kind: 'Certificate' },
+  { t: '[Recognition award]', org: '[Awarding organization]', year: '[Year]', kind: 'Recognition' },
 ];
+
+export const brochure = {
+  file: '/docs/LARO-Company-Overview.pdf',
+  title: 'Company Overview',
+  pages: 8,
+  size: '1.2 MB',
+  points: ['Who we are and how we work', 'All eight services in detail', 'Integrated solutions and our six-step approach', 'Sectors we serve and contact details'],
+};
 
 export type WorkItem = { title: string; cat: string; image: string; pos?: string; size?: 'tall' | 'wide' | 'std'; tags?: string[] };
 // Placeholder portfolio built from LARO product renders. Replace with real project photos.
 export const work: WorkItem[] = [
   { title: '3D corporate flag system', cat: 'Signage', image: '/images/hero.jpg', pos: '78% 45%', size: 'tall', tags: ['Signage','Sourcing'] },
   { title: 'Reception 3D illuminated logo', cat: 'Signage', image: '/images/signage.jpg', pos: '45% 40%', size: 'wide', tags: ['Signage','Branding'] },
-  { title: 'Executive gift box', cat: 'Promotional', image: '/images/gifts.jpg', pos: '70% 50%', size: 'std', tags: ['Promotional','Branding'] },
+  { title: 'Premium corporate gift box', cat: 'Promotional', image: '/images/gifts.jpg', pos: '70% 50%', size: 'std', tags: ['Promotional','Branding'] },
   { title: 'Conference stage branding', cat: 'Events', image: '/images/events.jpg', pos: '72% 45%', size: 'std', tags: ['Events','Signage','Printing'] },
   { title: 'Corporate identity & stationery', cat: 'Branding', image: '/images/stationery.jpg', pos: '50% 50%', size: 'wide', tags: ['Branding','Printing'] },
   { title: 'Eco welcome kit', cat: 'Eco', image: '/images/eco.jpg', pos: '50% 62%', size: 'std', tags: ['Eco','Promotional'] },
   { title: 'Annual report & publications', cat: 'Printing', image: '/images/print.jpg', pos: '50% 50%', size: 'std', tags: ['Printing','Creative'] },
   { title: 'Campaign & catalogue design', cat: 'Creative', image: '/images/print.jpg', pos: '80% 45%', size: 'std', tags: ['Creative','Printing'] },
   { title: 'Red carpet arrival', cat: 'Events', image: '/images/carpet.jpg', pos: '35% 60%', size: 'std', tags: ['Events','Sourcing'] },
-  { title: 'Boardroom & outdoor flags', cat: 'Signage', image: '/images/flags.jpg', pos: '55% 40%', size: 'std', tags: ['Signage','Events'] },
+  { title: 'Boardroom & outdoor 3D corporate flags', cat: 'Signage', image: '/images/flags.jpg', pos: '55% 40%', size: 'std', tags: ['Signage','Events'] },
 ];
 export const workCats = ['All', 'Branding', 'Creative', 'Printing', 'Signage', 'Promotional', 'Eco', 'Events'];
 
@@ -213,7 +226,7 @@ export const heroSlides = [
   { image: '/images/hero.jpg', caption: '3D corporate flags', pos: '72% 50%' },
   { image: '/images/signage.jpg', caption: 'Illuminated 3D signage', pos: '50% 40%' },
   { image: '/images/events.jpg', caption: 'Event & stage branding', pos: '70% 45%' },
-  { image: '/images/gifts.jpg', caption: 'Corporate gifts', pos: '70% 50%' },
+  { image: '/images/gifts.jpg', caption: 'Premium corporate gifts', pos: '70% 50%' },
 ];
 
 export const navImages: Record<string, string> = {
@@ -226,7 +239,7 @@ export const navImages: Record<string, string> = {
   '/contact': '/images/print.jpg',
 };
 
-export const tickerWords = ['Brand Strategy', 'Corporate Identity', 'Creative Campaigns', 'Printing & Publishing', 'Signage & Outdoor', '3D Corporate Flags', 'Corporate Gifts', 'Eco-Friendly Products', 'Events & Activation', 'Sourcing & Installation'];
+export const tickerWords = ['Brand Strategy', 'Corporate Identity', 'Creative Campaigns', 'Printing & Publishing', 'Signage & Outdoor', '3D Corporate Flags', 'Premium Corporate Gifts', 'Eco-Friendly Products', 'Events & Activation', 'Sourcing & Installation'];
 
 export const logoLetters = [
   { c: 'g', d: 'M61,1 L9,19 L0,210 L106,210 L160,161 L142,110 L54,184 L52,183 Z' },

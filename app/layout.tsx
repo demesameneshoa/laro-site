@@ -16,7 +16,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://laroadvertising.com
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: { default: 'LARO Advertising PLC | Elevate your Business', template: '%s | LARO Advertising PLC' },
-  description: 'Brand strategy, creative design, printing, signage, corporate gifts, eco-friendly promotional products, events and installation in Addis Ababa, Ethiopia. One partner from brief to delivery.',
+  description: 'Brand strategy, creative design, printing, signage, 3D corporate flags, premium corporate gifts, eco-friendly promotional products, events and installation in Addis Ababa, Ethiopia. One partner from brief to delivery.',
   openGraph: { type: 'website', siteName: 'LARO Advertising PLC', images: ['/images/hero.jpg'] },
   icons: { icon: '/favicon.png' },
 };

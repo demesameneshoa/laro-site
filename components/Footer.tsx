@@ -39,13 +39,13 @@ export default function Footer() {
             <div className="ul-field full"><label htmlFor="f-msg">Message</label><textarea id="f-msg" name="message" rows={2} /></div>
             <div className="full cn-send">
               {state === 'sent' ? <span role="status">Thank you. We will be in touch shortly.</span> : state === 'error' ? <span role="alert">Could not send. Please call {company.phones[0]}.</span> : <span />}
-              <button type="submit" className="arrow-link" disabled={state === 'sending'}><ArrowUpRight size={22} /><span>{state === 'sending' ? 'Sending…' : 'Send message'}</span></button>
+              <button type="submit" className="go-btn dark" disabled={state === 'sending'}><span>{state === 'sending' ? 'Sending…' : 'Send message'}</span><ArrowUpRight size={18} /></button>
             </div>
           </form>
         </div>
       </div>
       <div className="container ftr-links">
-        <img src="/images/logo-full-dark.png" alt={`${company.name}, ${company.tagline}`} width={556} height={376} className="ftr-logo" />
+        <img src="/images/logo-full-white.png" alt={`${company.name}, ${company.tagline}`} width={556} height={376} className="ftr-logo" />
         <div className="fl-col"><h4>Services</h4>{services.map((s) => (<Link key={s.slug} href={`/services/${s.slug}`}>{s.short}</Link>))}</div>
         <div className="fl-col"><h4>Company</h4>{['Work', 'Solutions', 'About', 'Clients', 'Contact'].map((l) => (<Link key={l} href={`/${l.toLowerCase()}`}>{l}</Link>))}</div>
         <div className="fl-col"><h4>Visit</h4><span>{company.address[0]}<br />{company.address[1]}<br />{company.address[2]}</span></div>
