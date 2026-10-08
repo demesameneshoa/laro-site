@@ -179,30 +179,33 @@ export const why = [
 ];
 
 // Leadership: source "LARO_Leadership.docx". Add `photo: '/images/team/<file>.jpg'` when portraits are ready.
-export type Leader = { name: string; role: string; bio: string; initials: string; photo?: string };
+// `short` shows under the portrait; the full `bio` pops up over the portrait on hover / tap.
+export type Leader = { name: string; role: string; short: string; bio: string; initials: string; photo?: string };
 export const leadership: { group: string; people: Leader[] }[] = [
   {
     group: 'Executive Leadership',
     people: [
-      { name: 'Lealem Abera', role: 'CEO', initials: 'LA', bio: 'Founder and CEO with 15+ years of experience in advertising, marketing communications, branding, and business development. He holds a BA in Marketing Management and leads LARO’s strategic vision, business growth, and long-term direction.' },
-      { name: 'Edlawit Sintayehu', role: 'COO', initials: 'ES', bio: 'Leads business operations and organizational execution, with 7+ years of experience driving client relationships, business development, and operational excellence. She holds a BA in Management and an MA in Business Leadership, supporting her role in organizational leadership and operational strategy.' },
-      { name: 'Abenezer Wendemagegn', role: 'CFO', initials: 'AW', bio: 'Oversees financial strategy, planning, financial controls, and reporting, ensuring strong financial discipline and sustainable business growth. He holds a BA in Accounting and is a Certified Accountant, bringing professional expertise in financial management and accounting.' },
-      { name: 'Biniam Ayalew', role: 'Chief Creative Director', initials: 'BA', bio: 'Leads LARO’s creative vision, transforming strategic ideas into impactful brand identities, campaigns, visual experiences, and creative solutions. He holds a BSc in Management Information Systems and brings 15+ years of professional experience in creative design and graphic design.' },
+      { name: 'Lealem Abera', role: 'CEO', initials: 'LA', short: 'Founder and CEO setting LARO’s strategic vision and growth, with 15+ years in advertising and branding.', bio: 'Founder and CEO with 15+ years of experience in advertising, marketing communications, branding, and business development. He holds a BA in Marketing Management and leads LARO’s strategic vision, business growth, and long-term direction.' },
+      { name: 'Edlawit Sintayehu', role: 'COO', initials: 'ES', short: 'Leads operations and organizational execution, with 7+ years in client relations and business development.', bio: 'Leads business operations and organizational execution, with 7+ years of experience driving client relationships, business development, and operational excellence. She holds a BA in Management and an MA in Business Leadership, supporting her role in organizational leadership and operational strategy.' },
+      { name: 'Abenezer Wendemagegn', role: 'CFO', initials: 'AW', short: 'Certified Accountant overseeing financial strategy, planning, controls and reporting.', bio: 'Oversees financial strategy, planning, financial controls, and reporting, ensuring strong financial discipline and sustainable business growth. He holds a BA in Accounting and is a Certified Accountant, bringing professional expertise in financial management and accounting.' },
+      { name: 'Biniam Ayalew', role: 'Chief Creative Director', initials: 'BA', short: 'Leads LARO’s creative vision, with 15+ years in creative and graphic design.', bio: 'Leads LARO’s creative vision, transforming strategic ideas into impactful brand identities, campaigns, visual experiences, and creative solutions. He holds a BSc in Management Information Systems and brings 15+ years of professional experience in creative design and graphic design.' },
     ],
   },
   {
     group: 'Business & Growth',
     people: [
-      { name: 'Biruk Wondimu', role: 'Business Development Manager', initials: 'BW', bio: 'Business development professional with 15+ years of experience building strategic partnerships, developing new opportunities, and driving sustainable revenue growth. He holds an MA in Business Administration and a BA in Economics, combining business strategy and economic insight to support LARO’s growth.' },
-      { name: 'Yeabsira Abera', role: 'Marketing Manager', initials: 'YA', bio: 'Leads marketing strategy, brand communication, and market engagement, helping connect LARO’s capabilities with the right audiences and opportunities. He holds a BSc in Christian Leadership and a BSc in Information Systems, combining leadership capabilities with technology and information systems knowledge.' },
-      { name: 'Edlawit Aklilu', role: 'Marketing Officer', initials: 'EA', bio: 'Supports digital marketing, content development, social media engagement, and day-to-day brand communication across LARO’s platforms.' },
+      { name: 'Biruk Wondimu', role: 'Business Development Manager', initials: 'BW', short: 'Builds strategic partnerships and drives revenue growth, with 15+ years in business development.', bio: 'Business development professional with 15+ years of experience building strategic partnerships, developing new opportunities, and driving sustainable revenue growth. He holds an MA in Business Administration and a BA in Economics, combining business strategy and economic insight to support LARO’s growth.' },
+      { name: 'Yeabsira Abera', role: 'Marketing Manager', initials: 'YA', short: 'Leads marketing strategy, brand communication and market engagement.', bio: 'Leads marketing strategy, brand communication, and market engagement, helping connect LARO’s capabilities with the right audiences and opportunities. He holds a BSc in Christian Leadership and a BSc in Information Systems, combining leadership capabilities with technology and information systems knowledge.' },
+      { name: 'Edlawit Aklilu', role: 'Marketing Officer', initials: 'EA', short: 'Supports digital marketing, content and social media across LARO’s platforms.', bio: 'Supports digital marketing, content development, social media engagement, and day-to-day brand communication across LARO’s platforms.' },
     ],
   },
   {
     group: 'Operations & Execution',
     people: [
-      { name: 'Amanuel Fekadu', role: 'Executive Supervisor', initials: 'AF', bio: 'Coordinates operational activities and project execution, ensuring teams, resources, timelines, and client requirements are aligned for efficient delivery.' },
-      { name: 'Kenean Anteneh, Fasika Fikadu & Samuel Fekadu', role: 'Executive Team', initials: 'ET', bio: 'Support project execution, logistics, installations, production coordination, and day-to-day operations to ensure every assignment is delivered efficiently and professionally.' },
+      { name: 'Amanuel Fekadu', role: 'Executive Supervisor', initials: 'AF', short: 'Coordinates operations and project execution for efficient, on-time delivery.', bio: 'Coordinates operational activities and project execution, ensuring teams, resources, timelines, and client requirements are aligned for efficient delivery.' },
+      { name: 'Kenean Anteneh', role: 'Executive Team', initials: 'KA', short: 'Supports project execution, logistics, installations and day-to-day operations.', bio: 'Supports project execution, logistics, installations, production coordination, and day-to-day operations to ensure every assignment is delivered efficiently and professionally.' },
+      { name: 'Fasika Fikadu', role: 'Executive Team', initials: 'FF', short: 'Supports project execution, logistics, installations and day-to-day operations.', bio: 'Supports project execution, logistics, installations, production coordination, and day-to-day operations to ensure every assignment is delivered efficiently and professionally.' },
+      { name: 'Samuel Fekadu', role: 'Executive Team', initials: 'SF', short: 'Supports project execution, logistics, installations and day-to-day operations.', bio: 'Supports project execution, logistics, installations, production coordination, and day-to-day operations to ensure every assignment is delivered efficiently and professionally.' },
     ],
   },
 ];
