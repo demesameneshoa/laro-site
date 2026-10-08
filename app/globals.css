@@ -424,16 +424,19 @@ html:not(.js) .we-green { clip-path: circle(64cqi at -12cqi 50%); }
 .member:hover .ph b { color: var(--white); transform: scale(1.1); }
 .member h3 { margin: 0; font-size: 20px; font-weight: 500; letter-spacing: -0.02em; }
 .member p { margin: 0 0 6px; font-size: 14px; color: var(--ink-2); }
-.member .ph img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.member .ph img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 22%; filter: grayscale(1) contrast(1.04); transition: filter 0.6s, transform 1s var(--ease); }
+/* bio slides up over the lower part while the photo lifts, so the face stays clear above it */
+.member .ph:hover img, .member .ph:focus img, .member .ph:focus-within img { filter: none; transform: translateY(-20%); }
 .member h4 { margin: 0; font-size: 20px; font-weight: 500; letter-spacing: -0.02em; }
 .member .m-role { color: var(--green-ui); font-weight: 600; font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 10px; }
 .member .m-bio { font-size: 14px; line-height: 1.6; color: var(--ink-2); }
 .member .ph { cursor: pointer; outline: none; }
 .member .ph:focus-visible { box-shadow: 0 0 0 3px var(--green); }
 .m-more { position: absolute; right: 12px; bottom: 12px; z-index: 2; width: 30px; height: 30px; border-radius: 50%; background: var(--white); color: var(--ink); display: flex; align-items: center; justify-content: center; font-size: 18px; line-height: 1; box-shadow: 0 6px 16px rgba(0,0,0,0.12); transition: transform 0.4s var(--ease), opacity 0.3s; }
-.m-pop { position: absolute; inset: 0; z-index: 4; display: flex; flex-direction: column; justify-content: flex-end; gap: 10px; padding: 22px; overflow-y: auto; background: linear-gradient(180deg, rgba(0,137,63,0.88), var(--green-ui) 45%); color: var(--white); opacity: 0; transform: translateY(14px); transition: opacity 0.35s, transform 0.5s var(--ease); pointer-events: none; }
-.m-pop-role { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.8; }
-.m-pop p { margin: 0; font-size: 14px; line-height: 1.55; color: var(--white); }
+.m-pop { position: absolute; left: 0; right: 0; bottom: 0; z-index: 4; max-height: 64%; display: flex; flex-direction: column; justify-content: flex-end; gap: 8px; padding: 56px 20px 20px; overflow-y: auto; background: linear-gradient(180deg, rgba(12,12,12,0) 0, rgba(12,12,12,0.78) 46px, rgba(12,12,12,0.9)); color: var(--white); opacity: 0; transform: translateY(24px); transition: opacity 0.35s, transform 0.55s var(--ease); pointer-events: none; scrollbar-width: thin; }
+.m-pop::before { content: ''; width: 28px; height: 3px; border-radius: 2px; background: var(--green); flex-shrink: 0; }
+.m-pop-role { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #7fdcaa; }
+.m-pop p { margin: 0; font-size: 13.5px; line-height: 1.55; color: var(--white); }
 .member .ph:hover .m-pop, .member .ph:focus .m-pop, .member .ph:focus-within .m-pop { opacity: 1; transform: none; pointer-events: auto; }
 .member .ph:hover .m-more, .member .ph:focus .m-more { opacity: 0; transform: rotate(45deg); }
 .member .ph:hover .ph-tag, .member .ph:focus .ph-tag { opacity: 0; }
@@ -683,7 +686,8 @@ html:not(.js) .we-green { clip-path: circle(64cqi at -12cqi 50%); }
   .net { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .feat { grid-template-columns: minmax(0, 1fr); }
   .team, .lead-group .team { grid-template-columns: minmax(0, 1fr); }
-  .member .ph { aspect-ratio: 16 / 11; }
+  .member .ph { aspect-ratio: 4 / 4.4; }
+  .m-pop { max-height: 70%; }
   .logo-wall { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .sector-list, .do-list { grid-template-columns: minmax(0, 1fr); }
   .phero { padding-top: 120px; }
