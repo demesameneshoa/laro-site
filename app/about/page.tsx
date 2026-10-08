@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { commitment, intro, team, why } from '@/lib/content';
+import { commitment, intro, leadership, why } from '@/lib/content';
 import { PageHero, SecHead } from '@/components/Blocks';
 import WeAre from '@/components/WeAre';
 import HoverRows from '@/components/HoverRows';
@@ -48,14 +48,22 @@ export default function AboutPage() {
       <section className="sec" id="leadership">
         <div className="container">
           <SecHead eyebrow="Leadership" title="Our Leadership Team" lead="The people who brief, produce, coordinate and deliver every LARO project." />
-          <div className="team">
-            {team.map((m, i) => (
-              <article key={m.name} className="member reveal" style={{ ['--d' as string]: `${i * 70}ms` }} data-cursor={m.initials}>
-                <div className="ph" role="img" aria-label={`Portrait placeholder for ${m.name}`}><b aria-hidden="true">{m.initials}</b><span className="ph-tag">Portrait placeholder</span></div>
-                <h3>{m.name}</h3><p>{m.role}</p><span className="m-exp">{m.exp} · {m.note}</span>
-              </article>
-            ))}
-          </div>
+          {leadership.map((g) => (
+            <div key={g.group} className="lead-group">
+              <h3 className="lg-title reveal"><span>{g.group}</span><i>{String(g.people.length).padStart(2, '0')}</i></h3>
+              <div className="team">
+                {g.people.map((m, i) => (
+                  <article key={m.name} className="member reveal" style={{ ['--d' as string]: `${i * 70}ms` }} data-cursor={m.initials}>
+                    <div className="ph" role="img" aria-label={m.photo ? m.name : `Portrait placeholder for ${m.name}`}>
+                      {m.photo ? <img src={m.photo} alt="" loading="lazy" /> : <><b aria-hidden="true">{m.initials}</b><span className="ph-tag">Portrait placeholder</span></>}
+                    </div>
+                    <h4>{m.name}</h4><p className="m-role">{m.role}</p>
+                    <p className="m-bio">{m.bio}</p>
+                  </article>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </section>
       <section className="sec sec-gray" id="credentials">
