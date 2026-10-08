@@ -7,10 +7,19 @@ export const company = {
   founded: 2012,
   phones: ['+251 954 676 767', '+251 905 065 060'],
   phoneHref: ['tel:+251954676767', 'tel:+251905065060'],
-  whatsapp: 'https://wa.me/251954676767',
+  whatsapp: 'https://wa.me/251954676767', // main WhatsApp (floating button)
+  whatsapps: [
+    { label: '+251 954 676 767', href: 'https://wa.me/251954676767' },
+    { label: '+971 585 114 522', href: 'https://wa.me/971585114522' },
+  ],
   email: '', // TODO: add the public email address
-  address: ['Bole Medhaniyalem', 'Morning Star Building, 4th Floor', 'Addis Ababa, Ethiopia'],
-  mapQuery: 'Morning Star Building, Bole Medhaniyalem, Addis Ababa',
+  address: [
+    'Cameroon St, Bole Sub-City, Woreda 03',
+    'Bole Medhanialem Church Area',
+    'Morning Star Mall, 4th Floor, Office #426',
+    'Addis Ababa, Ethiopia',
+  ],
+  mapQuery: 'Morning Star Mall, Cameroon St, Bole Medhanialem, Addis Ababa, Ethiopia',
   socials: [
     { label: 'Facebook', href: '#' },
     { label: 'LinkedIn', href: '#' },
@@ -169,12 +178,53 @@ export const why = [
   { t: 'Institutional Experience', d: 'We understand the documentation, specifications, coordination, and professionalism expected by institutional and corporate clients.' },
 ];
 
-export const team = [
-  { name: 'Lealem Abera', role: 'CEO & Founder', exp: '10 years', note: 'BA, Marketing Management', initials: 'LA' },
-  { name: 'Dereje Bekele', role: 'COO & Co-founder', exp: '10 years', note: 'Production management', initials: 'DB' },
-  { name: 'Esmael Abdele', role: 'Deputy General Manager', exp: '8 years', note: 'Project & software management', initials: 'EA' },
-  { name: 'Rediet Tigistu', role: 'Accountant', exp: '6 years', note: 'Finance', initials: 'RT' },
-  { name: 'Samrawit Kassahun', role: 'Graphic Designer', exp: '2 years', note: 'Brand & print design', initials: 'SK' },
+// Leadership: source "LARO_Leadership.docx". Add `photo: '/images/team/<file>.jpg'` when portraits are ready.
+export type Leader = { name: string; role: string; bio: string; initials: string; photo?: string };
+export const leadership: { group: string; people: Leader[] }[] = [
+  {
+    group: 'Executive Leadership',
+    people: [
+      { name: 'Lealem Abera', role: 'CEO', initials: 'LA', bio: 'Founder and CEO with 15+ years of experience in advertising, marketing communications, branding, and business development. He holds a BA in Marketing Management and leads LARO’s strategic vision, business growth, and long-term direction.' },
+      { name: 'Edlawit Sintayehu', role: 'COO', initials: 'ES', bio: 'Leads business operations and organizational execution, with 7+ years of experience driving client relationships, business development, and operational excellence. She holds a BA in Management and an MA in Business Leadership, supporting her role in organizational leadership and operational strategy.' },
+      { name: 'Abenezer Wendemagegn', role: 'CFO', initials: 'AW', bio: 'Oversees financial strategy, planning, financial controls, and reporting, ensuring strong financial discipline and sustainable business growth. He holds a BA in Accounting and is a Certified Accountant, bringing professional expertise in financial management and accounting.' },
+      { name: 'Biniam Ayalew', role: 'Chief Creative Director', initials: 'BA', bio: 'Leads LARO’s creative vision, transforming strategic ideas into impactful brand identities, campaigns, visual experiences, and creative solutions. He holds a BSc in Management Information Systems and brings 15+ years of professional experience in creative design and graphic design.' },
+    ],
+  },
+  {
+    group: 'Business & Growth',
+    people: [
+      { name: 'Biruk Wondimu', role: 'Business Development Manager', initials: 'BW', bio: 'Business development professional with 15+ years of experience building strategic partnerships, developing new opportunities, and driving sustainable revenue growth. He holds an MA in Business Administration and a BA in Economics, combining business strategy and economic insight to support LARO’s growth.' },
+      { name: 'Yeabsira Abera', role: 'Marketing Manager', initials: 'YA', bio: 'Leads marketing strategy, brand communication, and market engagement, helping connect LARO’s capabilities with the right audiences and opportunities. He holds a BSc in Christian Leadership and a BSc in Information Systems, combining leadership capabilities with technology and information systems knowledge.' },
+      { name: 'Edlawit Aklilu', role: 'Marketing Officer', initials: 'EA', bio: 'Supports digital marketing, content development, social media engagement, and day-to-day brand communication across LARO’s platforms.' },
+    ],
+  },
+  {
+    group: 'Operations & Execution',
+    people: [
+      { name: 'Amanuel Fekadu', role: 'Executive Supervisor', initials: 'AF', bio: 'Coordinates operational activities and project execution, ensuring teams, resources, timelines, and client requirements are aligned for efficient delivery.' },
+      { name: 'Kenean Anteneh, Fasika Fikadu & Samuel Fekadu', role: 'Executive Team', initials: 'ET', bio: 'Support project execution, logistics, installations, production coordination, and day-to-day operations to ensure every assignment is delivered efficiently and professionally.' },
+    ],
+  },
+];
+
+// Client logos: white artwork on transparent background in /public/images/clients
+export const clients: { name: string; logo: string }[] = [
+  { name: 'Ethiopian Airlines', logo: '/images/clients/ethiopian-airlines.png' },
+  { name: 'Ministry of Justice', logo: '/images/clients/ministry-of-justice.png' },
+  { name: 'Ministry of Agriculture', logo: '/images/clients/ministry-of-agriculture.png' },
+  { name: 'Ministry of Planning and Development', logo: '/images/clients/ministry-of-planning-and-development.png' },
+  { name: 'Ministry of Irrigation and Lowlands', logo: '/images/clients/ministry-of-irrigation-and-lowlands.png' },
+  { name: 'Ethiopian Shipping & Logistics (ESL)', logo: '/images/clients/esl.png' },
+  { name: 'Ethiopian Statistical Service', logo: '/images/clients/ethiopian-statistical-service.png' },
+  { name: 'Federal Supreme Court', logo: '/images/clients/federal-supreme-court.png' },
+  { name: 'Information Network Security Administration', logo: '/images/clients/insa.png' },
+  { name: 'MESOB', logo: '/images/clients/mesob.png' },
+  { name: 'Financial Intelligence Service', logo: '/images/clients/financial-intelligence-service.png' },
+  { name: 'Addis Ababa Tourism Commission', logo: '/images/clients/addis-ababa-tourism-commission.png' },
+  { name: 'Ethiopian Red Cross Society', logo: '/images/clients/ethiopian-red-cross-society.png' },
+  { name: 'Save the Children', logo: '/images/clients/save-the-children.png' },
+  { name: 'World Resources Institute', logo: '/images/clients/world-resources-institute.png' },
+  { name: 'African Development Bank Group', logo: '/images/clients/african-development-bank-group.png' },
 ];
 
 // Credentials gallery: certificates and recognitions from the organizations we work with.

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { sectors } from '@/lib/content';
-import { LogoGrid, PageHero, SecHead } from '@/components/Blocks';
+import { LogoWall, PageHero, SecHead } from '@/components/Blocks';
 import LensWord from '@/components/LensWord';
 
 export const metadata: Metadata = { title: 'Clients', description: 'LARO Advertising PLC serves government institutions, banks, insurers, NGOs, international organizations and corporate businesses.' };
@@ -16,7 +16,7 @@ export default function ClientsPage() {
         </div>
       </section>
       <section className="sec sec-gray">
-        <div className="container"><SecHead eyebrow="Trusted by" title="Our Clients" lead="A trusted partner to organizations that expect professional communication, quality execution and dependable delivery." /><LogoGrid count={32} /></div>
+        <div className="container"><SecHead eyebrow="Trusted by" title="Our Clients" lead="A trusted partner to organizations that expect professional communication, quality execution and dependable delivery." /><LogoWall /></div>
       </section>
       <section className="sec">
         <div className="container">

@@ -50,7 +50,7 @@ export default function Home() {
       <section className="sec">
         <div className="container">
           <SecHead eyebrow="Trusted by" title="Our Clients" lead="A trusted partner to organizations that expect professional communication, quality execution and dependable delivery." />
-          <LogoGrid count={24} />
+          <LogoGrid />
         </div>
       </section>
 

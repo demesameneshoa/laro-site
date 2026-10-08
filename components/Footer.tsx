@@ -27,8 +27,10 @@ export default function Footer() {
               {company.email ? <li><span className="ic"><Mail size={15} /></span><a href={`mailto:${company.email}`}>{company.email}</a></li> : null}
               <li><span className="ic"><Phone size={15} /></span><a href={company.phoneHref[0]}>{company.phones[0]}</a></li>
               <li><span className="ic"><Phone size={15} /></span><a href={company.phoneHref[1]}>{company.phones[1]}</a></li>
-              <li><span className="ic"><Chat size={15} /></span><a href={company.whatsapp} target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
-              <li><span className="ic"><Pin size={15} /></span><span>{company.address.join('; ')}</span></li>
+              {company.whatsapps.map((w) => (
+                <li key={w.href}><span className="ic"><Chat size={15} /></span><a href={w.href} target="_blank" rel="noopener noreferrer">WhatsApp {w.label}</a></li>
+              ))}
+              <li><span className="ic"><Pin size={15} /></span><span>{company.address.join(', ')}</span></li>
             </ul>
             <div className="socials">{company.socials.map((s) => (<a key={s.label} href={s.href} aria-label={s.label}>{s.label.slice(0, 2)}</a>))}</div>
           </div>
@@ -48,7 +50,7 @@ export default function Footer() {
         <img src="/images/logo-full-white.png" alt={`${company.name}, ${company.tagline}`} width={556} height={376} className="ftr-logo" />
         <div className="fl-col"><h4>Services</h4>{services.map((s) => (<Link key={s.slug} href={`/services/${s.slug}`}>{s.short}</Link>))}</div>
         <div className="fl-col"><h4>Company</h4>{['Work', 'Solutions', 'About', 'Clients', 'Contact'].map((l) => (<Link key={l} href={`/${l.toLowerCase()}`}>{l}</Link>))}</div>
-        <div className="fl-col"><h4>Visit</h4><span>{company.address[0]}<br />{company.address[1]}<br />{company.address[2]}</span></div>
+        <div className="fl-col"><h4>Visit</h4><address className="addr">{company.address.map((l) => <span key={l}>{l}</span>)}</address></div>
       </div>
       <div className="container ftr-bot"><span>{company.name} {new Date().getFullYear()}</span><span>{company.tagline}</span><a href="#top">Back to top ↑</a></div>
     </footer>

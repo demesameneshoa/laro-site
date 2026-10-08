@@ -3,6 +3,7 @@ import type { ReactNode } from 'react';
 import { Letters } from './Text';
 import { ArrowUpRight } from './Icons';
 import Marquee from './Marquee';
+import { clients } from '@/lib/content';
 
 export function PageHero({ crumb, title, lead, image, imagePos, children }: { crumb: string; title: string; lead?: string; image?: string; imagePos?: string; children?: ReactNode }) {
   return (
@@ -68,16 +69,32 @@ export function SecFoot({ left, href, label }: { left: ReactNode; href: string; 
 }
 
 // Client logos on two rows drifting in opposite directions (speed follows scrolling)
-export function LogoGrid({ count = 24 }: { count?: number }) {
-  const half = Math.ceil(count / 2);
-  const row = (from: number, n: number) => Array.from({ length: n }).map((_, i) => (
-    <span key={i} className="logo-cell" data-cursor="Client">[LOGO {String(from + i + 1).padStart(2, '0')}]</span>
+export function LogoGrid() {
+  const half = Math.ceil(clients.length / 2);
+  const row = (list: typeof clients) => list.map((c) => (
+    <span key={c.name} className="logo-cell" data-cursor="Client" title={c.name}>
+      <img src={c.logo} alt={c.name} loading="lazy" decoding="async" />
+    </span>
   ));
   return (
     <div className="logo-rows reveal">
-      <Marquee speed={0.5}><div className="logo-row">{row(0, half)}</div></Marquee>
-      <Marquee speed={0.5} reverse><div className="logo-row">{row(half, count - half)}</div></Marquee>
+      <Marquee speed={0.5}><div className="logo-row">{row(clients.slice(0, half))}</div></Marquee>
+      <Marquee speed={0.5} reverse><div className="logo-row">{row(clients.slice(half))}</div></Marquee>
     </div>
+  );
+}
+
+// Every client logo in a grid with its name (Clients page)
+export function LogoWall() {
+  return (
+    <ul className="logo-wall">
+      {clients.map((c, i) => (
+        <li key={c.name} className="reveal" style={{ ['--d' as string]: `${(i % 4) * 60}ms` }} data-cursor="Client">
+          <span className="lw-logo"><img src={c.logo} alt="" loading="lazy" decoding="async" /></span>
+          <span className="lw-name">{c.name}</span>
+        </li>
+      ))}
+    </ul>
   );
 }
 
