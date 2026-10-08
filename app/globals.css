@@ -327,11 +327,11 @@ html:not(.js) .we-green { clip-path: circle(64cqi at -12cqi 50%); }
 .logo-cell img { max-width: 76%; max-height: 62%; width: auto; height: auto; object-fit: contain; filter: brightness(0); opacity: 0.62; transition: filter 0.35s, opacity 0.35s; }
 .logo-cell:hover, .sec-gray .logo-cell:hover { background: var(--green-ui); }
 .logo-cell:hover img { filter: none; opacity: 1; }
-.logo-wall { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
-.logo-wall li { display: flex; flex-direction: column; border-radius: 10px; background: var(--white); overflow: hidden; transition: transform 0.4s var(--ease); }
-.logo-wall .lw-logo { aspect-ratio: 16 / 9; display: flex; align-items: center; justify-content: center; transition: background 0.35s; }
-.logo-wall .lw-logo img { max-width: 70%; max-height: 58%; object-fit: contain; filter: brightness(0); opacity: 0.62; transition: filter 0.35s, opacity 0.35s, transform 0.5s var(--ease); }
-.logo-wall .lw-name { padding: 12px 16px 16px; font-size: 13px; line-height: 1.35; color: var(--ink-2); border-top: 1px solid rgba(0,0,0,0.06); }
+.logo-wall { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-auto-rows: 1fr; gap: 14px; }
+.logo-wall li { display: flex; flex-direction: column; height: 100%; border-radius: 10px; background: var(--white); overflow: hidden; }
+.logo-wall .lw-logo { position: relative; flex-shrink: 0; aspect-ratio: 16 / 10; transition: background 0.35s; }
+.logo-wall .lw-logo img { position: absolute; inset: 20% 16%; width: 68%; height: 60%; object-fit: contain; filter: brightness(0); opacity: 0.62; transition: filter 0.35s, opacity 0.35s, transform 0.5s var(--ease); }
+.logo-wall .lw-name { flex: 1; display: flex; align-items: center; min-height: 3.6em; padding: 12px 16px; font-size: 13px; line-height: 1.35; color: var(--ink-2); border-top: 1px solid rgba(0,0,0,0.06); }
 .logo-wall li:hover .lw-logo { background: var(--green-ui); }
 .logo-wall li:hover .lw-logo img { filter: none; opacity: 1; transform: scale(1.06); }
 .addr { font-style: normal; display: flex; flex-direction: column; }
@@ -428,6 +428,15 @@ html:not(.js) .we-green { clip-path: circle(64cqi at -12cqi 50%); }
 .member h4 { margin: 0; font-size: 20px; font-weight: 500; letter-spacing: -0.02em; }
 .member .m-role { color: var(--green-ui); font-weight: 600; font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 10px; }
 .member .m-bio { font-size: 14px; line-height: 1.6; color: var(--ink-2); }
+.member .ph { cursor: pointer; outline: none; }
+.member .ph:focus-visible { box-shadow: 0 0 0 3px var(--green); }
+.m-more { position: absolute; right: 12px; bottom: 12px; z-index: 2; width: 30px; height: 30px; border-radius: 50%; background: var(--white); color: var(--ink); display: flex; align-items: center; justify-content: center; font-size: 18px; line-height: 1; box-shadow: 0 6px 16px rgba(0,0,0,0.12); transition: transform 0.4s var(--ease), opacity 0.3s; }
+.m-pop { position: absolute; inset: 0; z-index: 4; display: flex; flex-direction: column; justify-content: flex-end; gap: 10px; padding: 22px; overflow-y: auto; background: linear-gradient(180deg, rgba(0,137,63,0.88), var(--green-ui) 45%); color: var(--white); opacity: 0; transform: translateY(14px); transition: opacity 0.35s, transform 0.5s var(--ease); pointer-events: none; }
+.m-pop-role { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.8; }
+.m-pop p { margin: 0; font-size: 14px; line-height: 1.55; color: var(--white); }
+.member .ph:hover .m-pop, .member .ph:focus .m-pop, .member .ph:focus-within .m-pop { opacity: 1; transform: none; pointer-events: auto; }
+.member .ph:hover .m-more, .member .ph:focus .m-more { opacity: 0; transform: rotate(45deg); }
+.member .ph:hover .ph-tag, .member .ph:focus .ph-tag { opacity: 0; }
 .lead-group + .lead-group { margin-top: clamp(56px, 7vw, 96px); }
 .lg-title { display: flex; justify-content: space-between; align-items: baseline; margin: 0 0 28px; padding-bottom: 14px; border-bottom: 1px solid rgba(0,0,0,0.12); font-size: clamp(22px, 2.4vw, 30px); font-weight: 500; letter-spacing: -0.02em; }
 .lg-title i { font-style: normal; font-size: 14px; color: var(--ink-2); }
@@ -496,7 +505,21 @@ html:not(.js) .we-green { clip-path: circle(64cqi at -12cqi 50%); }
 .ftr-bot a { text-decoration: none; }
 
 /* floating WhatsApp */
-.fab { position: fixed; right: 22px; bottom: 22px; z-index: 180; width: 56px; height: 56px; border-radius: 50%; background: var(--ink); color: var(--white); display: flex; align-items: center; justify-content: center; box-shadow: 0 14px 30px rgba(0,0,0,0.2); transition: transform 0.4s var(--ease); }
+.fab-wrap { position: fixed; right: 22px; bottom: 22px; z-index: 180; display: flex; flex-direction: column; align-items: flex-end; gap: 12px; }
+.fab-menu { width: 260px; padding: 10px; border-radius: 14px; background: var(--white); color: var(--ink); box-shadow: 0 20px 50px rgba(0,0,0,0.18); display: flex; flex-direction: column; gap: 4px; transform-origin: bottom right; animation: fabIn 0.3s var(--ease); }
+.fab-menu[hidden] { display: none; }
+@keyframes fabIn { from { opacity: 0; transform: translateY(8px) scale(0.96); } }
+.fab-head { padding: 6px 10px 8px; font-size: 12px; font-weight: 600; letter-spacing: 0.04em; color: var(--ink-2); }
+.fab-menu a { display: flex; align-items: center; gap: 12px; padding: 10px; border-radius: 10px; color: inherit; text-decoration: none; transition: background 0.25s; }
+.fab-menu a:hover, .fab-menu a:focus-visible { background: #f0f0ee; }
+.fab-menu a b { display: block; font-size: 15px; font-weight: 600; }
+.fab-menu a small { display: block; font-size: 12px; color: var(--ink-2); }
+.fab-ic { width: 34px; height: 34px; flex-shrink: 0; border-radius: 50%; background: var(--green-ui); color: var(--white); display: flex; align-items: center; justify-content: center; }
+.fab-i { display: flex; transition: transform 0.35s var(--ease), opacity 0.25s; }
+.fab-i.x { position: absolute; font-size: 28px; line-height: 1; opacity: 0; transform: rotate(-90deg); }
+.fab-wrap.open .fab-i.chat { opacity: 0; transform: rotate(90deg); }
+.fab-wrap.open .fab-i.x { opacity: 1; transform: none; }
+.fab { position: relative; border: 0; cursor: pointer; width: 56px; height: 56px; border-radius: 50%; background: var(--ink); color: var(--white); display: flex; align-items: center; justify-content: center; box-shadow: 0 14px 30px rgba(0,0,0,0.2); transition: transform 0.4s var(--ease); }
 .fab:hover { transform: scale(1.08); }
 
 /* ---------- approach journey ---------- */
@@ -681,5 +704,5 @@ html:not(.js) .we-green { clip-path: circle(64cqi at -12cqi 50%); }
   .cn-l, .cn-form { grid-column: 1 / -1; }
   .ftr-logo, .fl-col { grid-column: 1 / -1; }
   .map { aspect-ratio: 4 / 3; }
-  .fab { right: 14px; bottom: 14px; }
+  .fab-wrap { right: 14px; bottom: 14px; }
 }

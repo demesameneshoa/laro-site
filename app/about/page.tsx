@@ -54,11 +54,13 @@ export default function AboutPage() {
               <div className="team">
                 {g.people.map((m, i) => (
                   <article key={m.name} className="member reveal" style={{ ['--d' as string]: `${i * 70}ms` }} data-cursor={m.initials}>
-                    <div className="ph" role="img" aria-label={m.photo ? m.name : `Portrait placeholder for ${m.name}`}>
+                    <div className="ph" tabIndex={0} aria-label={`${m.name}: full profile`}>
                       {m.photo ? <img src={m.photo} alt="" loading="lazy" /> : <><b aria-hidden="true">{m.initials}</b><span className="ph-tag">Portrait placeholder</span></>}
+                      <span className="m-more" aria-hidden="true">+</span>
+                      <div className="m-pop"><span className="m-pop-role">{m.role}</span><p>{m.bio}</p></div>
                     </div>
                     <h4>{m.name}</h4><p className="m-role">{m.role}</p>
-                    <p className="m-bio">{m.bio}</p>
+                    <p className="m-bio">{m.short}</p>
                   </article>
                 ))}
               </div>
