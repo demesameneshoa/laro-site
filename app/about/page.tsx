@@ -11,7 +11,7 @@ export const metadata: Metadata = { title: 'About', description: 'LARO Advertisi
 
 const stats = [
   { n: 2012, s: '', label: 'Founded', note: 'in Addis Ababa, Ethiopia' },
-  { n: 8, s: '', label: 'Capabilities', note: 'from strategy to installation' },
+  { n: 9, s: '', label: 'Capabilities', note: 'from strategy to installation' },
   { n: 11, s: '', label: 'Sectors served', note: 'public, international and private' },
   { n: 18, s: '+', label: 'Partner brands', note: 'brands we produce for' },
 ];

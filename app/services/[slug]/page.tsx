@@ -40,6 +40,20 @@ export default async function ServicePage({ params }: Props) {
           </ol>
         </div>
       </section>
+      {s.details?.map((g, gi) => (
+        <section key={g.title} className={`sec${gi % 2 ? ' sec-gray' : ''}`}>
+          <div className="container">
+            <SecHead eyebrow={g.eyebrow} title={g.title} />
+            <div className="why-cols">
+              {g.rows.map((r, i) => (
+                <div key={r.t} className="why-col reveal" style={{ ['--d' as string]: `${(i % 4) * 70}ms` }}>
+                  <span className="wc-n">0{i + 1}</span><h3>{r.t}</h3><p>{r.d}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      ))}
       <section className="sec closer-sec"><div className="container"><p className="closer reveal">{s.closer}</p></div></section>
       {related.length ? (
         <section className="sec">

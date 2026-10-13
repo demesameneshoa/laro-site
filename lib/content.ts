@@ -59,6 +59,8 @@ export type Service = {
   image: string;
   imagePos?: string;
   tag: string;
+  // optional extra blocks shown on the service page (title + numbered columns)
+  details?: { eyebrow: string; title: string; rows: { t: string; d: string }[] }[];
 };
 
 export const services: Service[] = [
@@ -133,6 +135,29 @@ export const services: Service[] = [
     outro: 'We work with a network of specialized production partners and suppliers to deliver solutions according to the required specification, quantity, quality, timeline, and budget.',
     closer: 'Source. Produce. Coordinate. Deliver. Install.',
     image: '/images/flags.jpg', imagePos: '55% 40%',
+  },
+  {
+    slug: 'commercial-printing-packaging', n: '09', title: 'Commercial Printing & Packaging', short: 'Labels & Packaging', tag: 'Packaging',
+    tagline: 'High-volume roll-type label and sticker printing for automated packaging lines.',
+    intro: ['LARO Advertising PLC provides premium roll-fed custom label printing designed for automated application equipment, high-speed bottling lines, and manual high-volume packaging.', 'Engineered for durability, precise die-cutting, and sharp visual appeal, our roll-type labels ensure your brand stands out on retail shelves and holds up under demanding operational conditions.'],
+    items: ['Roll-type label printing', 'High-volume sticker printing', 'Waterproof polypropylene (BOPP) labels', 'Paper labels', 'Clear & transparent film labels', 'Metallic foil labels', 'Direct thermal labels', 'Permanent & removable adhesives', 'High-tack adhesives', 'Cold-temperature & freezer-grade adhesives', 'Gloss laminate & matte finishes', 'UV spot varnish', 'Hot foil stamping', 'Custom core sizes (1", 1.5", 3")', 'Custom unwind directions', 'Food & beverage labels', 'Cosmetics & personal care labels', 'Pharmaceutical & chemical labels', 'Shipping & barcode labels', 'Promotional price stickers'],
+    outro: 'Precision industrial and commercial labeling solutions, from material and adhesive selection to finishing and rewinding for your labeling machinery.',
+    closer: 'Labels that stand out on the shelf and hold up on the line.',
+    image: '/images/labels.jpg', imagePos: '40% 55%',
+    details: [
+      { eyebrow: 'Specifications', title: 'Key Features & Material Options', rows: [
+        { t: 'Material Versatility', d: 'Waterproof polypropylene (BOPP), paper, clear/transparent film, metallic foil, and direct thermal options.' },
+        { t: 'Adhesive Strengths', d: 'Permanent, removable, high-tack, and cold-temperature/freezer-grade adhesives.' },
+        { t: 'Finishing Options', d: 'Gloss laminate, matte finish, UV varnish spotting, and hot foil stamping.' },
+        { t: 'Core & Rewind Compatibility', d: 'Custom core sizes (1", 1.5", 3") and custom unwind directions, engineered to fit your automatic labeling machinery.' },
+      ] },
+      { eyebrow: 'Industries', title: 'Target Applications', rows: [
+        { t: 'Food & Beverage', d: 'Bottled drinks, sauces, jars, frozen foods, and bakery packaging.' },
+        { t: 'Cosmetics & Personal Care', d: 'Lotion bottles, creams, oils, and luxury cosmetics.' },
+        { t: 'Pharmaceuticals & Chemicals', d: 'Medicine bottles, sanitizers, household detergents, and industrial containers.' },
+        { t: 'Logistics & Retail', d: 'Shipping labels, barcode tracking rolls, and promotional price stickers.' },
+      ] },
+    ],
   },
 ];
 
@@ -247,9 +272,9 @@ export const credentials: Credential[] = [
 export const brochure = {
   file: '/docs/LARO-Company-Overview.pdf',
   title: 'Company Overview',
-  pages: 8,
-  size: '1.2 MB',
-  points: ['Who we are and how we work', 'All eight services in detail', 'Integrated solutions and our six-step approach', 'Sectors we serve and contact details'],
+  pages: 9,
+  size: '1.3 MB',
+  points: ['Who we are and how we work', 'All nine services in detail', 'Integrated solutions and our six-step approach', 'Sectors we serve and contact details'],
 };
 
 export type WorkItem = { title: string; cat: string; image: string; pos?: string; size?: 'tall' | 'wide' | 'std'; tags?: string[] };
@@ -293,7 +318,7 @@ export const navImages: Record<string, string> = {
   '/contact': '/images/print.jpg',
 };
 
-export const tickerWords = ['Brand Strategy', 'Corporate Identity', 'Creative Campaigns', 'Printing & Publishing', 'Signage & Outdoor', '3D Corporate Flags', 'Premium Corporate Gifts', 'Eco-Friendly Products', 'Events & Activation', 'Sourcing & Installation'];
+export const tickerWords = ['Brand Strategy', 'Corporate Identity', 'Creative Campaigns', 'Printing & Publishing', 'Signage & Outdoor', '3D Corporate Flags', 'Premium Corporate Gifts', 'Eco-Friendly Products', 'Events & Activation', 'Sourcing & Installation', 'Labels & Packaging'];
 
 export const logoLetters = [
   { c: 'g', d: 'M61,1 L9,19 L0,210 L106,210 L160,161 L142,110 L54,184 L52,183 Z' },

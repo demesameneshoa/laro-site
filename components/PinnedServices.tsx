@@ -5,7 +5,7 @@ import { services } from '@/lib/content';
 import { ArrowUpRight } from './Icons';
 
 // "OUR SERVICES": the section pins, a green disc sweeps across the title, then the title panel
-// slides away and the eight service columns travel in horizontally, on every screen size.
+// slides away and the service columns travel in horizontally, on every screen size.
 // With reduced motion it falls back to a vertical list.
 export default function PinnedServices() {
   const sec = useRef<HTMLElement>(null);

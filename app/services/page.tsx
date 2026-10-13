@@ -5,7 +5,7 @@ import { PageHero } from '@/components/Blocks';
 import PinnedServices from '@/components/PinnedServices';
 import { ArrowUpRight } from '@/components/Icons';
 
-export const metadata: Metadata = { title: 'Services', description: 'Brand strategy, creative design, printing, signage, promotional products, eco-friendly solutions, events and sourcing from LARO Advertising PLC.' };
+export const metadata: Metadata = { title: 'Services', description: 'Brand strategy, creative design, printing, labels and packaging, signage, promotional products, eco-friendly solutions, events and sourcing from LARO Advertising PLC.' };
 
 export default function ServicesPage() {
   return (
