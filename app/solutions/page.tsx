@@ -9,7 +9,7 @@ export const metadata: Metadata = { title: 'Integrated Solutions', description: 
 export default function SolutionsPage() {
   return (
     <>
-      <PageHero crumb="Integrated solutions" title={'One Brief.\nOne Partner.'} lead={`${integrated.lead} ${integrated.body}`} image="/images/events.jpg" imagePos="70% 45%" />
+      <PageHero crumb="Integrated solutions" title={'One Brief.\nOne Partner.'} lead={`${integrated.lead} ${integrated.body}`} image="/images/work/team-brief.jpg" imagePos="50% 45%" />
       <section className="sec">
         <div className="container">
           <SecHead eyebrow="The chain" title="A Single Project Can Combine" lead="Each step below can be part of one brief, handled by one coordinated team." />

@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react';
 import { work } from '@/lib/content';
 import { Dots, Letters } from './Text';
 import { ArrowUpRight } from './Icons';
+import WorkMedia from './WorkMedia';
 
 // Three-column staggered grid; the outer columns drift at a different speed from the middle one.
 export default function MasonryWork({ limit = 9, heading = true }: { limit?: number; heading?: boolean }) {
@@ -36,9 +37,10 @@ export default function MasonryWork({ limit = 9, heading = true }: { limit?: num
           {columns.map((col, ci) => (
             <div key={ci} className={`mw-col c${ci}`} ref={(el) => { cols.current[ci] = el; }}>
               {col.map((w) => (
-                <Link key={w.title} href="/work" className={`mw-card reveal ${w.size === 'tall' ? 'tall' : ''}`} data-cursor="View">
-                  <span className="mw-img"><img src={w.image} alt={`Placeholder visual: ${w.title}`} style={{ objectPosition: w.pos }} /><span className="ph-tag">Placeholder · replace with project photo</span></span>
+                <Link key={w.image} href="/work" className={`mw-card reveal ${w.size === 'tall' ? 'tall' : ''}`} data-cursor="View">
+                  <span className="mw-img"><WorkMedia w={w} /></span>
                   <span className="mw-t">{w.title}</span>
+                  {w.client ? <span className="mw-client">{w.client}</span> : null}
                   <Dots items={w.tags ?? [w.cat]} />
                 </Link>
               ))}
@@ -47,7 +49,7 @@ export default function MasonryWork({ limit = 9, heading = true }: { limit?: num
         </div>
         {heading ? (
           <div className="sec-foot">
-            <p>Corporate branding, 3D corporate flags, premium corporate gifts and event branding, produced in Addis Ababa.</p>
+            <p>Recent 3D corporate flags, signage, premium corporate gifts, printing and event work for institutions across Ethiopia.</p>
             <Link href="/work" className="go-btn"><span>View all works</span><ArrowUpRight size={18} /></Link>
           </div>
         ) : null}

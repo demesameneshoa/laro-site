@@ -53,17 +53,13 @@ npm run build && npm start
 
 All copy lives in `lib/content.ts`: services, approach, sectors, why LARO, team, credentials, brochure, portfolio items and contact details. Edit it there and every page updates.
 
-## Before launch: replace the placeholders
+## Content you can extend
 
-These are marked on the site in yellow:
-
-- **Portfolio images** in `public/images/` are 3D product renders. Replace them with real project photos and update `work` in `lib/content.ts`.
-- **Client logos** on Home and Clients: add logos you have permission to use.
-- **Testimonials** on Clients.
-- **Team portraits** on About.
-- **Credentials** on About: add certificate scans to `public/images/credentials/` and set `image` on each item in `credentials` in `lib/content.ts` (placeholders are shown until then).
-- **Company overview brochure**: `public/docs/LARO-Company-Overview.pdf` is a generated starter; replace it with the final designed brochure (keep the file name, or change `brochure.file`).
-- **Email address and social links** in `company` in `lib/content.ts`.
+- **Portfolio**: real project photos live in `public/images/work/` and short clips in `public/videos/` (H.264 MP4 with a poster JPG). Add an item to `work` in `lib/content.ts` (set `video` for a clip); the work page filters by `cat` and `tags`.
+- **Testimonials**: `testimonials` in `lib/content.ts` (shown on Home and Clients).
+- **Credentials**: certificate scans in `public/images/credentials/`, listed in `credentials` in `lib/content.ts` (set `landscape: true` for wide certificates).
+- **Company profile**: `public/docs/LARO-Company-Overview.pdf`, with preview pages in `public/images/brochure/`. Update `brochure` in `lib/content.ts` if the page count or size changes.
+- **Still to add**: public email address and social links in `company` in `lib/content.ts`.
 
 ## Structure
 

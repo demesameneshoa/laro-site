@@ -6,6 +6,7 @@ import WeAre from '@/components/WeAre';
 import ApproachJourney from '@/components/ApproachJourney';
 import LensWord from '@/components/LensWord';
 import { LogoGrid, SecFoot, SecHead } from '@/components/Blocks';
+import Testimonials from '@/components/Testimonials';
 
 export default function Home() {
   return (
@@ -26,7 +27,7 @@ export default function Home() {
         <div className="container">
           <SecHead eyebrow="Who we serve" title="Built for Institutions" lead={sectors.lead} />
         </div>
-        <LensWord word="SECTORS" left="Sectors we serve" right="One standard of delivery" image="/images/flags.jpg" />
+        <LensWord word="SECTORS" left="Sectors we serve" right="One standard of delivery" image="/images/work/mesob-flags.jpg" />
         <div className="container">
           <ul className="sector-tiles">
             {sectors.list.map((s, i) => (<li key={s} className="reveal" style={{ ['--d' as string]: `${(i % 4) * 60}ms` }}><span>{String(i + 1).padStart(2, '0')}</span>{s}</li>))}
@@ -56,17 +57,8 @@ export default function Home() {
 
       <section className="sec sec-gray">
         <div className="container">
-          <SecHead eyebrow="Testimonials" title="What Clients Say" />
-          <div className="feat">
-            {['/images/events.jpg', '/images/gifts.jpg', '/images/signage.jpg'].map((img, i) => (
-              <figure key={img} className="feat-card reveal" style={{ ['--d' as string]: `${i * 90}ms` }} data-cursor="Read">
-                <span className="fc-img"><img src={img} alt="" /></span>
-                <blockquote><i>“</i>[Client testimonial {i + 1}: a short, approved quote about quality and delivery.]<i>”</i></blockquote>
-                <figcaption><b>[Name]</b> · [Organization]</figcaption>
-                <span className="ph-tag">Testimonial placeholder</span>
-              </figure>
-            ))}
-          </div>
+          <SecHead eyebrow="Testimonials" title="What Clients Say" lead="In their own words: institutions and businesses on working with LARO." />
+          <Testimonials />
         </div>
       </section>
 

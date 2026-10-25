@@ -19,7 +19,7 @@ const stats = [
 export default function AboutPage() {
   return (
     <>
-      <PageHero crumb="About" title="About Us" lead={intro.lead} image="/images/signage.jpg" imagePos="45% 40%" />
+      <PageHero crumb="About" title="About Us" lead={intro.lead} image="/images/work/team-meeting.jpg" imagePos="50% 40%" />
       <section className="sec">
         <div className="container two-col">
           <span className="eyebrow reveal">Since 2012</span>
@@ -38,6 +38,24 @@ export default function AboutPage() {
       <WeAre line1="Elevate" line2="Your Business" link={false} />
       <section className="sec">
         <div className="container two-col"><span className="eyebrow reveal">Our commitment</span><p className="big-quote reveal">“{commitment}”</p></div>
+      </section>
+      <section className="sec">
+        <div className="container">
+          <SecHead eyebrow="Our team at work" title="One Team, Brief to Delivery" lead="Account managers, designers and production coordinators working side by side on every project, from the first meeting to final installation." />
+          <div className="team-mosaic">
+            {[
+              ['/images/work/team-brief.jpg', 'The LARO team reviewing a client brief'],
+              ['/images/work/team-design.jpg', 'Designers refining artwork together'],
+              ['/images/work/team-review.jpg', 'Checking a proof before production'],
+              ['/images/work/adey-abeba-carpet-production.jpg', 'Supervising production of an Adey Abeba carpet'],
+            ].map(([src, alt], i) => (
+              <figure key={src} className={`tm-${i} reveal`} style={{ ['--d' as string]: `${i * 80}ms` }}>
+                <img src={src} alt={alt} loading="lazy" />
+                <figcaption>{alt}</figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
       </section>
       <section className="sec sec-gray">
         <div className="container">

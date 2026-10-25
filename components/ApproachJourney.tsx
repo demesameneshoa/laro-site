@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { approach } from '@/lib/content';
 
-const IMAGES = ['/images/stationery.jpg', '/images/print.jpg', '/images/gifts.jpg', '/images/signage.jpg', '/images/flags.jpg', '/images/events.jpg'];
+const IMAGES = ['/images/work/team-meeting.jpg', '/images/work/team-design.jpg', '/images/work/adey-abeba-carpet-production.jpg', '/images/work/cbe-executive-gift-set.jpg', '/images/work/ceremonial-flag-line-up.jpg', '/images/work/team-review.jpg'];
 
 // "From brief to delivery" as a journey: a rail of six stops that fills in green as it advances,
 // and a stage that shows the active step with its picture. Advances on its own while in view;

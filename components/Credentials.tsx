@@ -22,7 +22,7 @@ export default function Credentials() {
   }, [open, items.length]);
 
   const Cert = ({ c, big = false }: { c: (typeof credentials)[number]; big?: boolean }) => (
-    <span className={`cert${big ? ' big' : ''}`}>
+    <span className={`cert${big ? ' big' : ''}${c.image ? ' real' : ''}${c.landscape ? ' landscape' : ''}`}>
       {c.image ? <img className="cert-img" src={c.image} alt={`${c.t}, ${c.org}`} /> : (<>
       <span className="cert-in">
         <LogoMark width={big ? 90 : 54} light={false} />
@@ -39,11 +39,11 @@ export default function Credentials() {
 
   return (
     <>
-      <div className="cred-grid">
+      <div className={`cred-grid${items.every((c) => c.image) ? ' real' : ''}`}>
         {items.map((c, i) => (
-          <button key={c.t} type="button" className="cred in-anim" style={{ ['--d' as string]: `${(i % 4) * 70}ms` }} onClick={() => setOpen(i)} data-cursor="View" aria-label={`View ${c.t}`}>
+          <button key={c.t} type="button" className="cred in-anim" style={{ ['--d' as string]: `${(i % 4) * 70}ms` }} onClick={() => setOpen(i)} data-cursor="View" aria-label={`View ${c.t}, ${c.org}`}>
             <Cert c={c} />
-            <span className="cred-cap"><b>{c.t}</b><span>{c.org}</span></span>
+            <span className="cred-cap"><b>{c.t}</b><span>{c.org}</span><span className="cred-year">{c.year}</span></span>
           </button>
         ))}
       </div>

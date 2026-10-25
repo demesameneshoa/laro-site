@@ -89,7 +89,7 @@ export const services: Service[] = [
     items: ['Corporate printing', 'Books & publications', 'Annual reports', 'Research reports', 'Brochures', 'Flyers & leaflets', 'Magazines', 'Catalogues', 'Company profiles', 'Training materials', 'Certificates', 'Business forms', 'Corporate stationery', 'Presentation folders', 'Packaging & printed materials', 'Large-format printing', 'Finishing, binding & packaging'],
     outro: 'We coordinate the complete production process, from artwork preparation and material selection to printing, finishing, quality control, and delivery. Quality controlled. Professionally finished. Delivered ready for use.',
     closer: 'Your message deserves to be produced at the right standard.',
-    image: '/images/print.jpg', imagePos: '30% 55%',
+    image: '/images/work/publications.jpg', imagePos: '50% 55%',
   },
   {
     slug: 'signage-displays-outdoor-advertising', n: '04', title: 'Signage, Displays & Outdoor Advertising', short: 'Signage & Outdoor', tag: 'Signage',
@@ -98,7 +98,7 @@ export const services: Service[] = [
     items: ['Outdoor advertising', 'Billboard solutions', 'LED display screens', 'Digital signage', '3D letters & logos', 'Illuminated signage', 'Building signage', 'Reception & office branding', 'Wayfinding systems', 'Directional signage', 'Indoor displays', 'Outdoor displays', '3D corporate flags', 'Indoor & outdoor flag systems', 'Event backdrops', 'Exhibition displays', 'Display stands', 'Signage structures & installation'],
     outro: 'From a single sign to a complete branded environment, we deliver visibility with purpose.',
     closer: 'Elevate your business by making your brand visible.',
-    image: '/images/signage.jpg', imagePos: '45% 40%',
+    image: '/images/work/ethio-djibouti-railway-signage.jpg', imagePos: '50% 50%',
   },
   {
     slug: 'promotional-products-premium-corporate-gifts', n: '05', title: 'Promotional Products & Premium Corporate Gifts', short: 'Premium Corporate Gifts', tag: 'Promotional',
@@ -107,7 +107,7 @@ export const services: Service[] = [
     items: ['Premium corporate gifts', 'Executive gifts', 'Promotional merchandise', 'Branded notebooks', 'Pens & writing instruments', 'Bags & backpacks', 'Bottles & drinkware', 'Umbrellas', 'Caps & apparel', 'Keyholders', 'Desk accessories', 'Technology accessories', 'Conference materials', 'Employee gifts', 'Client appreciation gifts', 'Custom promotional products', 'Premium gift sets', 'Institutional and campaign merchandise'],
     outro: 'Thoughtfully selected. Professionally branded. Memorable by design.',
     closer: 'Thoughtfully selected. Professionally branded.',
-    image: '/images/gifts.jpg', imagePos: '68% 50%',
+    image: '/images/work/cbe-executive-gift-set.jpg', imagePos: '50% 55%',
   },
   {
     slug: 'eco-friendly-promotional-advertising', n: '06', title: 'Eco-Friendly Promotional & Advertising Solutions', short: 'Eco-Friendly', tag: 'Eco',
@@ -116,7 +116,7 @@ export const services: Service[] = [
     items: ['Bamboo promotional products', 'Wooden promotional products', 'Cork products', 'Recycled-material products', 'Recycled paper products', 'Sustainable notebooks', 'Eco-friendly pens', 'Reusable shopping bags', 'Cotton & canvas bags', 'Jute promotional bags', 'Reusable bottles & cups', 'Eco-friendly lanyards', 'Sustainable badges', 'Eco-friendly premium corporate gifts', 'Sustainable gift sets', 'Reusable event materials', 'Environmentally conscious event branding', 'Sustainable promotional campaigns'],
     outro: 'We work with clients to select materials and products that align with their sustainability objectives, campaign requirements, and budgets.',
     closer: 'Elevate your business. Make a positive impact.',
-    image: '/images/eco.jpg', imagePos: '50% 62%',
+    image: '/images/work/bamboo-eco-gift-set.jpg', imagePos: '45% 55%',
   },
   {
     slug: 'events-brand-activation', n: '07', title: 'Events & Brand Activation', short: 'Events & Activation', tag: 'Events',
@@ -125,7 +125,7 @@ export const services: Service[] = [
     items: ['Event branding', 'Conference branding', 'Exhibition branding', 'Corporate events', 'Product launches', 'Promotional activations', 'Event backdrops', 'Stage branding', 'Directional signage', 'Registration areas', 'Exhibition booths', 'Promotional displays', '3D corporate flags', 'Banners & displays', 'Adey Abeba & red carpets', 'Corporate merchandise', 'Conference materials', 'Event printing', 'On-site branding & installation'],
     outro: 'From concept and design to production and installation, we help create cohesive brand experiences from entrance to exit.',
     closer: 'Your event is temporary. Your brand impression can last much longer.',
-    image: '/images/events.jpg', imagePos: '72% 45%',
+    image: '/images/work/ceremonial-flag-line-up.jpg', imagePos: '50% 50%',
   },
   {
     slug: 'sourcing-supply-installation', n: '08', title: 'Sourcing, Supply & Installation', short: 'Sourcing & Installation', tag: 'Sourcing',
@@ -143,7 +143,7 @@ export const services: Service[] = [
     items: ['Roll-type label printing', 'High-volume sticker printing', 'Waterproof polypropylene (BOPP) labels', 'Paper labels', 'Clear & transparent film labels', 'Metallic foil labels', 'Direct thermal labels', 'Permanent & removable adhesives', 'High-tack adhesives', 'Cold-temperature & freezer-grade adhesives', 'Gloss laminate & matte finishes', 'UV spot varnish', 'Hot foil stamping', 'Custom core sizes (1", 1.5", 3")', 'Custom unwind directions', 'Food & beverage labels', 'Cosmetics & personal care labels', 'Pharmaceutical & chemical labels', 'Shipping & barcode labels', 'Promotional price stickers'],
     outro: 'Precision industrial and commercial labeling solutions, from material and adhesive selection to finishing and rewinding for your labeling machinery.',
     closer: 'Labels that stand out on the shelf and hold up on the line.',
-    image: '/images/labels.jpg', imagePos: '40% 55%',
+    image: '/images/work/roll-labels.jpg', imagePos: '50% 50%',
     details: [
       { eyebrow: 'Specifications', title: 'Key Features & Material Options', rows: [
         { t: 'Material Versatility', d: 'Waterproof polypropylene (BOPP), paper, clear/transparent film, metallic foil, and direct thermal options.' },
@@ -161,6 +161,19 @@ export const services: Service[] = [
   },
 ];
 
+// Client testimonials (approved quotes). `logo` points at public/images/clients when we have one.
+export type Testimonial = { quote: string[]; name: string; role: string; org: string; logo?: string };
+export const testimonials: Testimonial[] = [
+  { quote: ['LARO Advertising PLC has been a valuable partner in supporting our brand strategy and communication initiatives. Their professionalism, creative approach, and commitment to brand consistency have contributed to the development of communication materials aligned with our institutional identity. We appreciate their collaborative approach and dedication to delivering quality work.'],
+    name: 'Mr. Demissew Benti', role: 'Communication Director', org: 'Ethiopian Shipping and Logistics (ESL)', logo: '/images/clients/esl.png' },
+  { quote: ['LARO Advertising PLC has provided the Ethiopian Statistical Service with printing services and various signage solutions, demonstrating professionalism, responsiveness, and a commitment to quality. We appreciate their understanding of our institutional communication needs and their dedication to delivering materials aligned with our organizational identity and standards.'],
+    name: 'Mr. Safi Gemedi', role: 'Head of Public Relations and Communications Director', org: 'Ethiopian Statistical Service (ESS)', logo: '/images/clients/ethiopian-statistical-service.png' },
+  { quote: ['My experience working with LARO Advertising PLC during my time at Immigration and Citizenship Services gave me an appreciation for the importance of strategic branding and effective institutional communication. Their team demonstrated a thoughtful approach to understanding organizational needs and translating brand direction into meaningful communication strategies and materials.', 'I appreciated their collaborative working style, commitment to the assignment, and understanding of how a strong institutional identity can support public communication and stakeholder engagement. It was a valuable professional experience, and I recognize the role that strategic branding and consistent communication play in strengthening an institution’s image and public presence.'],
+    name: 'Ato Fraol Tafa', role: 'State Minister of Logistics', org: 'Formerly at Immigration and Citizenship Services' },
+  { quote: ['We have known LARO Advertising PLC for more than a decade and have consistently appreciated their professionalism, integrity, and dedication to delivering quality work. Throughout our longstanding relationship, LARO has provided printing and signage services for the properties we manage and other projects, demonstrating a strong commitment to quality, reliability, and client satisfaction.', 'Their good faith, attention to detail, and dedication to meeting our requirements have made them a trusted partner over the years. We value our relationship with LARO Advertising PLC and confidently recommend their services to organizations seeking a dependable and professional advertising and printing partner.'],
+    name: 'Mr. Nega Asfeha', role: 'Chief Executive Officer', org: 'Baladera Property Management and Investment Consultant' },
+];
+
 export const integrated = {
   title: 'One Brief. One Partner. One Brand Experience.',
   lead: 'Many projects require several capabilities working together. That’s where LARO makes the difference.',
@@ -168,9 +181,9 @@ export const integrated = {
   body: 'Instead of managing multiple suppliers, clients can work with one coordinated partner responsible for bringing the entire solution together.',
   examples: [
     { title: 'Corporate Rebranding', parts: ['Brand Strategy', 'Identity', 'Guidelines', 'Stationery', 'Signage', 'Promotional Products'], image: '/images/stationery.jpg' },
-    { title: 'Government & Institutional Communication', parts: ['Publications', 'Reports', 'Printing', 'Signage', 'Corporate Materials', 'Events'], image: '/images/print.jpg' },
-    { title: 'Corporate Event', parts: ['Event Concept', 'Branding', 'Backdrops', '3D Corporate Flags', 'Displays', 'Promotional Products', 'Installation'], image: '/images/events.jpg' },
-    { title: 'Sustainable Campaign', parts: ['Campaign Design', 'Eco-Friendly Promotional Products', 'Sustainable Printing', 'Event Branding'], image: '/images/eco.jpg' },
+    { title: 'Government & Institutional Communication', parts: ['Publications', 'Reports', 'Printing', 'Signage', 'Corporate Materials', 'Events'], image: '/images/work/publications.jpg' },
+    { title: 'Corporate Event', parts: ['Event Concept', 'Branding', 'Backdrops', '3D Corporate Flags', 'Displays', 'Promotional Products', 'Installation'], image: '/images/work/ceremonial-flag-line-up.jpg' },
+    { title: 'Sustainable Campaign', parts: ['Campaign Design', 'Eco-Friendly Promotional Products', 'Sustainable Printing', 'Event Branding'], image: '/images/work/bamboo-eco-gift-set.jpg' },
   ],
 };
 
@@ -257,42 +270,51 @@ export const clients: { name: string; logo: string }[] = [
 ];
 
 // Credentials gallery: certificates and recognitions from the organizations we work with.
-// Placeholders until the scans are supplied; add `image: '/images/credentials/<file>.jpg'` to each item when ready.
-export type Credential = { t: string; org: string; year: string; kind: 'Certificate' | 'Recognition'; image?: string };
+// Add a scan to public/images/credentials/ and a line here to show more.
+export type Credential = { t: string; org: string; year: string; kind: 'Certificate' | 'Recognition'; image?: string; landscape?: boolean };
 export const credentials: Credential[] = [
-  { t: '[Certificate title]', org: '[Issuing organization]', year: '[Year]', kind: 'Certificate' },
-  { t: '[Certificate of appreciation]', org: '[Client organization]', year: '[Year]', kind: 'Recognition' },
-  { t: '[Supplier certificate]', org: '[Government or international organization]', year: '[Year]', kind: 'Certificate' },
-  { t: '[Recognition award]', org: '[Awarding organization]', year: '[Year]', kind: 'Recognition' },
-  { t: '[Quality or product certification]', org: '[Certifying body]', year: '[Year]', kind: 'Certificate' },
-  { t: '[Certificate of participation]', org: '[Event or exhibition organizer]', year: '[Year]', kind: 'Certificate' },
-  { t: '[Partnership certificate]', org: '[Partner organization]', year: '[Year]', kind: 'Recognition' },
-  { t: '[Training or membership certificate]', org: '[Association or institute]', year: '[Year]', kind: 'Certificate' },
+  { t: 'Certificate of Appreciation', org: 'Ethiopian Shipping & Logistics (ESL)', year: 'February 2023', kind: 'Recognition', image: '/images/credentials/esl-certificate-of-appreciation.jpg', landscape: true },
+  { t: 'Certificate of Good Performance', org: 'Ethiopian Statistical Service (ESS)', year: 'October 2026', kind: 'Certificate', image: '/images/credentials/ess-certificate-of-good-performance.jpg' },
 ];
 
 export const brochure = {
   file: '/docs/LARO-Company-Overview.pdf',
-  title: 'Company Overview',
-  pages: 9,
-  size: '1.3 MB',
-  points: ['Who we are and how we work', 'All nine services in detail', 'Integrated solutions and our six-step approach', 'Sectors we serve and contact details'],
-};
+  title: 'Company Profile',
+  pages: 20,
+  size: '11.5 MB',
+  preview: ['/images/brochure/page-1.jpg', '/images/brochure/page-3.jpg', '/images/brochure/page-5.jpg'],
+  points: ['Company overview, mission, vision and core values', 'Our services and capabilities', 'Our approach, quality and compliance', 'Legal information and contact details'],
+}
 
-export type WorkItem = { title: string; cat: string; image: string; pos?: string; size?: 'tall' | 'wide' | 'std'; tags?: string[] };
-// Placeholder portfolio built from LARO product renders. Replace with real project photos.
+export type WorkItem = { title: string; client?: string; cat: string; image: string; video?: string; pos?: string; size?: 'tall' | 'wide' | 'std'; tags?: string[] };
+// Portfolio: real LARO projects (photos and short clips from the digital contents folder).
 export const work: WorkItem[] = [
-  { title: '3D corporate flag system', cat: 'Signage', image: '/images/hero.jpg', pos: '78% 45%', size: 'tall', tags: ['Signage','Sourcing'] },
-  { title: 'Reception 3D illuminated logo', cat: 'Signage', image: '/images/signage.jpg', pos: '45% 40%', size: 'wide', tags: ['Signage','Branding'] },
-  { title: 'Premium corporate gift box', cat: 'Promotional', image: '/images/gifts.jpg', pos: '70% 50%', size: 'std', tags: ['Promotional','Branding'] },
-  { title: 'Conference stage branding', cat: 'Events', image: '/images/events.jpg', pos: '72% 45%', size: 'std', tags: ['Events','Signage','Printing'] },
-  { title: 'Corporate identity & stationery', cat: 'Branding', image: '/images/stationery.jpg', pos: '50% 50%', size: 'wide', tags: ['Branding','Printing'] },
-  { title: 'Eco welcome kit', cat: 'Eco', image: '/images/eco.jpg', pos: '50% 62%', size: 'std', tags: ['Eco','Promotional'] },
-  { title: 'Annual report & publications', cat: 'Printing', image: '/images/print.jpg', pos: '50% 50%', size: 'std', tags: ['Printing','Creative'] },
-  { title: 'Campaign & catalogue design', cat: 'Creative', image: '/images/print.jpg', pos: '80% 45%', size: 'std', tags: ['Creative','Printing'] },
-  { title: 'Red carpet arrival', cat: 'Events', image: '/images/carpet.jpg', pos: '35% 60%', size: 'std', tags: ['Events','Sourcing'] },
-  { title: 'Boardroom & outdoor 3D corporate flags', cat: 'Signage', image: '/images/flags.jpg', pos: '55% 40%', size: 'std', tags: ['Signage','Events'] },
+  { title: 'Executive gift set', client: 'Commercial Bank of Ethiopia', cat: 'Promotional', image: '/images/work/cbe-executive-gift-set.jpg', pos: '50% 55%', size: 'tall', tags: ['Promotional', 'Branding'] },
+  { title: 'Reception signage & 3D corporate flags', client: 'Ethio-Djibouti Railway', cat: 'Signage', image: '/images/work/ethio-djibouti-railway-signage.jpg', pos: '50% 50%', tags: ['Signage', 'Flags'] },
+  { title: 'Bamboo eco gift set', cat: 'Eco', image: '/images/work/bamboo-eco-gift-set.jpg', pos: '45% 55%', tags: ['Eco', 'Promotional'] },
+  { title: '3D corporate flags', client: 'MESOB', cat: 'Flags', image: '/images/work/mesob-flags.jpg', pos: '50% 40%', size: 'tall', tags: ['Flags', 'Signage'] },
+  { title: 'Adey Abeba carpet', cat: 'Events', image: '/videos/adey-abeba-carpet.jpg', video: '/videos/adey-abeba-carpet.mp4', pos: '50% 50%', tags: ['Events', 'Sourcing'] },
+  { title: 'Illuminated 3D logo wall', client: 'Ministry of Agriculture', cat: 'Signage', image: '/images/work/ministry-of-agriculture-signage.jpg', pos: '50% 35%', tags: ['Signage', 'Flags'] },
+  { title: 'Roll-type product labels', cat: 'Packaging', image: '/images/work/roll-labels.jpg', pos: '50% 50%', tags: ['Packaging', 'Printing'] },
+  { title: 'Ceremonial flag line-up', cat: 'Events', image: '/images/work/ceremonial-flag-line-up.jpg', pos: '50% 50%', tags: ['Events', 'Flags'] },
+  { title: 'Country reports & publications', cat: 'Printing', image: '/images/work/publications.jpg', pos: '50% 55%', tags: ['Printing', 'Creative'] },
+  { title: 'Signage & 3D corporate flags', client: 'Ministry of Planning & Development', cat: 'Signage', image: '/images/work/planning-development-signage.jpg', pos: '50% 45%', tags: ['Signage', 'Flags'] },
+  { title: 'Gala dinner invitation suite', cat: 'Printing', image: '/images/work/gala-dinner-invitation.jpg', pos: '50% 50%', tags: ['Printing', 'Creative'] },
+  { title: 'Executive tech gift set', cat: 'Promotional', image: '/images/work/executive-tech-gift-set.jpg', pos: '50% 50%', tags: ['Promotional'] },
+  { title: 'Office 3D corporate flags', client: 'Commercial Bank of Ethiopia', cat: 'Flags', image: '/images/work/cbe-office-flags.jpg', pos: '50% 40%', size: 'tall', tags: ['Flags'] },
+  { title: 'Branded event polo shirts', cat: 'Promotional', image: '/images/work/event-polo-shirts.jpg', pos: '50% 50%', tags: ['Promotional', 'Events'] },
+  { title: 'Flag installation', cat: 'Flags', image: '/videos/flag-installation.jpg', video: '/videos/flag-installation.mp4', pos: '50% 50%', size: 'tall', tags: ['Flags', 'Events'] },
+  { title: '3D corporate flags', client: 'Ministry of Irrigation & Lowlands', cat: 'Flags', image: '/images/work/irrigation-lowlands-flags.jpg', pos: '50% 40%', tags: ['Flags'] },
+  { title: 'Corporate notebook gift set', cat: 'Promotional', image: '/images/work/corporate-notebook-gift-set.jpg', pos: '50% 45%', tags: ['Promotional'] },
+  { title: 'Adey Abeba carpet production', cat: 'Events', image: '/images/work/adey-abeba-carpet-production.jpg', pos: '50% 50%', tags: ['Events', 'Sourcing'] },
+  { title: 'Crystal awards', cat: 'Promotional', image: '/images/work/crystal-award.jpg', pos: '50% 50%', tags: ['Promotional', 'Events'] },
+  { title: 'Invitation printing & finishing', cat: 'Printing', image: '/videos/invitation-printing.jpg', video: '/videos/invitation-printing.mp4', pos: '50% 40%', tags: ['Printing', 'Creative'] },
+  { title: 'Cork-base mug & bottle set', cat: 'Eco', image: '/images/work/cork-mug-bottle-set.jpg', pos: '50% 55%', tags: ['Eco', 'Promotional'] },
+  { title: 'Institutional flag set', cat: 'Flags', image: '/images/work/institutional-flag-set.jpg', pos: '50% 50%', tags: ['Flags'] },
+  { title: 'Executive gift box', client: 'Commercial Bank of Ethiopia', cat: 'Promotional', image: '/images/work/cbe-gift-box.jpg', pos: '50% 50%', tags: ['Promotional', 'Branding'] },
+  { title: 'Label printing for FMCG brands', cat: 'Packaging', image: '/images/work/roll-labels-range.jpg', pos: '50% 50%', tags: ['Packaging', 'Printing'] },
 ];
-export const workCats = ['All', 'Branding', 'Creative', 'Printing', 'Signage', 'Promotional', 'Eco', 'Events'];
+export const workCats = ['All', 'Flags', 'Signage', 'Promotional', 'Eco', 'Printing', 'Packaging', 'Events'];
 
 export const closing = {
   title: 'Elevate Your Business With LARO',
@@ -304,10 +326,10 @@ export const commitment = 'LARO Advertising PLC is dedicated to transforming ide
 
 export const heroSlides = [
   { image: '/images/hero.jpg', caption: '3D corporate flags', pos: '72% 50%' },
-  { image: '/images/signage.jpg', caption: 'Illuminated 3D signage', pos: '50% 40%' },
-  { image: '/images/events.jpg', caption: 'Event & stage branding', pos: '70% 45%' },
-  { image: '/images/gifts.jpg', caption: 'Premium corporate gifts', pos: '70% 50%' },
-];
+  { image: '/images/work/ethio-djibouti-railway-signage.jpg', caption: 'Signage & 3D corporate flags', pos: '50% 50%' },
+  { image: '/images/work/cbe-executive-gift-set.jpg', caption: 'Premium corporate gifts', pos: '50% 55%' },
+  { image: '/images/work/ceremonial-flag-line-up.jpg', caption: 'Event flags & installation', pos: '50% 50%' },
+]
 
 export const navImages: Record<string, string> = {
   '/': '/images/hero.jpg',

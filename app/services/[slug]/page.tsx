@@ -5,6 +5,7 @@ import { services, work } from '@/lib/content';
 import { ArrowBtn, PageHero, SecFoot, SecHead } from '@/components/Blocks';
 import { ScrollText, Dots } from '@/components/Text';
 import { ArrowUpRight } from '@/components/Icons';
+import WorkMedia from '@/components/WorkMedia';
 
 type Props = { params: Promise<{ slug: string }> };
 export function generateStaticParams() { return services.map((s) => ({ slug: s.slug })); }
@@ -61,9 +62,9 @@ export default async function ServicePage({ params }: Props) {
             <SecHead eyebrow="Portfolio" title="Related Work" />
             <div className="wgrid">
               {related.map((w) => (
-                <Link key={w.title} href="/work" className="mw-card reveal" data-cursor="View">
-                  <span className="mw-img"><img src={w.image} alt={`Placeholder visual: ${w.title}`} style={{ objectPosition: w.pos }} /><span className="ph-tag">Placeholder · replace with project photo</span></span>
-                  <span className="mw-t">{w.title}</span><Dots items={w.tags ?? [w.cat]} />
+                <Link key={w.image} href="/work" className="mw-card reveal" data-cursor="View">
+                  <span className="mw-img"><WorkMedia w={w} /></span>
+                  <span className="mw-t">{w.title}</span>{w.client ? <span className="mw-client">{w.client}</span> : null}<Dots items={w.tags ?? [w.cat]} />
                 </Link>
               ))}
             </div>

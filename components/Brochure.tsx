@@ -1,24 +1,19 @@
-import { brochure, company } from '@/lib/content';
-import LogoMark from './Logo';
+import { brochure } from '@/lib/content';
 import { Download } from './Icons';
 
-// Company overview download: a brochure mock-up beside the summary and download button.
+// Company profile download: pages of the real PDF fanned out beside the summary and download button.
 export default function Brochure() {
   return (
     <div className="brochure">
-      <div className="br-mock reveal" aria-hidden="true" data-cursor="PDF">
-        <span className="br-page p3" /><span className="br-page p2" />
-        <span className="br-cover">
-          <LogoMark width={120} />
-          <span className="br-t">Company<br />Overview</span>
-          <span className="br-sub">{company.tagline}</span>
-          <span className="br-year">{new Date().getFullYear()}</span>
-        </span>
+      <div className="br-mock slides reveal" aria-hidden="true" data-cursor="PDF">
+        <img className="br-page p3" src={brochure.preview[2]} alt="" loading="lazy" />
+        <img className="br-page p2" src={brochure.preview[1]} alt="" loading="lazy" />
+        <img className="br-cover" src={brochure.preview[0]} alt="" loading="lazy" />
       </div>
       <div className="br-txt">
         <span className="eyebrow reveal">Download</span>
-        <h2 className="h2 reveal">Company overview brochure</h2>
-        <p className="lead reveal">Everything a procurement or communications team needs in one document, ready to share internally or attach to a supplier file.</p>
+        <h2 className="h2 reveal">Company profile</h2>
+        <p className="lead reveal">Who we are, what we do and how we work, in one document ready to share internally or attach to a supplier file.</p>
         <ul className="br-list reveal">{brochure.points.map((p) => <li key={p}>{p}</li>)}</ul>
         <div className="br-cta reveal">
           <a className="go-btn" href={brochure.file} download>

@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useEffect, useRef } from 'react';
 import { ArrowUpRight } from './Icons';
 
-const TRAIL = ['/images/signage.jpg', '/images/gifts.jpg', '/images/events.jpg', '/images/stationery.jpg', '/images/flags.jpg', '/images/eco.jpg', '/images/print.jpg', '/images/carpet.jpg'];
+const TRAIL = ['/images/work/mesob-flags.jpg', '/images/work/cbe-executive-gift-set.jpg', '/images/work/ethio-djibouti-railway-signage.jpg', '/images/work/bamboo-eco-gift-set.jpg', '/images/work/team-meeting.jpg', '/images/work/roll-labels.jpg', '/images/work/publications.jpg', '/images/work/ceremonial-flag-line-up.jpg', '/images/work/executive-tech-gift-set.jpg', '/images/work/ministry-of-agriculture-signage.jpg'];
 
 // Big statement with a green disc that sweeps in on scroll and a trail of project images
 // that pop up under the pointer as it moves.
