@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { useEffect, useRef } from 'react';
-import { work } from '@/lib/content';
+import { services, work } from '@/lib/content';
 import { Dots, Letters } from './Text';
 import { ArrowUpRight } from './Icons';
 import WorkMedia from './WorkMedia';
@@ -41,7 +41,7 @@ export default function MasonryWork({ limit = 9, heading = true }: { limit?: num
                   <span className="mw-img"><WorkMedia w={w} /></span>
                   <span className="mw-t">{w.title}</span>
                   {w.client ? <span className="mw-client">{w.client}</span> : null}
-                  <Dots items={w.tags ?? [w.cat]} />
+                  <Dots items={(w.tags ?? [w.cat]).map((t) => services.find((x) => x.tag === t)?.short ?? t)} />
                 </Link>
               ))}
             </div>

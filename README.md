@@ -24,7 +24,7 @@ All motion respects prefers-reduced-motion. Pinned and horizontal effects switch
 | --- | --- |
 | `/` | Home: wordmark hero, selected works, our services, we are LARO, approach, sectors, why LARO, clients, testimonials, one brief one partner |
 | `/services` | Services overview |
-| `/services/[slug]` | 9 service detail pages, generated statically from `lib/content.ts` |
+| `/services/[slug]` | 10 service detail pages, generated statically from `lib/content.ts` |
 | `/solutions` | Integrated solutions, example projects, approach |
 | `/work` | Portfolio with category filter |
 | `/about` | Story, stats, commitment, why LARO, leadership team, credentials gallery, company overview download |

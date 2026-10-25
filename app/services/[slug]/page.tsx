@@ -21,7 +21,7 @@ export default async function ServicePage({ params }: Props) {
   if (idx < 0) notFound();
   const s = services[idx];
   const next = services[(idx + 1) % services.length];
-  const related = work.filter((w) => (w.tags ?? [w.cat]).includes(s.tag)).slice(0, 3);
+  const related = work.filter((w) => (w.tags ?? [w.cat]).includes(s.tag)).slice(0, 6);
   return (
     <>
       <PageHero crumb={`Services / ${s.n}`} title={s.title} lead={s.tagline} image={s.image} imagePos={s.imagePos}>
@@ -64,7 +64,7 @@ export default async function ServicePage({ params }: Props) {
               {related.map((w) => (
                 <Link key={w.image} href="/work" className="mw-card reveal" data-cursor="View">
                   <span className="mw-img"><WorkMedia w={w} /></span>
-                  <span className="mw-t">{w.title}</span>{w.client ? <span className="mw-client">{w.client}</span> : null}<Dots items={w.tags ?? [w.cat]} />
+                  <span className="mw-t">{w.title}</span>{w.client ? <span className="mw-client">{w.client}</span> : null}<Dots items={(w.tags ?? [w.cat]).map((t) => services.find((x) => x.tag === t)?.short ?? t)} />
                 </Link>
               ))}
             </div>

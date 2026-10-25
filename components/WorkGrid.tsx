@@ -1,6 +1,9 @@
 'use client';
 import { useEffect, useState } from 'react';
-import { work, workCats } from '@/lib/content';
+import { services, work } from '@/lib/content';
+
+// Filters follow the service list; a service only shows a filter once it has work to show.
+const CATS = [{ tag: 'All', label: 'All' }, ...services.filter((s) => work.some((w) => w.cat === s.tag || (w.tags ?? []).includes(s.tag))).map((s) => ({ tag: s.tag, label: s.short }))];
 import { Dots } from './Text';
 import WorkMedia from './WorkMedia';
 
@@ -26,8 +29,8 @@ export default function WorkGrid() {
   return (
     <>
       <div className="filters" role="group" aria-label="Filter projects by service">
-        {workCats.map((c) => (
-          <button key={c} type="button" className="filter" aria-pressed={c === cat} onClick={() => { setCat(c); setK((x) => x + 1); setOpen(null); }}>{c}</button>
+        {CATS.map((c) => (
+          <button key={c.tag} type="button" className="filter" aria-pressed={c.tag === cat} onClick={() => { setCat(c.tag); setK((x) => x + 1); setOpen(null); }}>{c.label}</button>
         ))}
       </div>
       <div className="wgrid" key={k}>
@@ -36,7 +39,7 @@ export default function WorkGrid() {
             <span className="mw-img"><WorkMedia w={w} />{w.video ? <span className="mw-play" aria-hidden="true">▶</span> : null}</span>
             <span className="mw-t">{w.title}</span>
             {w.client ? <span className="mw-client">{w.client}</span> : null}
-            <Dots items={w.tags ?? [w.cat]} />
+            <Dots items={(w.tags ?? [w.cat]).map((t) => services.find((x) => x.tag === t)?.short ?? t)} />
           </button>
         ))}
         {items.length === 0 ? <p className="muted">Projects for this service are coming soon.</p> : null}
