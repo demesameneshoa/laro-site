@@ -342,7 +342,7 @@ export const work: WorkItem[] = [
   { title: "Executive gift set, open", client: "Commercial Bank of Ethiopia", cat: "Gift Boxes", image: '/images/work/cbe-gift-set-open.jpg', pos: "50% 55%", tags: ["Gift Boxes"] },
   { title: "Flag line-up walkthrough", cat: "Flags", image: '/videos/flag-line-up-walkthrough.jpg', video: '/videos/flag-line-up-walkthrough.mp4', pos: "50% 50%", size: 'tall', tags: ["Flags", "Events"] },
   { title: "Institutional flag set", cat: "Flags", image: '/images/work/institutional-flag-set.jpg', pos: "50% 50%", tags: ["Flags"] },
-  { title: "Why Ethiopia booklet", cat: "Printing", image: '/images/work/why-ethiopia-booklet.jpg', pos: "50% 50%", tags: ["Printing", "Advertising"] },
+  { title: "Why Ethiopia booklet", cat: "Printing", image: '/images/work/why-ethiopia-booklet.jpg', pos: "50% 70%", size: 'tall', tags: ["Printing", "Advertising"] },
   { title: "Bamboo gift box", cat: "Gift Boxes", image: '/images/work/bamboo-gift-box-open.jpg', pos: "50% 55%", tags: ["Gift Boxes"] },
   { title: "3D corporate flags", client: "MESOB", cat: "Flags", image: '/images/work/mesob-ess-flags.jpg', pos: "50% 40%", size: 'tall', tags: ["Flags"] },
   { title: "Crystal award", cat: "Gifts", image: '/images/work/crystal-award-wave.jpg', pos: "50% 50%", tags: ["Gifts"] },
