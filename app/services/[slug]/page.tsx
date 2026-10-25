@@ -1,11 +1,10 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { services, work } from '@/lib/content';
+import { projects, services } from '@/lib/content';
 import { ArrowBtn, PageHero, SecFoot, SecHead } from '@/components/Blocks';
-import { ScrollText, Dots } from '@/components/Text';
+import { ScrollText } from '@/components/Text';
 import { ArrowUpRight } from '@/components/Icons';
-import WorkMedia from '@/components/WorkMedia';
 
 type Props = { params: Promise<{ slug: string }> };
 export function generateStaticParams() { return services.map((s) => ({ slug: s.slug })); }
@@ -21,7 +20,7 @@ export default async function ServicePage({ params }: Props) {
   if (idx < 0) notFound();
   const s = services[idx];
   const next = services[(idx + 1) % services.length];
-  const related = work.filter((w) => (w.tags ?? [w.cat]).includes(s.tag)).slice(0, 6);
+  const related = projects.filter((x) => x.services.includes(s.tag)).slice(0, 6);
   return (
     <>
       <PageHero crumb={`Services / ${s.n}`} title={s.title} lead={s.tagline} image={s.image} imagePos={s.imagePos}>
@@ -60,15 +59,16 @@ export default async function ServicePage({ params }: Props) {
         <section className="sec">
           <div className="container">
             <SecHead eyebrow="Portfolio" title="Related Work" />
-            <div className="wgrid">
-              {related.map((w) => (
-                <Link key={w.image} href="/work" className="mw-card reveal" data-cursor="View">
-                  <span className="mw-img"><WorkMedia w={w} /></span>
-                  <span className="mw-t">{w.title}</span>{w.client ? <span className="mw-client">{w.client}</span> : null}<Dots items={(w.tags ?? [w.cat]).map((t) => services.find((x) => x.tag === t)?.short ?? t)} />
+            <div className="pg-grid">
+              {related.map((r) => (
+                <Link key={r.slug} href={`/work/${r.slug}`} className="pg-card reveal" data-cursor="View">
+                  <span className="pg-img"><img src={r.media[0].src} alt={r.client ? `${r.title} for ${r.client}` : r.title} loading="lazy" style={{ objectPosition: r.media[0].pos }} /></span>
+                  <span className="pg-t">{r.title}</span>
+                  {r.client ? <span className="pg-c">{r.client}</span> : null}
                 </Link>
               ))}
             </div>
-            <SecFoot left="Every item is produced and branded to your guidelines." href="/work" label="View all works" />
+            <SecFoot left="Every item is produced and branded to your guidelines." href="/work" label="View all work" />
           </div>
         </section>
       ) : null}

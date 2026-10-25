@@ -49,7 +49,7 @@ export default function Footer() {
       <div className="container ftr-links">
         <img src="/images/logo-full-white.png" alt={`${company.name}, ${company.tagline}`} width={556} height={376} className="ftr-logo" />
         <div className="fl-col"><h4>Services</h4>{services.map((s) => (<Link key={s.slug} href={`/services/${s.slug}`}>{s.short}</Link>))}</div>
-        <div className="fl-col"><h4>Company</h4>{['Work', 'Solutions', 'About', 'Clients', 'Contact'].map((l) => (<Link key={l} href={`/${l.toLowerCase()}`}>{l}</Link>))}</div>
+        <div className="fl-col"><h4>Company</h4>{[['Work', '/work'], ['Services', '/services'], ['Solutions', '/solutions'], ['About', '/about'], ['Clients', '/about#clients'], ['Request a quote', '/contact']].map(([l, h]) => (<Link key={h} href={h}>{l}</Link>))}</div>
         <div className="fl-col"><h4>Visit</h4><address className="addr">{company.address.map((l) => <span key={l}>{l}</span>)}</address></div>
       </div>
       <div className="container ftr-bot"><span>{company.name} {new Date().getFullYear()}</span><span>{company.tagline}</span><a href="#top">Back to top ↑</a></div>

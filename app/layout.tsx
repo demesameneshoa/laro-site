@@ -17,8 +17,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: { default: 'LARO Advertising PLC | Elevate your Business', template: '%s | LARO Advertising PLC' },
   description: 'Advertising, branding, design and commercial printing, 3D corporate flags, corporate gifts and gift boxes, events, ICT supply, support services and Adey Abeba carpets in Addis Ababa, Ethiopia. One partner from brief to delivery.',
-  openGraph: { type: 'website', siteName: 'LARO Advertising PLC', images: ['/images/hero.jpg'] },
-  icons: { icon: '/favicon.png' },
+  openGraph: { type: 'website', siteName: 'LARO Advertising PLC', images: ['/images/hero/team-meeting.jpg'] },
 };
 
 export const viewport: Viewport = { themeColor: '#fafafa', width: 'device-width', initialScale: 1 };

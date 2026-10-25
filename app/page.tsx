@@ -1,18 +1,20 @@
-import { approach, integrated, sectors, why } from '@/lib/content';
-import HeroWordmark from '@/components/HeroWordmark';
-import MasonryWork from '@/components/MasonryWork';
+import Link from 'next/link';
+import { ArrowUpRight } from '@/components/Icons';
+import { approach, sectors, why } from '@/lib/content';
+import HeroCarousel from '@/components/HeroCarousel';
+import FeaturedWork from '@/components/FeaturedWork';
 import PinnedServices from '@/components/PinnedServices';
 import WeAre from '@/components/WeAre';
 import ApproachJourney from '@/components/ApproachJourney';
 import LensWord from '@/components/LensWord';
-import { LogoGrid, SecFoot, SecHead } from '@/components/Blocks';
+import { LogoGrid, SecHead } from '@/components/Blocks';
 import Testimonials from '@/components/Testimonials';
 
 export default function Home() {
   return (
     <>
-      <HeroWordmark />
-      <MasonryWork />
+      <HeroCarousel />
+      <FeaturedWork />
       <PinnedServices />
       <WeAre />
 
@@ -50,7 +52,7 @@ export default function Home() {
 
       <section className="sec">
         <div className="container">
-          <SecHead eyebrow="Trusted by" title="Our Clients" lead="A trusted partner to organizations that expect professional communication, quality execution and dependable delivery." />
+          <SecHead eyebrow="Trusted by" title="Our Clients" lead="A trusted partner to organizations that expect professional communication, quality execution and dependable delivery." action={<Link href="/about#clients" className="go-btn"><span>All clients</span><ArrowUpRight size={18} /></Link>} />
           <LogoGrid />
         </div>
       </section>
@@ -62,15 +64,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="sec">
-        <div className="container">
-          <SecHead eyebrow="Integrated solutions" title="One Brief. One Partner." lead={integrated.lead} />
-          <ol className="net">
-            {integrated.chain.map((c, i) => (<li key={c} className="reveal" style={{ ['--d' as string]: `${i * 60}ms` }}><span>0{i + 1}</span>{c}</li>))}
-          </ol>
-          <SecFoot left={integrated.body} href="/solutions" label="Integrated solutions" />
-        </div>
-      </section>
     </>
   );
 }

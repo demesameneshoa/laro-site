@@ -1,13 +1,12 @@
-import type { WorkItem } from '@/lib/content';
+import type { Media } from '@/lib/content';
 
-// A portfolio item's picture, or a muted looping clip when the item has a video.
-export default function WorkMedia({ w, controls = false }: { w: WorkItem; controls?: boolean }) {
-  const alt = w.client ? `${w.title} for ${w.client}` : w.title;
-  if (w.video) {
+// A project picture, or a muted looping clip when the item has a video.
+export default function WorkMedia({ m, alt, controls = false, eager = false }: { m: Media; alt: string; controls?: boolean; eager?: boolean }) {
+  if (m.video) {
     return (
-      <video src={w.video} poster={w.image} muted loop playsInline autoPlay={!controls} controls={controls} preload="metadata"
-        aria-label={alt} style={{ objectPosition: w.pos }} />
+      <video src={m.video} poster={m.src} muted loop playsInline autoPlay={!controls} controls={controls} preload="metadata"
+        aria-label={alt} style={{ objectPosition: m.pos }} />
     );
   }
-  return <img src={w.image} alt={alt} loading="lazy" style={{ objectPosition: w.pos }} />;
+  return <img src={m.src} alt={alt} loading={eager ? 'eager' : 'lazy'} style={{ objectPosition: m.pos }} />;
 }

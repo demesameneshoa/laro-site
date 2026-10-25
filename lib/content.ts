@@ -34,8 +34,7 @@ export const nav = [
   { label: 'Services', href: '/services' },
   { label: 'Solutions', href: '/solutions' },
   { label: 'About', href: '/about' },
-  { label: 'Clients', href: '/clients' },
-  { label: 'Contact', href: '/contact' },
+  { label: 'Request a quote', href: '/contact' },
 ];
 
 export const intro = {
@@ -59,13 +58,20 @@ export type Service = {
   image: string;
   imagePos?: string;
   tag: string;
+  group: string;
   // optional extra blocks shown on the service page (title + numbered columns)
   details?: { eyebrow: string; title: string; rows: { t: string; d: string }[] }[];
 };
 
+export const serviceGroups = [
+  { name: 'Brand & Communication', lead: 'Campaigns, identity, design and print that make your organization clear and recognizable.' },
+  { name: 'Products & Production', lead: 'Flags, gifts, gift boxes and carpets produced to your brand and delivered ready to use.' },
+  { name: 'Events, Supply & Support', lead: 'Event production, ICT supply and support services from the same coordinated team.' },
+];
+
 export const services: Service[] = [
   {
-    slug: "advertising-marketing-communications", n: "01", title: "Advertising & Marketing Communications", short: "Advertising & Marketing", tag: "Advertising",
+    slug: "advertising-marketing-communications", n: "01", group: "Brand & Communication", title: "Advertising & Marketing Communications", short: "Advertising & Marketing", tag: "Advertising",
     tagline: "Communication that builds visibility, trust and engagement.",
     intro: ["Effective communication builds visibility, trust and engagement. We help organizations communicate their products, services, programs and identity with clarity and creativity."],
     items: ["Campaign development", "Digital & social media marketing", "Promotional & direct marketing", "Public awareness campaigns", "Print-media advertising", "Advertising design", "Social media content", "Outdoor & billboard advertising", "LED display screens & digital signage", "Photography & video content", "Infographics & presentations"],
@@ -74,7 +80,7 @@ export const services: Service[] = [
     image: "/images/work/team-meeting.jpg", imagePos: "50% 40%",
   },
   {
-    slug: "branding-corporate-identity", n: "02", title: "Branding & Corporate Identity", short: "Branding & Identity", tag: "Branding",
+    slug: "branding-corporate-identity", n: "02", group: "Brand & Communication", title: "Branding & Corporate Identity", short: "Branding & Identity", tag: "Branding",
     tagline: "Build a brand people recognize, trust, and remember.",
     intro: ["A strong brand creates recognition, trust and consistency. We build visual identities that look professional and stay consistent across every communication and physical space."],
     items: ["Logo & identity design", "Brand guidelines", "Corporate stationery", "Office & reception branding", "Signage & wayfinding", "Vehicle & event branding", "Brand strategy & positioning", "Corporate identity systems", "Brand refresh & rebranding", "3D letters & logos", "Illuminated signage", "Building signage", "Presentation templates"],
@@ -83,7 +89,7 @@ export const services: Service[] = [
     image: "/images/work/ethio-djibouti-railway-signage.jpg", imagePos: "50% 50%",
   },
   {
-    slug: "creative-design-commercial-printing", n: "03", title: "Creative Design & Commercial Printing", short: "Design & Printing", tag: "Printing",
+    slug: "creative-design-commercial-printing", n: "03", group: "Brand & Communication", title: "Creative Design & Commercial Printing", short: "Design & Printing", tag: "Printing",
     tagline: "From ideas on screen to quality in hand.",
     intro: ["Our creative and production teams work together so every printed piece communicates your identity and meets professional finishing standards."],
     items: ["Company profiles", "Annual reports", "Books & magazines", "Brochures & catalogues", "Calendars", "Business cards", "Letterheads", "Certificates", "Labels & packaging", "Roll-type labels & stickers", "Invitations & event stationery", "Graphic design", "Large-format printing", "Finishing, binding & packaging"],
@@ -106,7 +112,7 @@ export const services: Service[] = [
     ],
   },
   {
-    slug: "corporate-flags-institutional-supplies", n: "04", title: "Corporate Flags & Institutional Supplies", short: "3D Corporate Flags", tag: "Flags",
+    slug: "corporate-flags-institutional-supplies", n: "04", group: "Products & Production", title: "Corporate Flags & Institutional Supplies", short: "3D Corporate Flags", tag: "Flags",
     tagline: "An elegant, distinctive presence for every office.",
     intro: ["Premium 3D office flags bring an elegant, distinctive presence to executive offices, boardrooms, reception areas and government offices."],
     items: ["Premium 3D office flags", "Dual table flags", "Ethiopian national flags", "Corporate & institutional flags", "Indoor & outdoor flags", "Stands & accessories", "Boardroom & reception flag sets", "Event & summit flag line-ups", "Delivery & installation"],
@@ -115,7 +121,7 @@ export const services: Service[] = [
     image: "/images/work/lobby-flag-line-up.jpg", imagePos: "50% 50%",
   },
   {
-    slug: "corporate-gifts-promotional-products", n: "05", title: "Corporate Gifts & Promotional Products", short: "Corporate Gifts", tag: "Gifts",
+    slug: "corporate-gifts-promotional-products", n: "05", group: "Products & Production", title: "Corporate Gifts & Promotional Products", short: "Corporate Gifts", tag: "Gifts",
     tagline: "Put your brand in people’s hands.",
     intro: ["Customized products that strengthen relationships and keep your brand visible, for staff, clients, events and stakeholders, with eco-friendly options."],
     items: ["Notebooks", "Branded & bamboo pens", "Bottles & mugs", "USB drives", "Power banks", "Umbrellas", "Caps, T-shirts & jackets", "Tote & recycled paper bags", "Premium corporate gifts", "Polo shirts & uniforms", "Crystal awards", "Keyholders & desk accessories", "Eco-friendly promotional items", "Conference materials"],
@@ -124,7 +130,7 @@ export const services: Service[] = [
     image: "/images/work/rc76-polo-shirt.jpg", imagePos: "50% 50%",
   },
   {
-    slug: "corporate-gift-boxes", n: "06", title: "Corporate Gift Boxes", short: "Gift Boxes", tag: "Gift Boxes",
+    slug: "corporate-gift-boxes", n: "06", group: "Products & Production", title: "Corporate Gift Boxes", short: "Gift Boxes", tag: "Gift Boxes",
     tagline: "Gift packages designed around your brand and the occasion.",
     intro: ["Gift packages designed around your brand identity, the occasion, the recipient, your budget and corporate requirements."],
     items: ["Premium executive products", "Practical everyday items", "Eco-friendly promotional items", "Branded packaging", "Executive notebook & pen sets", "Tech gift sets", "Bamboo eco gift sets", "Custom presentation boxes & inserts"],
@@ -133,7 +139,7 @@ export const services: Service[] = [
     image: "/images/work/cbe-executive-gift-set.jpg", imagePos: "50% 55%",
   },
   {
-    slug: "event-promotional-solutions", n: "07", title: "Event & Promotional Solutions", short: "Events & Promotion", tag: "Events",
+    slug: "event-promotional-solutions", n: "07", group: "Events, Supply & Support", title: "Event & Promotional Solutions", short: "Events & Promotion", tag: "Events",
     tagline: "Turn events into brand experiences.",
     intro: ["Integrated event branding and production for conferences, exhibitions, launches, ceremonies and institutional programs: professional, welcoming and on-brand."],
     items: ["Stage branding & backdrops", "Roll-up banners", "Exhibition displays & booths", "Directional signage", "VIP & protocol branding", "Installation & dismantling", "Conference branding", "Product launches", "Promotional activations", "Event printing", "Registration areas", "Event flags & carpets"],
@@ -142,7 +148,7 @@ export const services: Service[] = [
     image: "/images/work/ceremonial-flag-line-up.jpg", imagePos: "50% 50%",
   },
   {
-    slug: "ict-supply-technical-materials", n: "08", title: "ICT Supply & Technical Materials", short: "ICT Supply", tag: "ICT",
+    slug: "ict-supply-technical-materials", n: "08", group: "Events, Supply & Support", title: "ICT Supply & Technical Materials", short: "ICT Supply", tag: "ICT",
     tagline: "Technology and technical materials for institutional needs.",
     intro: ["Computers, ICT equipment and technical materials that complement our core operations and meet broader institutional supply needs."],
     items: ["Computers & accessories", "ICT equipment & materials", "Office technology products", "Technical supplies", "Sourcing & procurement support", "Delivery & installation"],
@@ -151,7 +157,7 @@ export const services: Service[] = [
     image: "/images/services/ict-supply.jpg", imagePos: "50% 50%",
   },
   {
-    slug: "additional-support-services", n: "09", title: "Additional Support Services", short: "Support Services", tag: "Support",
+    slug: "additional-support-services", n: "09", group: "Events, Supply & Support", title: "Additional Support Services", short: "Support Services", tag: "Support",
     tagline: "Clean, professional and functional working environments.",
     intro: ["Complementary support services that keep working environments clean, professional and functional."],
     items: ["Gardening", "Cleaning", "Facility support"],
@@ -160,7 +166,7 @@ export const services: Service[] = [
     image: "/images/services/support-services.jpg", imagePos: "50% 50%",
   },
   {
-    slug: "adey-abeba-carpet", n: "10", title: "Adey Abeba Carpet", short: "Adey Abeba Carpet", tag: "Carpets",
+    slug: "adey-abeba-carpet", n: "10", group: "Products & Production", title: "Adey Abeba Carpet", short: "Adey Abeba Carpet", tag: "Carpets",
     tagline: "Custom carpets in your colours, logo and dimensions.",
     intro: ["Customized carpets made to your dimensions, identity, logo and branding, elevating offices, reception areas, events and institutional spaces."],
     items: ["Offices", "Reception areas", "Events", "Institutional spaces", "Custom dimensions", "Logo & brand integration", "Adey Abeba flower designs", "Ceremonial & red-carpet runners", "Production & installation"],
@@ -189,11 +195,25 @@ export const integrated = {
   chain: ['Strategy', 'Design', 'Production', 'Printing', 'Promotional Products', 'Signage', 'Installation', 'Delivery'],
   body: 'Instead of managing multiple suppliers, clients can work with one coordinated partner responsible for bringing the entire solution together.',
   examples: [
-    { title: 'Corporate Rebranding', parts: ['Brand Strategy', 'Identity', 'Guidelines', 'Stationery', 'Signage', 'Promotional Products'], image: '/images/stationery.jpg' },
+    { title: 'Corporate Rebranding', parts: ['Brand Strategy', 'Identity', 'Guidelines', 'Stationery', 'Signage', 'Promotional Products'], image: '/images/work/planning-development-signage.jpg' },
     { title: 'Government & Institutional Communication', parts: ['Publications', 'Reports', 'Printing', 'Signage', 'Corporate Materials', 'Events'], image: '/images/work/publications.jpg' },
     { title: 'Corporate Event', parts: ['Event Concept', 'Branding', 'Backdrops', '3D Corporate Flags', 'Displays', 'Promotional Products', 'Installation'], image: '/images/work/ceremonial-flag-line-up.jpg' },
     { title: 'Sustainable Campaign', parts: ['Campaign Design', 'Eco-Friendly Promotional Products', 'Sustainable Printing', 'Event Branding'], image: '/images/work/bamboo-eco-gift-set.jpg' },
   ],
+};
+
+// Delivery capabilities and quality commitments, from the company profile.
+export const capabilities = {
+  lead: 'Creative, technical, production, supply and project-management expertise working as one, with every engagement managed to the agreed requirements.',
+  items: [
+    { t: 'Creative', d: 'Concepts and designs that communicate clearly and professionally.' },
+    { t: 'Production', d: 'Printing, branding, promotional products, flags and other physical materials.' },
+    { t: 'Project Management', d: 'From initial requirements through production, delivery and implementation.' },
+    { t: 'Supply', d: 'Corporate, promotional, ICT and technical materials.' },
+    { t: 'Installation', d: 'Where required, we extend beyond production to installation and implementation.' },
+    { t: 'Scalable Delivery', d: 'A multidisciplinary structure for projects of any size and complexity.' },
+  ],
+  quality: ['Quality control', 'Accountability', 'Transparency', 'Professional execution', 'Client satisfaction', 'Contractual compliance', 'Responsible business practices', 'Continuous improvement'],
 };
 
 export const approach = {
@@ -295,77 +315,219 @@ export const brochure = {
   points: ['Company overview, mission, vision and core values', 'Our services and capabilities', 'Our approach, quality and compliance', 'Legal information and contact details'],
 };
 
-export type WorkItem = { title: string; client?: string; cat: string; image: string; video?: string; pos?: string; size?: 'tall' | 'wide' | 'std'; tags?: string[] };
-// Portfolio: real LARO projects (photos and short clips). Each item is filed under a service via `cat` / `tags` (the service `tag`).
-// Similar items are kept on purpose: each was produced for a different client.
-export const work: WorkItem[] = [
-  { title: "Executive gift set", client: "Commercial Bank of Ethiopia", cat: "Gift Boxes", image: '/images/work/cbe-executive-gift-set.jpg', pos: "50% 55%", size: 'tall', tags: ["Gift Boxes", "Gifts"] },
-  { title: "Reception signage & 3D corporate flags", client: "Ethio-Djibouti Railway", cat: "Branding", image: '/images/work/ethio-djibouti-railway-signage.jpg', pos: "50% 50%", tags: ["Branding", "Flags"] },
-  { title: "Premium 3D office flags", client: "MESOB", cat: "Flags", image: '/images/work/mesob-flags.jpg', pos: "50% 40%", size: 'tall', tags: ["Flags"] },
-  { title: "Adey Abeba carpet for a ceremonial hall", cat: "Carpets", image: '/images/work/adey-abeba-carpet-hallway.jpg', pos: "50% 65%", size: 'tall', tags: ["Carpets", "Events"] },
-  { title: "Roll-type product labels", cat: "Printing", image: '/images/work/roll-labels.jpg', pos: "50% 50%", tags: ["Printing"] },
-  { title: "Ceremonial flag line-up", cat: "Events", image: '/images/work/ceremonial-flag-line-up.jpg', pos: "50% 50%", tags: ["Events", "Flags"] },
-  { title: "Branded event polo shirts", cat: "Gifts", image: '/images/work/rc76-polo-shirt.jpg', pos: "50% 50%", tags: ["Gifts", "Events"] },
-  { title: "Illuminated 3D logo wall", client: "Ministry of Agriculture", cat: "Branding", image: '/images/work/ministry-of-agriculture-signage.jpg', pos: "50% 35%", tags: ["Branding", "Flags"] },
-  { title: "Bamboo eco gift set", cat: "Gift Boxes", image: '/images/work/bamboo-eco-gift-set.jpg', pos: "45% 55%", tags: ["Gift Boxes", "Gifts"] },
-  { title: "LARO and Ethiopian dual table flags", cat: "Flags", image: '/images/work/laro-ethiopia-desk-flags.jpg', pos: "50% 60%", size: 'tall', tags: ["Flags"] },
-  { title: "Adey Abeba carpet production", cat: "Carpets", image: '/videos/adey-abeba-carpet.jpg', video: '/videos/adey-abeba-carpet.mp4', pos: "50% 50%", tags: ["Carpets"] },
-  { title: "Premium 3D office flags", client: "Commercial Bank of Ethiopia", cat: "Flags", image: '/images/work/cbe-office-flags.jpg', pos: "50% 40%", size: 'tall', tags: ["Flags"] },
-  { title: "Country reports & publications", cat: "Printing", image: '/images/work/publications.jpg', pos: "50% 55%", tags: ["Printing", "Advertising"] },
-  { title: "Signage & 3D corporate flags", client: "Ministry of Planning & Development", cat: "Branding", image: '/images/work/planning-development-signage.jpg', pos: "50% 45%", tags: ["Branding", "Flags"] },
-  { title: "Executive tech gift set", cat: "Gift Boxes", image: '/images/work/executive-tech-gift-set.jpg', pos: "50% 50%", tags: ["Gift Boxes"] },
-  { title: "Lobby flag installation", cat: "Flags", image: '/videos/lobby-flag-installation.jpg', video: '/videos/lobby-flag-installation.mp4', pos: "50% 50%", tags: ["Flags", "Events"] },
-  { title: "Premium 3D office flags", client: "Ministry of Irrigation & Lowlands", cat: "Flags", image: '/images/work/irrigation-lowlands-flags.jpg', pos: "50% 40%", tags: ["Flags"] },
-  { title: "Adey Abeba carpet runner", cat: "Carpets", image: '/images/work/adey-abeba-carpet-runner.jpg', pos: "50% 50%", size: 'tall', tags: ["Carpets"] },
-  { title: "Gala dinner invitation suite", cat: "Printing", image: '/images/work/gala-dinner-invitation.jpg', pos: "50% 50%", tags: ["Printing", "Events"] },
-  { title: "Ethiopian national flags for the boardroom", cat: "Flags", image: '/images/work/national-flags-boardroom.jpg', pos: "50% 50%", tags: ["Flags"] },
-  { title: "Executive gift box", client: "Commercial Bank of Ethiopia", cat: "Gift Boxes", image: '/images/work/cbe-gift-box.jpg', pos: "50% 50%", tags: ["Gift Boxes"] },
-  { title: "Flag line-up", client: "MESOB", cat: "Flags", image: '/images/work/mesob-flags-row.jpg', pos: "50% 40%", size: 'tall', tags: ["Flags"] },
-  { title: "Crystal awards", cat: "Gifts", image: '/images/work/crystal-award.jpg', pos: "50% 50%", tags: ["Gifts", "Events"] },
-  { title: "Hall flag line-up", cat: "Flags", image: '/images/work/hall-flag-line-up.jpg', pos: "50% 40%", size: 'tall', tags: ["Flags", "Events"] },
-  { title: "Flag installation", cat: "Flags", image: '/videos/flag-installation.jpg', video: '/videos/flag-installation.mp4', pos: "50% 50%", size: 'tall', tags: ["Flags", "Events"] },
-  { title: "Reception 3D logo & flags", client: "Ethio-Djibouti Railway", cat: "Branding", image: '/images/work/ethio-djibouti-railway-wall.jpg', pos: "50% 50%", tags: ["Branding", "Flags"] },
-  { title: "Corporate notebook gift set", cat: "Gift Boxes", image: '/images/work/corporate-notebook-gift-set.jpg', pos: "50% 45%", tags: ["Gift Boxes"] },
-  { title: "Adey Abeba carpet detail", cat: "Carpets", image: '/images/work/adey-abeba-carpet-detail.jpg', pos: "50% 50%", tags: ["Carpets"] },
-  { title: "3D corporate flag set", cat: "Flags", image: '/images/work/four-flag-set.jpg', pos: "50% 40%", size: 'tall', tags: ["Flags"] },
-  { title: "Label printing for FMCG brands", cat: "Printing", image: '/images/work/roll-labels-range.jpg', pos: "50% 50%", tags: ["Printing"] },
-  { title: "Cork-base mug & bottle set", cat: "Gifts", image: '/images/work/cork-mug-bottle-set.jpg', pos: "50% 55%", tags: ["Gifts"] },
-  { title: "Office flags", client: "Commercial Bank of Ethiopia", cat: "Flags", image: '/images/work/cbe-flags-trio.jpg', pos: "50% 40%", tags: ["Flags"] },
-  { title: "Lobby flag line-up", cat: "Flags", image: '/images/work/lobby-flag-line-up.jpg', pos: "50% 50%", tags: ["Flags", "Events"] },
-  { title: "Blue executive gift box", cat: "Gift Boxes", image: '/images/work/blue-executive-gift-box.jpg', pos: "50% 45%", tags: ["Gift Boxes"] },
-  { title: "Invitation printing & finishing", cat: "Printing", image: '/videos/invitation-printing.jpg', video: '/videos/invitation-printing.mp4', pos: "50% 40%", tags: ["Printing"] },
-  { title: "Ethiopian national flags", cat: "Flags", image: '/images/work/national-flags-office.jpg', pos: "50% 50%", tags: ["Flags"] },
-  { title: "Branded polo shirt", client: "Sunvado", cat: "Gifts", image: '/images/work/sunvado-polo-shirt.jpg', pos: "50% 50%", tags: ["Gifts"] },
-  { title: "Adey Abeba carpet, ready to ship", cat: "Carpets", image: '/images/work/adey-abeba-carpet-roll.jpg', pos: "50% 50%", tags: ["Carpets"] },
-  { title: "Flag line-up", client: "Ministry of Irrigation & Lowlands", cat: "Flags", image: '/images/work/irrigation-lowlands-flags-row.jpg', pos: "50% 40%", tags: ["Flags"] },
-  { title: "Reception branding", client: "Ministry of Planning & Development", cat: "Branding", image: '/images/work/planning-development-reception.jpg', pos: "50% 45%", tags: ["Branding"] },
-  { title: "Executive gift set, open", client: "Commercial Bank of Ethiopia", cat: "Gift Boxes", image: '/images/work/cbe-gift-set-open.jpg', pos: "50% 55%", tags: ["Gift Boxes"] },
-  { title: "Flag line-up walkthrough", cat: "Flags", image: '/videos/flag-line-up-walkthrough.jpg', video: '/videos/flag-line-up-walkthrough.mp4', pos: "50% 50%", size: 'tall', tags: ["Flags", "Events"] },
-  { title: "Institutional flag set", cat: "Flags", image: '/images/work/institutional-flag-set.jpg', pos: "50% 50%", tags: ["Flags"] },
-  { title: "Why Ethiopia booklet", cat: "Printing", image: '/images/work/why-ethiopia-booklet.jpg', pos: "50% 70%", size: 'tall', tags: ["Printing", "Advertising"] },
-  { title: "Bamboo gift box", cat: "Gift Boxes", image: '/images/work/bamboo-gift-box-open.jpg', pos: "50% 55%", tags: ["Gift Boxes"] },
-  { title: "3D corporate flags", client: "MESOB", cat: "Flags", image: '/images/work/mesob-ess-flags.jpg', pos: "50% 40%", size: 'tall', tags: ["Flags"] },
-  { title: "Crystal award", cat: "Gifts", image: '/images/work/crystal-award-wave.jpg', pos: "50% 50%", tags: ["Gifts"] },
-  { title: "Office flag line-up", cat: "Flags", image: '/images/work/flags-line-up-office.jpg', pos: "50% 40%", tags: ["Flags"] },
-  { title: "Adey Abeba carpet production floor", cat: "Carpets", image: '/images/work/adey-abeba-carpet-production.jpg', pos: "50% 50%", tags: ["Carpets"] },
-  { title: "Navy executive gift box", cat: "Gift Boxes", image: '/images/work/navy-executive-gift-box.jpg', pos: "50% 45%", tags: ["Gift Boxes"] },
-  { title: "Printed folder production", cat: "Printing", image: '/videos/folder-printing.jpg', video: '/videos/folder-printing.mp4', pos: "50% 50%", tags: ["Printing"] },
-  { title: "Ethiopian national flags", cat: "Flags", image: '/images/work/national-flags-colour-row.jpg', pos: "50% 40%", size: 'tall', tags: ["Flags"] },
-  { title: "Branded field vest", cat: "Gifts", image: '/images/work/branded-field-vest.jpg', pos: "50% 50%", tags: ["Gifts"] },
-  { title: "Dual table flags", cat: "Flags", image: '/images/work/table-flags.jpg', pos: "50% 50%", tags: ["Flags"] },
-  { title: "Event polo shirt", cat: "Gifts", image: '/images/work/event-polo-shirts.jpg', pos: "50% 50%", tags: ["Gifts", "Events"] },
-  { title: "Institutional flags", cat: "Flags", image: '/images/work/institutional-flags-row.jpg', pos: "50% 50%", tags: ["Flags"] },
-  { title: "Publication set", cat: "Printing", image: '/images/work/publications-set.jpg', pos: "50% 50%", tags: ["Printing"] },
-  { title: "Executive gift set, top view", client: "Commercial Bank of Ethiopia", cat: "Gift Boxes", image: '/images/work/cbe-gift-set-top.jpg', pos: "50% 50%", tags: ["Gift Boxes"] },
-  { title: "Flag close-up", client: "MESOB", cat: "Flags", image: '/images/work/mesob-flag-close.jpg', pos: "50% 40%", tags: ["Flags"] },
-  { title: "Bottle & mug set", cat: "Gifts", image: '/images/work/bottle-mug-set.jpg', pos: "50% 55%", tags: ["Gifts"] },
-  { title: "Institutional flag trio", cat: "Flags", image: '/images/work/institutional-flags-trio.jpg', pos: "50% 40%", tags: ["Flags"] },
-  { title: "Invitation cover", cat: "Printing", image: '/images/work/invitation-cover.jpg', pos: "50% 50%", tags: ["Printing"] },
-  { title: "Ethiopian national flags, detail", cat: "Flags", image: '/images/work/national-flags-close.jpg', pos: "50% 50%", tags: ["Flags"] },
-  { title: "Cork-base mug", cat: "Gifts", image: '/images/work/cork-base-mug.jpg', pos: "50% 55%", tags: ["Gifts"] },
-  { title: "Crystal award block", cat: "Gifts", image: '/images/work/crystal-award-block.jpg', pos: "50% 50%", tags: ["Gifts"] },
-  { title: "Invitation envelope", cat: "Printing", image: '/images/work/invitation-envelope.jpg', pos: "50% 50%", tags: ["Printing"] },
+export type Media = { src: string; video?: string; pos?: string };
+// Portfolio projects. Each project is filed under one or more services (the service `tag`).
+// Similar projects are kept separate on purpose: each was produced for a different client.
+export type Project = { slug: string; title: string; client?: string; services: string[]; summary: string; scope: string[]; media: Media[] };
+export const projects: Project[] = [
+  {
+    slug: "cbe-executive-gift-sets", title: "Executive gift sets", client: "Commercial Bank of Ethiopia", services: ["Gift Boxes", "Gifts"],
+    summary: "Branded executive gift sets for the Commercial Bank of Ethiopia: a notebook, pen and keyholder presented in a custom box carrying the bank’s logo in gold foil.",
+    scope: ["Branded executive notebook", "Pen and keyholder", "Custom presentation box and insert", "Gold-foil logo application"],
+    media: [
+      {src: "/images/hero/cbe-gift-set.jpg", pos: "50% 55%"},
+      {src: "/images/work/cbe-gift-box.jpg", pos: "50% 50%"},
+      {src: "/images/work/cbe-gift-set-open.jpg", pos: "50% 55%"},
+      {src: "/images/work/cbe-gift-set-top.jpg", pos: "50% 50%"},
+    ],
+  },
+  {
+    slug: "ceremonial-flag-line-ups", title: "Ceremonial flag line-ups", services: ["Flags", "Events"],
+    summary: "Long line-ups of 3D flags on polished stands for receptions, halls and official events, produced, delivered and installed by our team.",
+    scope: ["Ethiopian national and organizational flags", "Gold-finish stands", "Delivery and on-site installation"],
+    media: [
+      {src: "/images/work/lobby-flag-line-up.jpg", pos: "50% 50%"},
+      {src: "/images/work/ceremonial-flag-line-up.jpg", pos: "50% 50%"},
+      {src: "/images/work/hall-flag-line-up.jpg", pos: "50% 40%"},
+      {src: "/videos/lobby-flag-installation.jpg", pos: "50% 50%", video: "/videos/lobby-flag-installation.mp4"},
+      {src: "/videos/flag-installation.jpg", pos: "50% 50%", video: "/videos/flag-installation.mp4"},
+      {src: "/videos/flag-line-up-walkthrough.jpg", pos: "50% 50%", video: "/videos/flag-line-up-walkthrough.mp4"},
+    ],
+  },
+  {
+    slug: "mesob-3d-flags", title: "Premium 3D office flags", client: "MESOB", services: ["Flags"],
+    summary: "3D corporate flags for MESOB, set in line-ups with the Ethiopian national flag across reception and corridor spaces.",
+    scope: ["MESOB corporate flags", "Ethiopian national flags", "Indoor stands"],
+    media: [
+      {src: "/images/work/mesob-flags.jpg", pos: "50% 40%"},
+      {src: "/images/work/mesob-flags-row.jpg", pos: "50% 40%"},
+      {src: "/images/work/mesob-ess-flags.jpg", pos: "50% 40%"},
+      {src: "/images/work/mesob-flag-close.jpg", pos: "50% 40%"},
+    ],
+  },
+  {
+    slug: "adey-abeba-carpets", title: "Adey Abeba carpets", services: ["Carpets", "Events"],
+    summary: "Custom Adey Abeba carpets with the yellow Meskel-daisy pattern, made to size for ceremonial halls and receptions, from production to laying.",
+    scope: ["Custom dimensions", "Adey Abeba flower design", "Production and finishing", "Delivery and laying"],
+    media: [
+      {src: "/images/work/adey-abeba-carpet-hallway.jpg", pos: "50% 65%"},
+      {src: "/images/work/adey-abeba-carpet-runner.jpg", pos: "50% 50%"},
+      {src: "/images/work/adey-abeba-carpet-detail.jpg", pos: "50% 50%"},
+      {src: "/images/work/adey-abeba-carpet-roll.jpg", pos: "50% 50%"},
+      {src: "/images/work/adey-abeba-carpet-production.jpg", pos: "50% 50%"},
+      {src: "/videos/adey-abeba-carpet.jpg", pos: "50% 50%", video: "/videos/adey-abeba-carpet.mp4"},
+    ],
+  },
+  {
+    slug: "publications-folders", title: "Reports, publications & folders", services: ["Printing", "Advertising"],
+    summary: "Country reports, investment booklets and presentation folders, designed and printed with professional finishing.",
+    scope: ["Report and booklet printing", "Cover finishing", "Presentation folders"],
+    media: [
+      {src: "/images/hero/publications.jpg", pos: "50% 55%"},
+      {src: "/images/work/publications-set.jpg", pos: "50% 50%"},
+      {src: "/images/work/why-ethiopia-booklet.jpg", pos: "50% 70%"},
+      {src: "/videos/folder-printing.jpg", pos: "50% 50%", video: "/videos/folder-printing.mp4"},
+    ],
+  },
+  {
+    slug: "bamboo-eco-gift-sets", title: "Bamboo eco gift sets", services: ["Gift Boxes", "Gifts"],
+    summary: "Eco-friendly gift sets with a bamboo flask, notebook, pen, USB drive and card holder, presented in a fitted box.",
+    scope: ["Bamboo flask and notebook", "Bamboo pen, USB drive and card holder", "Fitted presentation box"],
+    media: [
+      {src: "/images/hero/bamboo-gift-set.jpg", pos: "45% 55%"},
+      {src: "/images/work/bamboo-gift-box-open.jpg", pos: "50% 55%"},
+    ],
+  },
+  {
+    slug: "ethio-djibouti-railway-reception", title: "Reception signage & 3D flags", client: "Ethio-Djibouti Railway", services: ["Branding", "Flags"],
+    summary: "Dimensional logo signage for the reception wall, framed by pairs of Ethiopian national flags.",
+    scope: ["3D logo and lettering", "Reception wall branding", "Ethiopian national flags"],
+    media: [
+      {src: "/images/work/ethio-djibouti-railway-signage.jpg", pos: "50% 50%"},
+      {src: "/images/work/ethio-djibouti-railway-wall.jpg", pos: "50% 50%"},
+    ],
+  },
+  {
+    slug: "ministry-of-agriculture-logo-wall", title: "Illuminated 3D logo wall", client: "Ministry of Agriculture", services: ["Branding", "Flags"],
+    summary: "An illuminated 3D logo and bilingual name for the ministry’s reception wall, with national flags on either side.",
+    scope: ["Illuminated 3D logo", "Bilingual lettering", "Ethiopian national flags"],
+    media: [
+      {src: "/images/work/ministry-of-agriculture-signage.jpg", pos: "50% 35%"},
+    ],
+  },
+  {
+    slug: "planning-development-signage", title: "Signage & reception branding", client: "Ministry of Planning & Development", services: ["Branding", "Flags"],
+    summary: "3D logo signage and reception branding for the ministry, with national and organizational flags.",
+    scope: ["3D logo signage", "Reception branding", "Flags and stands"],
+    media: [
+      {src: "/images/work/planning-development-signage.jpg", pos: "50% 45%"},
+      {src: "/images/work/planning-development-reception.jpg", pos: "50% 45%"},
+    ],
+  },
+  {
+    slug: "cbe-office-flags", title: "Premium 3D office flags", client: "Commercial Bank of Ethiopia", services: ["Flags"],
+    summary: "Premium 3D office flags in the bank’s maroon and white beside the Ethiopian national flag, on polished gold stands.",
+    scope: ["Corporate flags", "Ethiopian national flags", "Gold-finish stands"],
+    media: [
+      {src: "/images/work/cbe-office-flags.jpg", pos: "50% 40%"},
+      {src: "/images/work/cbe-flags-trio.jpg", pos: "50% 40%"},
+    ],
+  },
+  {
+    slug: "irrigation-lowlands-flags", title: "Premium 3D office flags", client: "Ministry of Irrigation & Lowlands", services: ["Flags"],
+    summary: "A set of 3D organizational flags for the ministry, produced in white with the ministry’s emblem and bilingual name.",
+    scope: ["Organizational flags", "Gold-finish stands"],
+    media: [
+      {src: "/images/work/irrigation-lowlands-flags.jpg", pos: "50% 40%"},
+      {src: "/images/work/irrigation-lowlands-flags-row.jpg", pos: "50% 40%"},
+    ],
+  },
+  {
+    slug: "national-flags-for-offices", title: "Ethiopian national flags for offices", services: ["Flags"],
+    summary: "Ethiopian national flags in premium 3D print for boardrooms, offices and reception areas.",
+    scope: ["Ethiopian national flags", "Boardroom and office sets", "Stands"],
+    media: [
+      {src: "/images/work/national-flags-boardroom.jpg", pos: "50% 50%"},
+      {src: "/images/work/national-flags-office.jpg", pos: "50% 50%"},
+      {src: "/images/work/national-flags-colour-row.jpg", pos: "50% 40%"},
+      {src: "/images/work/flags-line-up-office.jpg", pos: "50% 40%"},
+      {src: "/images/work/national-flags-close.jpg", pos: "50% 50%"},
+    ],
+  },
+  {
+    slug: "institutional-flag-sets", title: "Institutional flag sets", services: ["Flags"],
+    summary: "Mixed sets of national and institutional flags for offices and meeting rooms.",
+    scope: ["Institutional flags", "Ethiopian national flags", "Stands"],
+    media: [
+      {src: "/images/work/institutional-flag-set.jpg", pos: "50% 50%"},
+      {src: "/images/work/institutional-flags-row.jpg", pos: "50% 50%"},
+      {src: "/images/work/institutional-flags-trio.jpg", pos: "50% 40%"},
+      {src: "/images/work/four-flag-set.jpg", pos: "50% 40%"},
+    ],
+  },
+  {
+    slug: "dual-table-flags", title: "Dual table flags", services: ["Flags"],
+    summary: "Dual table flags pairing the Ethiopian national flag with a corporate flag, on a chrome desk stand.",
+    scope: ["Ethiopian and corporate table flags", "Chrome desk stand"],
+    media: [
+      {src: "/images/hero/laro-table-flags.jpg", pos: "50% 60%"},
+      {src: "/images/work/table-flags.jpg", pos: "50% 50%"},
+    ],
+  },
+  {
+    slug: "executive-gift-boxes", title: "Executive gift boxes", services: ["Gift Boxes"],
+    summary: "Executive gift boxes combining notebooks, pens, power banks, flasks, umbrellas and keyholders in fitted presentation boxes.",
+    scope: ["Notebook and pen sets", "Tech items: power banks, USB drives, chargers", "Flasks and umbrellas", "Fitted presentation boxes"],
+    media: [
+      {src: "/images/work/executive-tech-gift-set.jpg", pos: "50% 50%"},
+      {src: "/images/work/navy-executive-gift-box.jpg", pos: "50% 45%"},
+      {src: "/images/work/blue-executive-gift-box.jpg", pos: "50% 45%"},
+      {src: "/images/work/corporate-notebook-gift-set.jpg", pos: "50% 45%"},
+    ],
+  },
+  {
+    slug: "branded-apparel", title: "Branded apparel", services: ["Gifts", "Events"],
+    summary: "Embroidered polo shirts and branded field vests for corporate teams and events.",
+    scope: ["Embroidered polo shirts", "Event apparel", "Branded field vests"],
+    media: [
+      {src: "/images/hero/branded-polo.jpg", pos: "50% 50%"},
+      {src: "/images/work/rc76-polo-shirt.jpg", pos: "50% 50%"},
+      {src: "/images/work/event-polo-shirts.jpg", pos: "50% 50%"},
+      {src: "/images/work/branded-field-vest.jpg", pos: "50% 50%"},
+    ],
+  },
+  {
+    slug: "branded-drinkware", title: "Branded drinkware", services: ["Gifts"],
+    summary: "Cork-base ceramic mugs and aluminium bottles prepared for corporate branding.",
+    scope: ["Cork-base mugs", "Aluminium bottles"],
+    media: [
+      {src: "/images/work/cork-mug-bottle-set.jpg", pos: "50% 55%"},
+      {src: "/images/work/bottle-mug-set.jpg", pos: "50% 55%"},
+      {src: "/images/work/cork-base-mug.jpg", pos: "50% 55%"},
+    ],
+  },
+  {
+    slug: "crystal-awards", title: "Crystal awards", services: ["Gifts", "Events"],
+    summary: "Crystal awards in several shapes for recognition ceremonies and corporate events.",
+    scope: ["Crystal awards", "Engraving and branding"],
+    media: [
+      {src: "/images/work/crystal-award.jpg", pos: "50% 50%"},
+      {src: "/images/work/crystal-award-wave.jpg", pos: "50% 50%"},
+      {src: "/images/work/crystal-award-block.jpg", pos: "50% 50%"},
+    ],
+  },
+  {
+    slug: "gala-dinner-invitation-suite", title: "Gala dinner invitation suite", services: ["Printing", "Events"],
+    summary: "A printed invitation suite for an official gala dinner: cover, bilingual invitation card and gold-foil envelope.",
+    scope: ["Invitation card", "Cover and envelope", "Gold-foil finishing"],
+    media: [
+      {src: "/images/work/gala-dinner-invitation.jpg", pos: "50% 50%"},
+      {src: "/images/work/invitation-cover.jpg", pos: "50% 50%"},
+      {src: "/images/work/invitation-envelope.jpg", pos: "50% 50%"},
+      {src: "/videos/invitation-printing.jpg", pos: "50% 40%", video: "/videos/invitation-printing.mp4"},
+    ],
+  },
+  {
+    slug: "roll-labels", title: "Roll-type product labels", services: ["Printing"],
+    summary: "High-volume roll labels for food, household and personal-care products, printed for automated labeling lines.",
+    scope: ["Roll-fed labels", "Food, household and personal-care products"],
+    media: [
+      {src: "/images/work/roll-labels.jpg", pos: "50% 50%"},
+      {src: "/images/work/roll-labels-range.jpg", pos: "50% 50%"},
+    ],
+  },
 ];
+export const featuredProjects = ["cbe-executive-gift-sets", "ceremonial-flag-line-ups", "mesob-3d-flags", "adey-abeba-carpets", "publications-folders", "bamboo-eco-gift-sets", "ethio-djibouti-railway-reception"];
 
 export const closing = {
   title: 'Elevate Your Business With LARO',
@@ -375,22 +537,15 @@ export const closing = {
 
 export const commitment = 'LARO Advertising PLC is dedicated to transforming ideas into strong brands by delivering exceptional products and services that create lasting impressions and long-term value for our clients.';
 
+// Home page hero carousel: real LARO work, highest-resolution photos first.
 export const heroSlides = [
-  { image: '/images/work/laro-ethiopia-desk-flags.jpg', caption: 'LARO & Ethiopian table flags', pos: '50% 62%' },
-  { image: '/images/work/adey-abeba-carpet-hallway.jpg', caption: 'Adey Abeba carpet', pos: '50% 70%' },
-  { image: '/images/work/lobby-flag-line-up.jpg', caption: '3D corporate flags', pos: '50% 50%' },
-  { image: '/images/work/cbe-executive-gift-set.jpg', caption: 'Corporate gift packaging', pos: '50% 55%' },
+  { image: '/images/hero/team-meeting.jpg', label: 'One team, brief to delivery', service: 'Strategy, creativity, production and execution', href: '/about', pos: '50% 40%' },
+  { image: '/images/hero/cbe-gift-set.jpg', label: 'Executive gift sets', service: 'Corporate Gift Boxes', href: '/work/cbe-executive-gift-sets', pos: '50% 55%' },
+  { image: '/images/work/lobby-flag-line-up.jpg', label: 'Ceremonial flag line-ups', service: 'Corporate Flags & Institutional Supplies', href: '/work/ceremonial-flag-line-ups', pos: '50% 45%' },
+  { image: '/images/hero/publications.jpg', label: 'Reports & publications', service: 'Creative Design & Commercial Printing', href: '/work/publications-folders', pos: '50% 55%' },
+  { image: '/images/hero/bamboo-gift-set.jpg', label: 'Bamboo eco gift sets', service: 'Corporate Gifts & Promotional Products', href: '/work/bamboo-eco-gift-sets', pos: '45% 55%' },
+  { image: '/images/hero/branded-polo.jpg', label: 'Branded apparel', service: 'Corporate Gifts & Promotional Products', href: '/work/branded-apparel', pos: '50% 50%' },
 ];
-
-export const navImages: Record<string, string> = {
-  '/': '/images/hero.jpg',
-  '/work': '/images/gifts.jpg',
-  '/services': '/images/signage.jpg',
-  '/solutions': '/images/events.jpg',
-  '/about': '/images/stationery.jpg',
-  '/clients': '/images/flags.jpg',
-  '/contact': '/images/print.jpg',
-};
 
 export const tickerWords = ['Advertising & Marketing', 'Branding & Corporate Identity', 'Design & Commercial Printing', '3D Corporate Flags', 'Premium Corporate Gifts', 'Corporate Gift Boxes', 'Events & Promotion', 'ICT Supply', 'Support Services', 'Adey Abeba Carpet'];
 

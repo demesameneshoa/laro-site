@@ -4,33 +4,30 @@ A multi-page marketing site built with Next.js 15 (App Router) and React 19. Its
 
 ## Interactions
 
-- First-visit loader (green screen, pie counter to 100%), green curtain between pages
-- Custom cursor: green dot plus a soft trailing disc that shows labels (View, Explore, Drag…)
-- Hero: giant LARO wordmark; the O is a window onto a crossfading showreel that grows to full screen as you scroll
-- Letter-by-letter heading reveals, scroll-lit paragraphs, count-up numbers, parallax images
-- Selected works: three staggered columns drifting at different speeds
-- Our Services: pinned section, a green disc sweeps the title, then service columns slide in sideways (hover fills a column and shows its image)
-- We Are LARO!: disc sweep plus an image trail that follows the pointer
-- Approach / Why rows: hovering a row floats its image at the pointer
-- SECTORS: a glass lens follows the pointer over the word
-- Header stays fixed at the top while scrolling; Services dropdown with thumbnails; full-screen menu on phones
-- Green "Let's connect!" footer with a working form
+- Home hero: full-bleed carousel of real LARO work with the brand promise, progress bars and arrows (pauses on hover; no autoplay with reduced motion)
+- Selected work: bento grid of featured projects, each opening its project page
+- Work: search box plus service categories; every project has its own page with a gallery and full-screen viewer (photos and clips)
+- Our Services: pinned section, a green disc sweeps the title, then service columns slide in sideways
+- Letter-by-letter heading reveals, scroll-lit paragraphs, count-up numbers, custom cursor, page curtain
+- Header: Work, Services (dropdown grouped by category), Solutions, About and a "Request a quote" button; full-screen menu on phones
 
-All motion respects prefers-reduced-motion. Pinned and horizontal effects switch to simple stacked layouts on phones.
+All motion respects prefers-reduced-motion.
 
 ## Pages
 
 | Route | Page |
 | --- | --- |
-| `/` | Home: wordmark hero, selected works, our services, we are LARO, approach, sectors, why LARO, clients, testimonials, one brief one partner |
-| `/services` | Services overview |
-| `/services/[slug]` | 10 service detail pages, generated statically from `lib/content.ts` |
-| `/solutions` | Integrated solutions, example projects, approach |
-| `/work` | Portfolio with category filter |
-| `/about` | Story, stats, commitment, why LARO, leadership team, credentials gallery, company overview download |
-| `/clients` | Sectors served, partner logos, testimonials |
-| `/contact` | Quote form, phones, WhatsApp, address, map |
+| `/` | Home: hero carousel, selected work, services, approach, sectors, why LARO, clients, testimonials |
+| `/work` | Portfolio with search and service categories |
+| `/work/[slug]` | Project pages (case studies), generated from `projects` in `lib/content.ts` |
+| `/services` | Ten services grouped by category |
+| `/services/[slug]` | Service detail pages, generated from `services` in `lib/content.ts` |
+| `/solutions` | Integrated projects, process and delivery |
+| `/about` | Company story, team, leadership, clients, testimonials, credentials, company profile download |
+| `/contact` | Request a quote form, phones, WhatsApp, address, map |
 | `/api/quote` | Receives the quote form (POST JSON) |
+
+`/clients` and the old service addresses redirect to their new homes (see `next.config.mjs`).
 
 ## Run locally
 
@@ -55,7 +52,8 @@ All copy lives in `lib/content.ts`: services, approach, sectors, why LARO, team,
 
 ## Content you can extend
 
-- **Portfolio**: real project photos live in `public/images/work/` and short clips in `public/videos/` (H.264 MP4 with a poster JPG). Add an item to `work` in `lib/content.ts` (set `video` for a clip); the work page filters by `cat` and `tags`.
+- **Portfolio**: project photos live in `public/images/work/` (large hero versions in `public/images/hero/`) and short clips in `public/videos/` (H.264 MP4 with a poster JPG). Add a project to `projects` in `lib/content.ts`; its `services` (service tags) decide which category and service pages it appears on. `featuredProjects` picks the seven shown on the home page.
+- **Favicon**: `app/icon.jpg` and `app/apple-icon.jpg` (Next.js serves them automatically).
 - **Testimonials**: `testimonials` in `lib/content.ts` (shown on Home and Clients).
 - **Credentials**: certificate scans in `public/images/credentials/`, listed in `credentials` in `lib/content.ts` (set `landscape: true` for wide certificates).
 - **Company profile**: `public/docs/LARO-Company-Overview.pdf`, with preview pages in `public/images/brochure/`. Update `brochure` in `lib/content.ts` if the page count or size changes.

@@ -1,13 +1,14 @@
 import type { Metadata } from 'next';
 import { commitment, intro, leadership, why } from '@/lib/content';
-import { PageHero, SecHead } from '@/components/Blocks';
+import { LogoWall, PageHero, SecHead } from '@/components/Blocks';
+import Testimonials from '@/components/Testimonials';
 import WeAre from '@/components/WeAre';
 import HoverRows from '@/components/HoverRows';
 import Credentials from '@/components/Credentials';
 import Brochure from '@/components/Brochure';
 import { ScrollText } from '@/components/Text';
 
-export const metadata: Metadata = { title: 'About', description: 'LARO Advertising PLC is an Ethiopian branding, printing, advertising, 3D corporate flags, premium corporate gifts and event company founded in 2012.' };
+export const metadata: Metadata = { title: 'About', description: 'Company story, team, clients and credentials of LARO Advertising PLC, an Ethiopian advertising, branding, printing, 3D corporate flags, corporate gifts and events company founded in 2012.' };
 
 const stats = [
   { n: 2012, s: '', label: 'Founded', note: 'in Addis Ababa, Ethiopia' },
@@ -60,7 +61,7 @@ export default function AboutPage() {
       <section className="sec sec-gray">
         <div className="container">
           <SecHead eyebrow="Why LARO" title="What Clients Can Count On" lead={intro.purpose} />
-          <HoverRows rows={why.map((w, i) => ({ n: `0${i + 1}`, t: w.t, r: w.d, img: ['/images/gifts.jpg', '/images/events.jpg', '/images/print.jpg', '/images/signage.jpg', '/images/stationery.jpg', '/images/eco.jpg', '/images/flags.jpg'][i] }))} />
+          <HoverRows rows={why.map((w, i) => ({ n: `0${i + 1}`, t: w.t, r: w.d, img: ['/images/work/cbe-gift-box.jpg', '/images/work/team-review.jpg', '/images/work/publications.jpg', '/images/work/executive-tech-gift-set.jpg', '/images/work/irrigation-lowlands-flags.jpg', '/images/work/bamboo-eco-gift-set.jpg', '/images/work/ministry-of-agriculture-signage.jpg'][i] }))} />
         </div>
       </section>
       <section className="sec" id="leadership">
@@ -84,6 +85,15 @@ export default function AboutPage() {
               </div>
             </div>
           ))}
+        </div>
+      </section>
+      <section className="sec sec-gray" id="clients">
+        <div className="container"><SecHead eyebrow="Clients" title="Organizations We Serve" lead="Government institutions, international organizations, banks and businesses that trust LARO with their brand." /><LogoWall /></div>
+      </section>
+      <section className="sec" id="testimonials">
+        <div className="container">
+          <SecHead eyebrow="Testimonials" title="What Clients Say" lead="In their own words: institutions and businesses on working with LARO." />
+          <Testimonials />
         </div>
       </section>
       <section className="sec sec-gray" id="credentials">

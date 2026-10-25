@@ -2,10 +2,10 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { company, nav, services } from '@/lib/content';
+import { company, nav, serviceGroups, services } from '@/lib/content';
 import { ArrowUpRight, Phone } from './Icons';
 
-// Logo left, pill navigation centred (Services opens a dropdown), "Contact us" right.
+// Logo left, pill navigation centred (Services opens a dropdown grouped by category), "Request a quote" right.
 // Stays fixed at the top on every scroll; turns solid once the page moves. Phones get a full-screen green menu.
 export default function Header() {
   const pathname = usePathname() || '/';
@@ -28,7 +28,7 @@ export default function Header() {
   }, [open]);
 
   const isActive = (href: string) => (href === '/' ? pathname === '/' : pathname.startsWith(href));
-  const main = nav.filter((n) => n.href !== '/contact');
+  const main = nav.filter((n) => n.href !== '/contact' && n.href !== '/');
 
   return (
     <>
@@ -45,10 +45,15 @@ export default function Header() {
                   <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" strokeWidth="1.5" /></svg>
                 </button>
                 <div className="dd-panel">
-                  {services.map((s) => (
-                    <Link key={s.slug} href={`/services/${s.slug}`} tabIndex={drop ? 0 : -1}>
-                      <span className="dd-n">{s.n}</span><span>{s.short}</span><img src={s.image} alt="" style={{ objectPosition: s.imagePos }} />
-                    </Link>
+                  {serviceGroups.map((g) => (
+                    <div key={g.name} className="dd-group">
+                      <span className="dd-g">{g.name}</span>
+                      {services.filter((s) => s.group === g.name).map((s) => (
+                        <Link key={s.slug} href={`/services/${s.slug}`} tabIndex={drop ? 0 : -1}>
+                          <span className="dd-n">{s.n}</span><span>{s.short}</span>
+                        </Link>
+                      ))}
+                    </div>
                   ))}
                 </div>
               </div>
@@ -56,8 +61,8 @@ export default function Header() {
               <Link key={n.href} href={n.href} aria-current={isActive(n.href) ? 'page' : undefined}>{n.label}</Link>
             ))}
           </nav>
-          <Link href="/contact" className="hdr-contact" aria-current={isActive('/contact') ? 'page' : undefined}>
-            <span>Contact us</span><span className="circ"><ArrowUpRight size={18} /></span>
+          <Link href="/contact" className="hdr-cta" aria-current={isActive('/contact') ? 'page' : undefined}>
+            <span>Request a quote</span><ArrowUpRight size={18} />
           </Link>
           <button className={`burger${open ? ' x' : ''}`} type="button" aria-label={open ? 'Close menu' : 'Open menu'} aria-expanded={open} aria-controls="menu" onClick={() => setOpen((o) => !o)}><i /><i /></button>
         </div>
