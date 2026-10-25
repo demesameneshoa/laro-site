@@ -308,7 +308,7 @@ export const work: WorkItem[] = [
   { title: "Branded event polo shirts", cat: "Gifts", image: '/images/work/rc76-polo-shirt.jpg', pos: "50% 50%", tags: ["Gifts", "Events"] },
   { title: "Illuminated 3D logo wall", client: "Ministry of Agriculture", cat: "Branding", image: '/images/work/ministry-of-agriculture-signage.jpg', pos: "50% 35%", tags: ["Branding", "Flags"] },
   { title: "Bamboo eco gift set", cat: "Gift Boxes", image: '/images/work/bamboo-eco-gift-set.jpg', pos: "45% 55%", tags: ["Gift Boxes", "Gifts"] },
-  { title: "LARO and Ethiopian dual table flags", cat: "Flags", image: '/images/work/laro-ethiopia-desk-flags.jpg', pos: "50% 50%", tags: ["Flags"] },
+  { title: "LARO and Ethiopian dual table flags", cat: "Flags", image: '/images/work/laro-ethiopia-desk-flags.jpg', pos: "50% 60%", size: 'tall', tags: ["Flags"] },
   { title: "Adey Abeba carpet production", cat: "Carpets", image: '/videos/adey-abeba-carpet.jpg', video: '/videos/adey-abeba-carpet.mp4', pos: "50% 50%", tags: ["Carpets"] },
   { title: "Premium 3D office flags", client: "Commercial Bank of Ethiopia", cat: "Flags", image: '/images/work/cbe-office-flags.jpg', pos: "50% 40%", size: 'tall', tags: ["Flags"] },
   { title: "Country reports & publications", cat: "Printing", image: '/images/work/publications.jpg', pos: "50% 55%", tags: ["Printing", "Advertising"] },
@@ -376,7 +376,7 @@ export const closing = {
 export const commitment = 'LARO Advertising PLC is dedicated to transforming ideas into strong brands by delivering exceptional products and services that create lasting impressions and long-term value for our clients.';
 
 export const heroSlides = [
-  { image: '/images/work/laro-ethiopia-desk-flags.jpg', caption: 'LARO & Ethiopian table flags', pos: '45% 50%' },
+  { image: '/images/work/laro-ethiopia-desk-flags.jpg', caption: 'LARO & Ethiopian table flags', pos: '50% 62%' },
   { image: '/images/work/adey-abeba-carpet-hallway.jpg', caption: 'Adey Abeba carpet', pos: '50% 70%' },
   { image: '/images/work/lobby-flag-line-up.jpg', caption: '3D corporate flags', pos: '50% 50%' },
   { image: '/images/work/cbe-executive-gift-set.jpg', caption: 'Corporate gift packaging', pos: '50% 55%' },
