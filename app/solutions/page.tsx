@@ -18,6 +18,13 @@ export default function SolutionsPage() {
           <ol className="net">{integrated.chain.map((c, i) => (<li key={c} className="reveal" style={{ ['--d' as string]: `${i * 60}ms` }}><span>0{i + 1}</span>{c}</li>))}</ol>
         </div>
       </section>
+      <section className="sec model-sec">
+        <div className="container mv">
+          {integrated.model.map((m, i) => (
+            <article key={m.k} className={`mv-card ${i ? 'vision' : 'mission'} reveal`}><span className="eyebrow">{m.k}</span><h3>{m.t}</h3><p>{m.d}</p></article>
+          ))}
+        </div>
+      </section>
       <section className="sec sec-gray">
         <div className="container">
           <SecHead eyebrow="Integrated projects" title="Typical Integrated Briefs" lead="Typical briefs we bring together from strategy to installation." />
@@ -28,6 +35,7 @@ export default function SolutionsPage() {
         <div className="container">
           <SecHead eyebrow="Process" title={approach.title} lead={approach.lead} />
           <ApproachJourney />
+          <p className="jr-result reveal"><b>The result</b>{approach.result}</p>
         </div>
       </section>
       <section className="sec sec-gray">
@@ -41,7 +49,7 @@ export default function SolutionsPage() {
               </div>
             ))}
           </div>
-          <ul className="chips-row reveal">{capabilities.quality.map((q) => <li key={q}>{q}</li>)}</ul>
+          <div className="quality reveal"><h3>Quality & compliance</h3><p>{capabilities.qualityLead}</p><ul className="chips-row">{capabilities.quality.map((q) => <li key={q}>{q}</li>)}</ul></div>
         </div>
       </section>
     </>

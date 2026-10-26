@@ -54,7 +54,7 @@ export default async function ServicePage({ params }: Props) {
           </div>
         </section>
       ))}
-      <section className="sec closer-sec"><div className="container"><p className="closer reveal">{s.closer}</p></div></section>
+      <section className="sec closer-sec"><span className="closer-pattern" aria-hidden="true" /><div className="container"><p className="closer reveal">{s.closer}</p></div></section>
       {related.length ? (
         <section className="sec">
           <div className="container">

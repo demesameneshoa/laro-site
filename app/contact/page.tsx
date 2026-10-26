@@ -27,6 +27,10 @@ export default function ContactPage() {
           </aside>
           <div className="reveal"><QuoteForm /></div>
         </div>
+        <div className="container legal reveal">
+          <h2 className="eyebrow">Legal & company information</h2>
+          <dl>{company.legal.map((x) => (<div key={x.k}><dt>{x.k}</dt><dd>{x.v}</dd></div>))}</dl>
+        </div>
         <div className="container"><iframe className="map reveal" title="Map to LARO Advertising PLC" src={map} loading="lazy" referrerPolicy="no-referrer-when-downgrade" /></div>
       </section>
     </>

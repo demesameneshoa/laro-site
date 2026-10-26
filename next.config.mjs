@@ -5,6 +5,7 @@ const nextConfig = {
   async redirects() {
     return [
       { source: '/clients', destination: '/about#clients', permanent: true },
+      { source: '/docs/LARO-Company-Overview.pdf', destination: '/docs/LARO-Company-Profile-2026.pdf', permanent: true },
       // old service addresses, kept working after the services were aligned with the company profile
       { source: '/services/promotional-products-corporate-gifts', destination: '/services/corporate-gifts-promotional-products', permanent: true },
       { source: '/services/promotional-products-premium-corporate-gifts', destination: '/services/corporate-gifts-promotional-products', permanent: true },

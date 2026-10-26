@@ -53,10 +53,11 @@ All copy lives in `lib/content.ts`: services, approach, sectors, why LARO, team,
 ## Content you can extend
 
 - **Portfolio**: project photos live in `public/images/work/` (large hero versions in `public/images/hero/`) and short clips in `public/videos/` (H.264 MP4 with a poster JPG). Add a project to `projects` in `lib/content.ts`; its `services` (service tags) decide which category and service pages it appears on. `featuredProjects` picks the seven shown on the home page.
+- **Brand pattern**: `public/images/pattern-laro.webp`, used as a quiet accent on green surfaces (footer, service closers, mission/vision cards).
 - **Favicon**: `app/icon.jpg` and `app/apple-icon.jpg` (Next.js serves them automatically).
 - **Testimonials**: `testimonials` in `lib/content.ts` (shown on Home and Clients).
 - **Credentials**: certificate scans in `public/images/credentials/`, listed in `credentials` in `lib/content.ts` (set `landscape: true` for wide certificates).
-- **Company profile**: `public/docs/LARO-Company-Overview.pdf`, with preview pages in `public/images/brochure/`. Update `brochure` in `lib/content.ts` if the page count or size changes.
+- **Company profile**: `public/docs/LARO-Company-Profile-2026.pdf` (web-optimised copy of the 2026 profile), with preview pages in `public/images/brochure/`. Update `brochure` in `lib/content.ts` if the page count or size changes.
 - **Still to add**: public email address and social links in `company` in `lib/content.ts`.
 
 ## Structure

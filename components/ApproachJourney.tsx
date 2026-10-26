@@ -25,7 +25,7 @@ export default function ApproachJourney({ images = IMAGES }: { images?: string[]
 
   const s = steps[active];
   return (
-    <div className="journey" ref={root} onPointerEnter={() => setPaused(true)} onPointerLeave={() => setPaused(false)} style={{ ['--prog' as string]: active / (steps.length - 1) }}>
+    <div className="journey" ref={root} onPointerEnter={() => setPaused(true)} onPointerLeave={() => setPaused(false)} style={{ ['--prog' as string]: active / (steps.length - 1), ['--n' as string]: steps.length }}>
       <div className="jr-rail" role="tablist" aria-label="Our approach, step by step">
         <span className="jr-line" aria-hidden="true"><i /></span>
         {steps.map((st, i) => (
@@ -39,7 +39,7 @@ export default function ApproachJourney({ images = IMAGES }: { images?: string[]
       </div>
       <div className="jr-stage" id="jr-panel" role="tabpanel" aria-labelledby={`jr-tab-${active}`}>
         <div className="jr-text" key={active}>
-          <span className="jr-count">Step {s.n} of 0{steps.length}</span>
+          <span className="jr-count">Step {s.n} of {String(steps.length).padStart(2, '0')}</span>
           <h3>{s.t}</h3>
           <p>{s.d}</p>
           <div className="jr-nav">

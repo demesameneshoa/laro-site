@@ -13,6 +13,16 @@ export const company = {
     { label: '+971 585 114 522', href: 'https://wa.me/971585114522' },
   ],
   email: '', // TODO: add the public email address
+  website: 'www.laroadvertising.com',
+  // Legal & company information (company profile 2026, page 23)
+  legal: [
+    { k: 'Company name', v: 'LARO ADVERTISING PLC' },
+    { k: 'Trade name', v: 'LARO ADVERTISING PLC' },
+    { k: 'TIN', v: '0087588877' },
+    { k: 'Principal Registration No.', v: 'BL/AA/2/0046012/2016' },
+    { k: 'Business License No.', v: 'BL/AA/14/673/4993033/2016' },
+    { k: 'VAT Registration No.', v: '23211850010' },
+  ],
   address: [
     'Cameroon St, Bole Sub-City, Woreda 03',
     'Bole Medhanialem Church Area',
@@ -42,6 +52,14 @@ export const intro = {
   lead: 'At LARO Advertising PLC, we bring strategy, creativity, production, and execution together to help organizations build stronger brands and communicate with greater impact.',
   body: 'From brand identity and creative campaigns to premium printing, outdoor advertising, 3D corporate flags, premium corporate gifts, sustainable promotional products, and event branding, we provide integrated solutions tailored to the needs of businesses, government institutions, NGOs, development organizations, and corporate clients.',
   oneLiner: 'One partner. Multiple capabilities. Seamless execution.',
+  positioning: 'An integrated branding, communications and corporate solutions partner.',
+  overview: 'An Ethiopian private limited company re-established under Ethiopian law, LARO delivers integrated solutions across advertising, branding, design, printing, promotional products, corporate supplies, events, ICT and support services.',
+  facts: [
+    { k: 'Headquarters', v: 'Addis Ababa, Ethiopia' },
+    { k: 'We serve', v: 'Public institutions, development partners and private-sector organizations' },
+    { k: 'Our objective', v: 'Practical, high-quality solutions that enhance brand visibility, communication and institutional effectiveness.' },
+  ],
+  whoWeAre: 'An integrated advertising and corporate solutions company combining creative, technical, production and business expertise. Every organization has a unique identity, so every solution is tailored, from single assignments to complex, coordinated projects.',
   purpose: 'Our purpose is simple: to help you elevate your business through better branding, better communication, and better experiences.',
 };
 
@@ -92,7 +110,7 @@ export const services: Service[] = [
     slug: "creative-design-commercial-printing", n: "03", group: "Brand & Communication", title: "Creative Design & Commercial Printing", short: "Design & Printing", tag: "Printing",
     tagline: "From ideas on screen to quality in hand.",
     intro: ["Our creative and production teams work together so every printed piece communicates your identity and meets professional finishing standards."],
-    items: ["Company profiles", "Annual reports", "Books & magazines", "Brochures & catalogues", "Calendars", "Business cards", "Letterheads", "Certificates", "Labels & packaging", "Roll-type labels & stickers", "Invitations & event stationery", "Graphic design", "Large-format printing", "Finishing, binding & packaging"],
+    items: ["Company profiles", "Annual reports", "Books & magazines", "Brochures & catalogues", "Calendars", "Business cards", "Letterheads", "Certificates", "Roll label printing (roll-to-roll labels)", "Product labels & stickers", "Packaging labels", "Invitations & event stationery", "Graphic design", "Large-format printing", "Finishing, binding & packaging"],
     outro: "We coordinate the complete production process, from artwork preparation and material selection to printing, finishing, quality control, and delivery.",
     closer: "Your message deserves to be produced at the right standard.",
     image: "/images/work/publications.jpg", imagePos: "50% 55%",
@@ -121,7 +139,7 @@ export const services: Service[] = [
     image: "/images/work/lobby-flag-line-up.jpg", imagePos: "50% 50%",
   },
   {
-    slug: "corporate-gifts-promotional-products", n: "05", group: "Products & Production", title: "Corporate Gifts & Promotional Products", short: "Corporate Gifts", tag: "Gifts",
+    slug: "corporate-gifts-promotional-products", n: "05", group: "Products & Production", title: "Promotional Products", short: "Promotional Products", tag: "Gifts",
     tagline: "Put your brand in people’s hands.",
     intro: ["Customized products that strengthen relationships and keep your brand visible, for staff, clients, events and stakeholders, with eco-friendly options."],
     items: ["Notebooks", "Branded & bamboo pens", "Bottles & mugs", "USB drives", "Power banks", "Umbrellas", "Caps, T-shirts & jackets", "Tote & recycled paper bags", "Premium corporate gifts", "Polo shirts & uniforms", "Crystal awards", "Keyholders & desk accessories", "Eco-friendly promotional items", "Conference materials"],
@@ -141,7 +159,7 @@ export const services: Service[] = [
   {
     slug: "event-promotional-solutions", n: "07", group: "Events, Supply & Support", title: "Event & Promotional Solutions", short: "Events & Promotion", tag: "Events",
     tagline: "Turn events into brand experiences.",
-    intro: ["Integrated event branding and production for conferences, exhibitions, launches, ceremonies and institutional programs: professional, welcoming and on-brand."],
+    intro: ["We provide integrated event branding and production for conferences, exhibitions, launches, ceremonies, and institutional programs, creating professional, welcoming, and on-brand experiences."],
     items: ["Stage branding & backdrops", "Roll-up banners", "Exhibition displays & booths", "Directional signage", "VIP & protocol branding", "Installation & dismantling", "Conference branding", "Product launches", "Promotional activations", "Event printing", "Registration areas", "Event flags & carpets"],
     outro: "From concept and design to production and installation, we help create cohesive brand experiences from entrance to exit.",
     closer: "Your event is temporary. Your brand impression can last much longer.",
@@ -192,7 +210,12 @@ export const testimonials: Testimonial[] = [
 export const integrated = {
   title: 'One Brief. One Partner. One Brand Experience.',
   lead: 'Many projects require several capabilities working together. That’s where LARO makes the difference.',
-  chain: ['Strategy', 'Design', 'Production', 'Printing', 'Promotional Products', 'Signage', 'Installation', 'Delivery'],
+  chain: ['Concept', 'Creative design', 'Production', 'Branding & supply', 'Installation', 'Delivery'],
+  // Service model (company profile 2026, page 12)
+  model: [
+    { k: 'Our role', t: 'One partner. Every detail managed.', d: 'We lead the brief, guide the process and coordinate the right specialists, bringing every moving part together under one accountable partner.' },
+    { k: 'Our commitment', t: 'Customized solutions, not standard products.', d: 'Whether a service is delivered by our team or a trusted specialist, we oversee quality, timelines and communication from start to finish.' },
+  ],
   body: 'Instead of managing multiple suppliers, clients can work with one coordinated partner responsible for bringing the entire solution together.',
   examples: [
     { title: 'Corporate Rebranding', parts: ['Brand Strategy', 'Identity', 'Guidelines', 'Stationery', 'Signage', 'Promotional Products'], image: '/images/work/planning-development-signage.jpg' },
@@ -204,7 +227,8 @@ export const integrated = {
 
 // Delivery capabilities and quality commitments, from the company profile.
 export const capabilities = {
-  lead: 'Creative, technical, production, supply and project-management expertise working as one, with every engagement managed to the agreed requirements.',
+  lead: 'Creative, technical, production, supply and project-management expertise working as one.',
+  qualityLead: 'Every engagement is managed professionally, with every deliverable meeting the agreed requirements. LARO Advertising PLC delivers high-quality services in compliance with applicable standards, contractual requirements and ethical business practices.',
   items: [
     { t: 'Creative', d: 'Concepts and designs that communicate clearly and professionally.' },
     { t: 'Production', d: 'Printing, branding, promotional products, flags and other physical materials.' },
@@ -218,14 +242,14 @@ export const capabilities = {
 
 export const approach = {
   title: 'From Brief to Delivery',
-  lead: 'We believe successful projects require more than good design. They require disciplined execution.',
+  lead: 'Five steps from the first brief to ongoing support.',
+  result: 'Solutions that are visually strong, practical and aligned with each client’s objectives.',
   steps: [
-    { n: '01', t: 'Understand', d: 'We listen to your objectives, audience, requirements, specifications, and timeline.' },
-    { n: '02', t: 'Develop', d: 'Our team develops the creative, technical, and production solution.' },
-    { n: '03', t: 'Produce', d: 'We coordinate production using appropriate materials, technologies, and specialized production partners.' },
-    { n: '04', t: 'Quality Control', d: 'We inspect and coordinate the work against approved specifications before delivery.' },
-    { n: '05', t: 'Deliver', d: 'We coordinate packaging, logistics, delivery, installation, and final execution as required.' },
-    { n: '06', t: 'Support', d: 'We remain available for implementation, additional production, and ongoing brand requirements.' },
+    { n: '01', t: 'Understand', d: 'Requirements, objectives, identity, audience and expectations.' },
+    { n: '02', t: 'Develop', d: 'Our creative and technical team shapes the right solution.' },
+    { n: '03', t: 'Produce', d: 'Quality materials, accurate specs and professional finishing.' },
+    { n: '04', t: 'Deliver', d: 'Coordinated delivery, installation and implementation.' },
+    { n: '05', t: 'Support', d: 'Responsive communication throughout the engagement.' },
   ],
 };
 
@@ -236,14 +260,38 @@ export const sectors = {
 };
 
 export const why = [
-  { t: 'Integrated Capability', d: 'Strategy, creative, production, promotion, and execution under one partner.' },
-  { t: 'Professional Execution', d: 'We coordinate projects from initial brief through final delivery.' },
-  { t: 'Flexible Production Network', d: 'Access to specialized local and international production capabilities.' },
-  { t: 'Quality Focus', d: 'Specifications, material selection, production coordination, and quality control are integrated into our workflow.' },
-  { t: 'Customized Solutions', d: 'We adapt products and services to your brand, audience, quantity, budget, and timeline.' },
-  { t: 'Sustainable Options', d: 'Eco-friendly alternatives are available across promotional, advertising, gifting, printing, and event requirements.' },
-  { t: 'Institutional Experience', d: 'We understand the documentation, specifications, coordination, and professionalism expected by institutional and corporate clients.' },
+  { t: 'Professional Expertise', d: 'Creative, technical and business skills.' },
+  { t: 'Reliability & Timeliness', d: 'On-time delivery, consistent quality.' },
+  { t: 'Integrated Services', d: 'End-to-end, from concept to delivery.' },
+  { t: 'Client-Centric Approach', d: 'Solutions tailored to each client.' },
+  { t: 'Quality', d: 'Professional standards, quality control.' },
+  { t: 'Compliance & Standards', d: 'Contractual and ethical practice.' },
+  { t: 'Scalable Solutions', d: 'From single jobs to large projects.' },
+  { t: 'Long-Term Relationships', d: 'Built on trust and consistent service.' },
 ];
+
+// Mission, vision, core values, future direction and client commitment (company profile 2026)
+export const mission = 'To deliver innovative, reliable, high-quality advertising, branding, printing, promotional and support solutions that enhance brand visibility and institutional effectiveness.';
+export const vision = 'To become a leading and trusted provider of integrated advertising, branding, communications and support services in Ethiopia and beyond.';
+export const coreValues = [
+  { t: 'Excellence', d: 'High standards in every project and every client engagement.' },
+  { t: 'Integrity', d: 'Honesty, transparency, accountability and respect.' },
+  { t: 'Customer Focus', d: 'Client needs and satisfaction at the center of our work.' },
+  { t: 'Creativity', d: 'Innovative, practical ways to communicate ideas and strengthen brands.' },
+  { t: 'Reliability', d: 'We take responsibility and deliver as promised.' },
+  { t: 'Professionalism', d: 'Professional standards in communication, production and delivery.' },
+  { t: 'Continuous Improvement', d: 'Always improving capabilities, products, technology and systems.' },
+];
+export const future = {
+  lead: 'LARO Advertising PLC is strengthening its capabilities in branding, commercial printing, signage, and corporate supply services. Over the next three to five years, the company aims to expand its production capacity, improve operational efficiency, broaden its promotional product portfolio, and extend its service reach beyond Addis Ababa.',
+  goal: 'An integrated branding and communications provider, with operational capacity beyond Addis Ababa.',
+  priorities: ['Strengthen advertising and branding', 'Invest in advanced printing technology', 'Improve production efficiency and quality', 'Expand the promotional product portfolio', 'Strengthen corporate supply capabilities', 'Develop regional service capacity', 'Expand institutional partnerships', 'Strengthen import and distribution', 'Sustainable, large-scale project delivery'],
+};
+export const representsClient = {
+  lines: [['A business card represents', 'a company.'], ['A corporate gift represents', 'a relationship.'], ['A flag represents', 'an institution.'], ['An event represents', 'an organization’s professionalism.'], ['A company profile represents', 'its identity.']],
+  traits: ['Professional', 'High Quality', 'Creative', 'Reliable', 'Timely', 'Consistent', 'Purpose-Driven'],
+  body: 'We do not simply produce advertising materials. We help organizations build visibility, professionalism and brand presence.',
+};
 
 // Leadership: source "LARO_Leadership.docx". Add `photo: '/images/team/<file>.jpg'` when portraits are ready.
 // `short` shows under the portrait; the full `bio` pops up over the portrait on hover / tap.
@@ -307,12 +355,12 @@ export const credentials: Credential[] = [
 ];
 
 export const brochure = {
-  file: '/docs/LARO-Company-Overview.pdf',
-  title: 'Company Profile',
-  pages: 20,
-  size: '11.5 MB',
-  preview: ['/images/brochure/page-1.jpg', '/images/brochure/page-3.jpg', '/images/brochure/page-5.jpg'],
-  points: ['Company overview, mission, vision and core values', 'Our services and capabilities', 'Our approach, quality and compliance', 'Legal information and contact details'],
+  file: '/docs/LARO-Company-Profile-2026.pdf',
+  title: 'Company Profile 2026',
+  pages: 24,
+  size: '8.6 MB',
+  preview: ['/images/brochure/page-1.jpg', '/images/brochure/page-4.jpg', '/images/brochure/page-5.jpg'],
+  points: ['Who we are, mission, vision and core values', 'Our ten service areas and service model', 'Approach, capabilities, quality and compliance', 'Clients, testimonials, legal and contact information'],
 };
 
 export type Media = { src: string; video?: string; pos?: string };

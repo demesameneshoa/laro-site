@@ -12,7 +12,7 @@ export default function Brochure() {
       </div>
       <div className="br-txt">
         <span className="eyebrow reveal">Download</span>
-        <h2 className="h2 reveal">Company profile</h2>
+        <h2 className="h2 reveal">{brochure.title}</h2>
         <p className="lead reveal">Who we are, what we do and how we work, in one document ready to share internally or attach to a supplier file.</p>
         <ul className="br-list reveal">{brochure.points.map((p) => <li key={p}>{p}</li>)}</ul>
         <div className="br-cta reveal">

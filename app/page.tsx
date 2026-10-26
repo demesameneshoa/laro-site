@@ -39,7 +39,7 @@ export default function Home() {
 
       <section className="sec">
         <div className="container">
-          <SecHead eyebrow="Why LARO" title="Professional Communication. Dependable Delivery." lead="Seven reasons institutions and businesses trust us with their brand, from the first brief to the final installation." />
+          <SecHead eyebrow="Why LARO" title="Professional Communication. Dependable Delivery." lead="Eight reasons institutions and businesses trust us with their brand, from the first brief to the final installation." />
           <div className="why-cols">
             {why.map((w, i) => (
               <div key={w.t} className="why-col reveal" style={{ ['--d' as string]: `${(i % 4) * 70}ms` }}>

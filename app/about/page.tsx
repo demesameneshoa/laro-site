@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { commitment, intro, leadership, why } from '@/lib/content';
+import { commitment, coreValues, future, intro, leadership, mission, representsClient, vision, why } from '@/lib/content';
 import { LogoWall, PageHero, SecHead } from '@/components/Blocks';
 import Testimonials from '@/components/Testimonials';
 import WeAre from '@/components/WeAre';
@@ -36,9 +36,40 @@ export default function AboutPage() {
           ))}
         </div>
       </section>
+      <section className="sec sec-gray">
+        <div className="container">
+          <SecHead eyebrow="Company overview" title="Professional, Reliable, Scalable Services" lead={intro.overview} />
+          <dl className="facts">
+            {intro.facts.map((f) => (<div key={f.k} className="reveal"><dt>{f.k}</dt><dd>{f.v}</dd></div>))}
+          </dl>
+          <p className="who-we-are reveal">{intro.whoWeAre}</p>
+        </div>
+      </section>
+      <section className="sec mv-sec">
+        <div className="container mv">
+          <article className="mv-card mission reveal"><span className="eyebrow">Our mission</span><p>{mission}</p></article>
+          <article className="mv-card vision reveal"><span className="eyebrow">Our vision</span><p>{vision}</p></article>
+        </div>
+        <div className="container">
+          <SecHead eyebrow="Core values" title="What We Stand For" />
+          <div className="why-cols values">
+            {coreValues.map((v, i) => (
+              <div key={v.t} className="why-col reveal" style={{ ['--d' as string]: `${(i % 4) * 70}ms` }}>
+                <span className="wc-n">0{i + 1}</span><h3>{v.t}</h3><p>{v.d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
       <WeAre line1="Elevate" line2="Your Business" link={false} />
       <section className="sec">
         <div className="container two-col"><span className="eyebrow reveal">Our commitment</span><p className="big-quote reveal">“{commitment}”</p></div>
+        <div className="container represents">
+          <span className="eyebrow reveal">Every project represents our client</span>
+          <ul className="rep-lines">{representsClient.lines.map(([x, y]) => (<li key={x} className="reveal">{x} <b>{y}</b></li>))}</ul>
+          <ul className="chips-row reveal">{representsClient.traits.map((t) => <li key={t}>{t}</li>)}</ul>
+          <p className="lead reveal">{representsClient.body}</p>
+        </div>
       </section>
       <section className="sec">
         <div className="container">
@@ -61,7 +92,7 @@ export default function AboutPage() {
       <section className="sec sec-gray">
         <div className="container">
           <SecHead eyebrow="Why LARO" title="What Clients Can Count On" lead={intro.purpose} />
-          <HoverRows rows={why.map((w, i) => ({ n: `0${i + 1}`, t: w.t, r: w.d, img: ['/images/work/cbe-gift-box.jpg', '/images/work/team-review.jpg', '/images/work/publications.jpg', '/images/work/executive-tech-gift-set.jpg', '/images/work/irrigation-lowlands-flags.jpg', '/images/work/bamboo-eco-gift-set.jpg', '/images/work/ministry-of-agriculture-signage.jpg'][i] }))} />
+          <HoverRows rows={why.map((w, i) => ({ n: `0${i + 1}`, t: w.t, r: w.d, img: ['/images/work/team-meeting.jpg', '/images/work/cbe-gift-box.jpg', '/images/work/team-review.jpg', '/images/work/publications.jpg', '/images/work/executive-tech-gift-set.jpg', '/images/work/irrigation-lowlands-flags.jpg', '/images/work/bamboo-eco-gift-set.jpg', '/images/work/ministry-of-agriculture-signage.jpg'][i] }))} />
         </div>
       </section>
       <section className="sec" id="leadership">
@@ -88,7 +119,7 @@ export default function AboutPage() {
         </div>
       </section>
       <section className="sec sec-gray" id="clients">
-        <div className="container"><SecHead eyebrow="Clients" title="Organizations We Serve" lead="Government institutions, international organizations, banks and businesses that trust LARO with their brand." /><LogoWall /></div>
+        <div className="container"><SecHead eyebrow="Clients" title="Organizations We Serve" lead="Trusted by selected organizations to turn brand strategy into tangible visual impact: high-impact collateral, corporate gifts and event environments that represent their values with precision." /><LogoWall /></div>
       </section>
       <section className="sec" id="testimonials">
         <div className="container">
@@ -100,6 +131,15 @@ export default function AboutPage() {
         <div className="container">
           <SecHead eyebrow="Credentials" title="Certificates & Credentials" lead="Certificates and recognitions from the organizations we work with. Select any item to view it larger." />
           <Credentials />
+        </div>
+      </section>
+      <section className="sec future-sec" id="future">
+        <div className="container">
+          <SecHead eyebrow="Growth & future direction" title="Building for the Next Stage" lead={future.lead} />
+          <ol className="prio">
+            {future.priorities.map((p, i) => (<li key={p} className="reveal" style={{ ['--d' as string]: `${(i % 3) * 60}ms` }}><span>{String(i + 1).padStart(2, '0')}</span>{p}</li>))}
+          </ol>
+          <p className="goal reveal"><b>Next 3–5 years</b>{future.goal}</p>
         </div>
       </section>
       <section className="sec" id="brochure">

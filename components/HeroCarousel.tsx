@@ -39,7 +39,7 @@ export default function HeroCarousel() {
         <div className="hc-copy">
           <span className="hc-kicker">LARO Advertising PLC · Addis Ababa, since 2012</span>
           <h1 className="hc-title">Elevate your brand.<br />Elevate your business.</h1>
-          <p className="hc-lead">{intro.oneLiner}</p>
+          <p className="hc-lead">{intro.positioning}</p>
           <div className="hc-cta">
             <Link href="/work" className="go-btn light"><span>View our work</span><ArrowUpRight size={18} /></Link>
             <Link href="/contact" className="go-btn"><span>Request a quote</span><ArrowUpRight size={18} /></Link>
