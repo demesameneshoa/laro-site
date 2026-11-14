@@ -104,7 +104,7 @@ export const services: Service[] = [
     items: ["Logo & identity design", "Brand guidelines", "Corporate stationery", "Office & reception branding", "Signage & wayfinding", "Vehicle & event branding", "Brand strategy & positioning", "Corporate identity systems", "Brand refresh & rebranding", "3D letters & logos", "Illuminated signage", "Building signage", "Presentation templates"],
     outro: "We create the foundation that helps your business stand out and move forward, on paper, on screen and on the walls of your offices.",
     closer: "Elevate your business through a stronger brand.",
-    image: "/images/work/ethio-djibouti-railway-signage.jpg", imagePos: "50% 50%",
+    image: "/images/work/esl-brand-identity.jpg", imagePos: "50% 50%",
   },
   {
     slug: "creative-design-commercial-printing", n: "03", group: "Brand & Communication", title: "Creative Design & Commercial Printing", short: "Design & Printing", tag: "Printing",
@@ -369,6 +369,14 @@ export type Media = { src: string; video?: string; pos?: string };
 export type Project = { slug: string; title: string; client?: string; services: string[]; summary: string; scope: string[]; media: Media[] };
 export const projects: Project[] = [
   {
+    slug: "esl-brand-identity", title: "Brand identity & guidelines", client: "Ethiopian Shipping & Logistics (ESL)", services: ["Branding"],
+    summary: "Our largest branding project: the brand identity for Ethiopian Shipping & Logistics, from the bilingual logo and brand values to colour versions and brand guidelines.",
+    scope: ["Bilingual logo (Amharic & English)", "Brand values and brand story", "Logo colour versions: primary, inverted and greyscale", "Brand guidelines"],
+    media: [
+      {src: "/images/work/esl-brand-identity.jpg", pos: "50% 50%"},
+    ],
+  },
+  {
     slug: "cbe-executive-gift-sets", title: "Executive gift sets", client: "Commercial Bank of Ethiopia", services: ["Gift Boxes", "Gifts"],
     summary: "Branded executive gift sets for the Commercial Bank of Ethiopia: a notebook, pen and keyholder presented in a custom box carrying the bank’s logo in gold foil.",
     scope: ["Branded executive notebook", "Pen and keyholder", "Custom presentation box and insert", "Gold-foil logo application"],
@@ -575,7 +583,7 @@ export const projects: Project[] = [
     ],
   },
 ];
-export const featuredProjects = ["cbe-executive-gift-sets", "ceremonial-flag-line-ups", "mesob-3d-flags", "adey-abeba-carpets", "publications-folders", "bamboo-eco-gift-sets", "ethio-djibouti-railway-reception"];
+export const featuredProjects = ["esl-brand-identity", "cbe-executive-gift-sets", "ceremonial-flag-line-ups", "mesob-3d-flags", "adey-abeba-carpets", "publications-folders", "bamboo-eco-gift-sets"];
 
 export const closing = {
   title: 'Elevate Your Business With LARO',
