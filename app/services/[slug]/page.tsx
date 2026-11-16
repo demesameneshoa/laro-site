@@ -75,7 +75,7 @@ export default async function ServicePage({ params }: Props) {
       ) : null}
       <Link href={`/services/${next.slug}`} className="next-svc" data-cursor="Next">
         <span className="container ns-in"><span className="label">Next service · {next.n}</span><span className="ns-t">{next.title}</span><ArrowUpRight size={48} /></span>
-        <span className="ns-img" aria-hidden="true"><FitImg src={next.image} pos={next.imagePos} fit={next.imageFit} /></span>
+        <span className="ns-img" aria-hidden="true"><FitImg src={next.image} pos={next.cardPos ?? next.imagePos} /></span>
       </Link>
     </>
   );

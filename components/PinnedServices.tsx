@@ -6,30 +6,33 @@ import { ArrowUpRight } from './Icons';
 import FitImg from './FitImg';
 
 // "OUR SERVICES": the section pins, a green disc sweeps across the title, then the title panel
-// slides away and the service columns travel in horizontally (wide screens with a mouse).
-// On touch devices, narrow screens or with reduced motion it is a green title block plus a native swipe row.
+// slides away and the service columns travel in horizontally, on every screen size.
+// With reduced motion it is a green title block plus a native swipe row.
 export default function PinnedServices() {
   const sec = useRef<HTMLElement>(null);
   const track = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const s = sec.current, t = track.current; if (!s || !t) return;
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const coarse = window.matchMedia('(hover: none), (pointer: coarse)').matches;
-    let raf = 0;
+    let raf = 0, lastW = 0;
+    // Phones/tablets: shorter disc sweep and the cards travel about twice as fast per scroll,
+    // so the section never feels slow to get through.
+    const speed = () => (s.clientWidth < 900 ? { sweep: 0.6, travel: 0.45 } : { sweep: 1.2, travel: 1 });
     const layout = () => {
-      // Pinned horizontal scroll only on wide screens with a mouse; touch devices get a native swipe row.
-      const pin = !reduce && !coarse && innerWidth > 900;
+      lastW = s.clientWidth;
+      const pin = !reduce;
       s.classList.toggle('pinned', pin);
       if (!pin) { s.style.height = ''; t.style.transform = ''; return; }
+      const { sweep, travel } = speed();
       const dist = t.scrollWidth - s.clientWidth;
-      s.style.height = `${innerHeight * 2.2 + dist}px`;
+      s.style.height = `${innerHeight * (1 + sweep) + dist * travel}px`;
       update();
     };
     const update = () => {
       if (!s.classList.contains('pinned')) return;
       const total = s.offsetHeight - innerHeight;
       const p = Math.min(1, Math.max(0, -s.getBoundingClientRect().top / total));
-      const split = (innerHeight * 1.2) / total; // first part: disc sweep
+      const split = (innerHeight * speed().sweep) / total; // first part: disc sweep
       const a = Math.min(1, p / split);
       const b = Math.max(0, (p - split) / (1 - split));
       s.style.setProperty('--a', a.toFixed(4));
@@ -37,10 +40,12 @@ export default function PinnedServices() {
       t.style.transform = `translate3d(${(-dist * b).toFixed(1)}px, 0, 0)`;
     };
     const onScroll = () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(update); };
+    // iPhone/Android fire "resize" whenever the address bar shows or hides; only re-measure when the width really changes.
+    const onResize = () => { if (Math.abs(s.clientWidth - lastW) > 2) layout(); else update(); };
     layout();
     window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', layout);
-    return () => { window.removeEventListener('scroll', onScroll); window.removeEventListener('resize', layout); cancelAnimationFrame(raf); };
+    window.addEventListener('resize', onResize);
+    return () => { window.removeEventListener('scroll', onScroll); window.removeEventListener('resize', onResize); cancelAnimationFrame(raf); };
   }, []);
   return (
     <section className="ps" ref={sec} aria-labelledby="ps-h">
@@ -54,7 +59,7 @@ export default function PinnedServices() {
           {services.map((s) => (
             <Link key={s.slug} href={`/services/${s.slug}`} className="ps-col" data-cursor="Explore">
               <span className="ps-fill" aria-hidden="true" />
-              <span className="ps-img" aria-hidden="true"><FitImg src={s.image} pos={s.imagePos} fit={s.imageFit} /></span>
+              <span className="ps-img" aria-hidden="true"><FitImg src={s.image} pos={s.cardPos ?? s.imagePos} /></span>
               <span className="ps-n">Service {s.n}</span>
               <span className="ps-t">{s.title}</span>
               <span className="ps-d">{s.tagline}</span>

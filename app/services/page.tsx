@@ -22,7 +22,7 @@ export default function ServicesPage() {
                 <Link key={s.slug} href={`/services/${s.slug}`} className="svc-row reveal" data-cursor="Explore">
                   <span className="sr-n">Service {s.n}</span>
                   <span className="sr-t">{s.title}</span>
-                  <span className="sr-img"><FitImg src={s.image} pos={s.imagePos} fit={s.imageFit} /></span>
+                  <span className="sr-img"><FitImg src={s.image} pos={s.cardPos ?? s.imagePos} /></span>
                   <span className="sr-d">{s.tagline}<br /><small>{s.items.slice(0, 5).join(' · ')}</small></span>
                   <span className="sr-go"><ArrowUpRight size={24} /></span>
                 </Link>

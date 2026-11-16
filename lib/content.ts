@@ -75,7 +75,8 @@ export type Service = {
   closer: string;
   image: string;
   imagePos?: string;
-  imageFit?: 'contain'; // show the whole picture (no cropping), e.g. square product shots
+  imageFit?: 'contain'; // service page hero shows the whole picture (no cropping), e.g. square product shots
+  cardPos?: string; // crop focus for the full-bleed service cards (defaults to imagePos)
   tag: string;
   group: string;
   // optional extra blocks shown on the service page (title + numbered columns)
@@ -114,7 +115,7 @@ export const services: Service[] = [
     items: ["Company profiles", "Annual reports", "Books & magazines", "Brochures & catalogues", "Calendars", "Business cards", "Letterheads", "Certificates", "Roll label printing (roll-to-roll labels)", "Product labels & stickers", "Packaging labels", "Invitations & event stationery", "Graphic design", "Large-format printing", "Finishing, binding & packaging"],
     outro: "We coordinate the complete production process, from artwork preparation and material selection to printing, finishing, quality control, and delivery.",
     closer: "Your message deserves to be produced at the right standard.",
-    image: "/images/work/gdp-rebasing-report.jpg", imagePos: "50% 45%", imageFit: "contain",
+    image: "/images/work/gdp-rebasing-report.jpg", imagePos: "50% 45%", imageFit: "contain", cardPos: "50% 48%",
     details: [
       { eyebrow: 'Labels & packaging', title: 'Roll-Type Label Printing: Features & Materials', rows: [
         { t: 'Material Versatility', d: 'Waterproof polypropylene (BOPP), paper, clear/transparent film, metallic foil, and direct thermal options.' },
@@ -146,7 +147,7 @@ export const services: Service[] = [
     items: ["Notebooks", "Branded & bamboo pens", "Bottles & mugs", "USB drives", "Power banks", "Umbrellas", "Caps, T-shirts & jackets", "Tote & recycled paper bags", "Premium corporate gifts", "Polo shirts & uniforms", "Crystal awards", "Keyholders & desk accessories", "Eco-friendly promotional items", "Conference materials"],
     outro: "Thoughtfully selected. Professionally branded. Memorable by design.",
     closer: "Thoughtfully selected. Professionally branded.",
-    image: "/images/work/wri-polo.jpg", imagePos: "50% 50%", imageFit: "contain",
+    image: "/images/work/wri-polo.jpg", imagePos: "50% 50%", imageFit: "contain", cardPos: "50% 35%",
   },
   {
     slug: "corporate-gift-boxes", n: "06", group: "Products & Production", title: "Corporate Gift Boxes", short: "Gift Boxes", tag: "Gift Boxes",
