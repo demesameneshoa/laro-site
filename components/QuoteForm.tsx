@@ -15,7 +15,7 @@ export default function QuoteForm() {
     e.preventDefault();
     const form = e.currentTarget;
     setState('sending');
-    const data = { ...Object.fromEntries(new FormData(form).entries()), services: picked.join(', '), budget };
+    const data = { ...Object.fromEntries(new FormData(form).entries()), services: picked.join(', '), budget, form: 'Quote request' };
     try {
       const res = await fetch('/api/quote', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
       if (!res.ok) throw new Error();
@@ -34,6 +34,7 @@ export default function QuoteForm() {
   }
   return (
     <form className="qform" onSubmit={onSubmit} aria-label="Request a quote">
+      <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hp" />
       <fieldset className="full">
         <legend>I’m interested in</legend>
         <div className="chips">

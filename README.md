@@ -43,7 +43,7 @@ npm run build && npm start
 2. In Vercel, choose **Add New → Project**, import the repository and keep the detected **Next.js** preset.
 3. Optional environment variables (Project → Settings → Environment Variables):
    - `NEXT_PUBLIC_SITE_URL`: the live domain, e.g. `https://laroadvertising.com` (used for metadata, sitemap and robots).
-   - `RESEND_API_KEY`, `QUOTE_TO_EMAIL`, `QUOTE_FROM_EMAIL`: to email quote requests through [Resend](https://resend.com). Without them, requests are logged in Vercel's function logs.
+   - `RESEND_API_KEY` (required for the forms): both website forms email to info@laroadvertising.com through [Resend](https://resend.com). Optional: `QUOTE_TO_EMAIL` (other recipient(s), comma-separated) and `QUOTE_FROM_EMAIL` (a sender on a domain verified in Resend, e.g. `LARO Website <website@laroadvertising.com>`). Without the key the forms show "Could not send, please call".
 4. Add your domain under Project → Settings → Domains.
 
 ## Editing content

@@ -12,7 +12,7 @@ export default function Footer() {
     const form = e.currentTarget;
     setState('sending');
     try {
-      const res = await fetch('/api/quote', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(Object.fromEntries(new FormData(form).entries())) });
+      const res = await fetch('/api/quote', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ ...Object.fromEntries(new FormData(form).entries()), form: 'Website message' }) });
       if (!res.ok) throw new Error();
       setState('sent'); form.reset();
     } catch { setState('error'); }
@@ -36,6 +36,7 @@ export default function Footer() {
             <div className="socials">{company.socials.map((s) => (<a key={s.label} href={s.href} aria-label={s.label}>{s.label.slice(0, 2)}</a>))}</div>
           </div>
           <form className="cn-form" onSubmit={onSubmit} aria-label="Send us a message">
+            <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hp" />
             <div className="ul-field full"><label htmlFor="f-name">Name</label><input id="f-name" name="name" autoComplete="name" required /></div>
             <div className="ul-field"><label htmlFor="f-email">Email</label><input id="f-email" name="email" type="email" autoComplete="email" /></div>
             <div className="ul-field"><label htmlFor="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autoComplete="tel" required /></div>
