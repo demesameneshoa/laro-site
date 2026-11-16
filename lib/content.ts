@@ -431,7 +431,6 @@ export const projects: Project[] = [
     scope: ["Report and booklet printing", "Cover finishing", "Presentation folders"],
     media: [
       {src: "/images/work/gdp-rebasing-report.jpg", pos: "50% 45%"},
-      {src: "/images/hero/publications.jpg", pos: "50% 55%"},
       {src: "/images/work/publications-set.jpg", pos: "50% 50%"},
       {src: "/images/work/why-ethiopia-booklet.jpg", pos: "50% 70%"},
       {src: "/videos/folder-printing.jpg", pos: "50% 50%", video: "/videos/folder-printing.mp4"},
@@ -599,7 +598,7 @@ export const heroSlides = [
   { image: '/images/hero/team-meeting.jpg', label: 'One team, brief to delivery', service: 'Strategy, creativity, production and execution', href: '/about', pos: '50% 40%' },
   { image: '/images/hero/cbe-gift-set.jpg', label: 'Executive gift sets', service: 'Corporate Gift Boxes', href: '/work/cbe-executive-gift-sets', pos: '50% 55%' },
   { image: '/images/work/lobby-flag-line-up.jpg', label: 'Ceremonial flag line-ups', service: 'Corporate Flags & Institutional Supplies', href: '/work/ceremonial-flag-line-ups', pos: '50% 45%' },
-  { image: '/images/hero/publications.jpg', label: 'Reports & publications', service: 'Creative Design & Commercial Printing', href: '/work/publications-folders', pos: '50% 55%' },
+  { image: '/images/work/gdp-rebasing-report.jpg', label: 'Reports & publications', service: 'Creative Design & Commercial Printing', href: '/work/publications-folders', pos: '50% 45%', fit: 'contain' },
   { image: '/images/hero/bamboo-gift-set.jpg', label: 'Bamboo eco gift sets', service: 'Corporate Gifts & Promotional Products', href: '/work/bamboo-eco-gift-sets', pos: '45% 55%' },
   { image: '/images/work/sunvado-polo.jpg', label: 'Branded apparel', service: 'Corporate Gifts & Promotional Products', href: '/work/branded-apparel', pos: '50% 50%', fit: 'contain' },
 ];
