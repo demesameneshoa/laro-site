@@ -3,9 +3,10 @@ import type { ReactNode } from 'react';
 import { Letters } from './Text';
 import { ArrowUpRight } from './Icons';
 import Marquee from './Marquee';
+import FitImg from './FitImg';
 import { clients } from '@/lib/content';
 
-export function PageHero({ crumb, title, lead, image, imagePos, children }: { crumb: string; title: string; lead?: string; image?: string; imagePos?: string; children?: ReactNode }) {
+export function PageHero({ crumb, title, lead, image, imagePos, imageFit, children }: { crumb: string; title: string; lead?: string; image?: string; imagePos?: string; imageFit?: string; children?: ReactNode }) {
   return (
     <section className="phero">
       <div className="container">
@@ -20,7 +21,7 @@ export function PageHero({ crumb, title, lead, image, imagePos, children }: { cr
       </div>
       {image ? (
         <div className="ph-media reveal" data-cursor="LARO">
-          <img src={image} alt="" style={{ objectPosition: imagePos }} data-parallax="0.12" />
+          <FitImg src={image} pos={imagePos} fit={imageFit} data-parallax={imageFit === 'contain' ? undefined : '0.12'} />
         </div>
       ) : null}
     </section>

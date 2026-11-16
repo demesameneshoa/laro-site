@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import { heroSlides, intro } from '@/lib/content';
 import { ArrowUpRight } from './Icons';
+import FitImg from './FitImg';
 
 const DURATION = 6500;
 
@@ -32,7 +33,7 @@ export default function HeroCarousel() {
       <div className="hc-frame">
         {heroSlides.map((x, k) => (
           <div key={x.image} className="hc-slide" data-on={k === i ? 'true' : 'false'} aria-hidden={k !== i} role="group" aria-roledescription="slide" aria-label={`${k + 1} of ${n}: ${x.label}`}>
-            <img src={x.image} alt={x.label} style={{ objectPosition: x.pos }} loading={k === 0 ? 'eager' : 'lazy'} fetchPriority={k === 0 ? 'high' : 'auto'} />
+            <FitImg src={x.image} alt={x.label} pos={x.pos} fit={x.fit} loading={k === 0 ? 'eager' : 'lazy'} fetchPriority={k === 0 ? 'high' : 'auto'} />
           </div>
         ))}
         <div className="hc-shade" aria-hidden="true" />

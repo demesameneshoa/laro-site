@@ -5,6 +5,7 @@ import { projects, services } from '@/lib/content';
 import { ArrowBtn, PageHero, SecFoot, SecHead } from '@/components/Blocks';
 import { ScrollText } from '@/components/Text';
 import { ArrowUpRight } from '@/components/Icons';
+import FitImg from '@/components/FitImg';
 
 type Props = { params: Promise<{ slug: string }> };
 export function generateStaticParams() { return services.map((s) => ({ slug: s.slug })); }
@@ -23,7 +24,7 @@ export default async function ServicePage({ params }: Props) {
   const related = projects.filter((x) => x.services.includes(s.tag)).slice(0, 6);
   return (
     <>
-      <PageHero crumb={`Services / ${s.n}`} title={s.title} lead={s.tagline} image={s.image} imagePos={s.imagePos}>
+      <PageHero crumb={`Services / ${s.n}`} title={s.title} lead={s.tagline} image={s.image} imagePos={s.imagePos} imageFit={s.imageFit}>
         <ArrowBtn href="/contact">Request a quote</ArrowBtn>
       </PageHero>
       <section className="sec">
@@ -74,7 +75,7 @@ export default async function ServicePage({ params }: Props) {
       ) : null}
       <Link href={`/services/${next.slug}`} className="next-svc" data-cursor="Next">
         <span className="container ns-in"><span className="label">Next service · {next.n}</span><span className="ns-t">{next.title}</span><ArrowUpRight size={48} /></span>
-        <span className="ns-img" aria-hidden="true"><img src={next.image} alt="" style={{ objectPosition: next.imagePos }} /></span>
+        <span className="ns-img" aria-hidden="true"><FitImg src={next.image} pos={next.imagePos} fit={next.imageFit} /></span>
       </Link>
     </>
   );

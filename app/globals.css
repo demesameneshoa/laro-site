@@ -949,3 +949,10 @@ button.mw-card { padding: 0; border: 0; background: none; text-align: left; curs
   .map { aspect-ratio: 4 / 3; }
   .fab-wrap { right: 14px; bottom: 14px; }
 }
+
+/* Whole-picture images (FitImg fit="contain"): photo in full over a blurred copy of itself */
+.ph-media, .sr-img { position: relative; }
+img.fit-bg { position: absolute !important; inset: -6% !important; width: 112% !important; height: 112% !important; margin: 0 !important; object-fit: cover !important; filter: blur(28px) saturate(1.05); transform: none !important; pointer-events: none; }
+img.is-contain { position: relative; z-index: 1; object-fit: contain !important; }
+.ph-media img.is-contain { height: 100%; margin-top: 0; }
+.ns-img img.fit-bg { filter: blur(28px) brightness(0.45); }

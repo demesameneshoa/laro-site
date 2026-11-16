@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { useEffect, useRef } from 'react';
 import { services } from '@/lib/content';
 import { ArrowUpRight } from './Icons';
+import FitImg from './FitImg';
 
 // "OUR SERVICES": the section pins, a green disc sweeps across the title, then the title panel
 // slides away and the service columns travel in horizontally, on every screen size.
@@ -50,7 +51,7 @@ export default function PinnedServices() {
           {services.map((s) => (
             <Link key={s.slug} href={`/services/${s.slug}`} className="ps-col" data-cursor="Explore">
               <span className="ps-fill" aria-hidden="true" />
-              <span className="ps-img" aria-hidden="true"><img src={s.image} alt="" style={{ objectPosition: s.imagePos }} /></span>
+              <span className="ps-img" aria-hidden="true"><FitImg src={s.image} pos={s.imagePos} fit={s.imageFit} /></span>
               <span className="ps-n">Service {s.n}</span>
               <span className="ps-t">{s.title}</span>
               <span className="ps-d">{s.tagline}</span>
