@@ -6,6 +6,7 @@ import { Letters } from '@/components/Text';
 import { ArrowUpRight } from '@/components/Icons';
 import { SecHead } from '@/components/Blocks';
 import ProjectGallery from '@/components/ProjectGallery';
+import FitImg from '@/components/FitImg';
 
 type Props = { params: Promise<{ slug: string }> };
 export function generateStaticParams() { return projects.map((p) => ({ slug: p.slug })); }
@@ -52,7 +53,7 @@ export default async function ProjectPage({ params }: Props) {
             <div className="pg-grid">
               {related.map((r) => (
                 <Link key={r.slug} href={`/work/${r.slug}`} className="pg-card reveal" data-cursor="View">
-                  <span className="pg-img"><img src={r.media[0].src} alt={r.client ? `${r.title} for ${r.client}` : r.title} loading="lazy" style={{ objectPosition: r.media[0].pos }} /></span>
+                  <span className="pg-img"><FitImg src={r.media[0].src} alt={r.client ? `${r.title} for ${r.client}` : r.title} loading="lazy" pos={r.media[0].pos} fit={r.media[0].fit} /></span>
                   <span className="pg-t">{r.title}</span>
                   {r.client ? <span className="pg-c">{r.client}</span> : null}
                 </Link>
@@ -63,7 +64,7 @@ export default async function ProjectPage({ params }: Props) {
       </section>
       <Link href={`/work/${next.slug}`} className="next-svc" data-cursor="Next">
         <span className="container ns-in"><span className="label">Next project</span><span className="ns-t">{next.title}</span><ArrowUpRight size={48} /></span>
-        <span className="ns-img" aria-hidden="true"><img src={next.media[0].src} alt="" style={{ objectPosition: next.media[0].pos }} /></span>
+        <span className="ns-img" aria-hidden="true"><FitImg src={next.media[0].src} pos={next.media[0].pos} fit={next.media[0].fit} /></span>
       </Link>
     </>
   );

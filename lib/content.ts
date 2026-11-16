@@ -364,7 +364,7 @@ export const brochure = {
   points: ['Who we are, mission, vision and core values', 'Our ten service areas and service model', 'Approach, capabilities, quality and compliance', 'Clients, testimonials, legal and contact information'],
 };
 
-export type Media = { src: string; video?: string; pos?: string };
+export type Media = { src: string; video?: string; pos?: string; fit?: 'contain' }; // fit: show the whole photo (no cropping)
 // Portfolio projects. Each project is filed under one or more services (the service `tag`).
 // Similar projects are kept separate on purpose: each was produced for a different client.
 export type Project = { slug: string; title: string; client?: string; services: string[]; summary: string; scope: string[]; media: Media[] };
@@ -430,7 +430,7 @@ export const projects: Project[] = [
     summary: "Country reports, investment booklets and presentation folders, designed and printed with professional finishing.",
     scope: ["Report and booklet printing", "Cover finishing", "Presentation folders"],
     media: [
-      {src: "/images/work/gdp-rebasing-report.jpg", pos: "50% 45%"},
+      {src: "/images/work/gdp-rebasing-report.jpg", pos: "50% 45%", fit: "contain"},
       {src: "/images/work/publications-set.jpg", pos: "50% 50%"},
       {src: "/images/work/why-ethiopia-booklet.jpg", pos: "50% 70%"},
       {src: "/videos/folder-printing.jpg", pos: "50% 50%", video: "/videos/folder-printing.mp4"},
@@ -537,8 +537,8 @@ export const projects: Project[] = [
     summary: "Embroidered polo shirts and branded field vests for corporate teams and events, including polo shirts for SUNVADO and the World Resources Institute.",
     scope: ["Embroidered polo shirts", "Event apparel", "Branded field vests"],
     media: [
-      {src: "/images/work/sunvado-polo.jpg", pos: "50% 50%"},
-      {src: "/images/work/wri-polo.jpg", pos: "50% 50%"},
+      {src: "/images/work/sunvado-polo.jpg", pos: "50% 50%", fit: "contain"},
+      {src: "/images/work/wri-polo.jpg", pos: "50% 50%", fit: "contain"},
       {src: "/images/work/branded-field-vest.jpg", pos: "50% 50%"},
     ],
   },

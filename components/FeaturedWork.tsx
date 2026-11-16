@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { featuredProjects, projects, services } from '@/lib/content';
 import { SecHead } from './Blocks';
 import { ArrowUpRight } from './Icons';
+import FitImg from './FitImg';
 
 const svc = (t: string) => services.find((s) => s.tag === t)?.short ?? t;
 
@@ -18,7 +19,7 @@ export default function FeaturedWork() {
             const m = p.media[0];
             return (
               <Link key={p.slug} href={`/work/${p.slug}`} className={`fw-card fw-${k} reveal`} style={{ ['--d' as string]: `${(k % 4) * 70}ms` }} data-cursor="View">
-                <img src={m.src} alt={p.client ? `${p.title} for ${p.client}` : p.title} loading="lazy" style={{ objectPosition: m.pos }} />
+                <FitImg src={m.src} alt={p.client ? `${p.title} for ${p.client}` : p.title} loading="lazy" pos={m.pos} fit={m.fit} />
                 <span className="fw-info">
                   <span className="fw-svc">{svc(p.services[0])}</span>
                   <span className="fw-t">{p.title}</span>

@@ -950,9 +950,62 @@ button.mw-card { padding: 0; border: 0; background: none; text-align: left; curs
   .fab-wrap { right: 14px; bottom: 14px; }
 }
 
-/* Whole-picture images (FitImg fit="contain"): photo in full over a blurred copy of itself */
-.ph-media, .sr-img { position: relative; }
-img.fit-bg { position: absolute !important; inset: -6% !important; width: 112% !important; height: 112% !important; margin: 0 !important; object-fit: cover !important; filter: blur(28px) saturate(1.05); transform: none !important; pointer-events: none; }
-img.is-contain { position: relative; z-index: 1; object-fit: contain !important; }
-.ph-media img.is-contain { height: 100%; margin-top: 0; }
-.ns-img img.fit-bg { filter: blur(28px) brightness(0.45); }
+/* Whole-picture images (FitImg fit="contain"): the photo is shown in full, never cropped or blurred.
+   Its frame gets the brand gradient, the same one baked into the photos, so the edges blend. */
+:root { --brand-grad: linear-gradient(135deg, #ffffff 5%, #f1f9ef 20%, #dcf0d8 35%, #c8e7c1 50%, #b4dfab 65%, #a0d693 80%, #8bcd7c 95%); }
+img.is-contain { object-fit: contain !important; }
+:has(> img.is-contain) { background: var(--brand-grad); }
+.sr-img { position: relative; }
+
+/* Page hero showing a whole photo: the frame takes the photo's own shape, up to the screen height */
+.ph-media.fit { height: auto; display: flex; justify-content: center; background: none; overflow: visible; border-radius: 0; }
+.ph-media.fit img { width: auto; max-width: 100%; height: auto; max-height: calc(100svh - 110px); margin: 0; border-radius: 12px; object-fit: contain; transform: none !important; }
+
+/* Certificates: no frame, the scan itself lifts off the page with a shadow */
+.cert.real { background: none; border: 0; border-radius: 0; box-shadow: none; overflow: visible; }
+.cert.real .cert-img { inset: 0; width: 100%; height: 100%; object-fit: contain; border-radius: 2px;
+  filter: drop-shadow(0 18px 28px rgba(0,0,0,0.16)) drop-shadow(0 3px 6px rgba(0,0,0,0.08)); transition: filter 0.4s; }
+.cred:hover .cert.real { box-shadow: none; }
+.cred:hover .cert.real .cert-img { filter: drop-shadow(0 28px 44px rgba(0,0,0,0.22)) drop-shadow(0 4px 8px rgba(0,0,0,0.1)); }
+
+/* Our Services without pinning (touch devices, narrow screens, reduced motion):
+   a green title block, then a native swipe row of cards */
+.ps:not(.pinned) .ps-sticky { overflow: visible; }
+.ps:not(.pinned) .ps-track { flex-direction: column; height: auto; transform: none !important; will-change: auto; }
+.ps:not(.pinned) .ps-title { width: auto; height: auto; min-height: 0; margin: 0 var(--pad); padding: clamp(56px, 12cqi, 120px) 20px; border-radius: 16px; overflow: hidden; }
+.ps:not(.pinned) .ps-disc { clip-path: none; border-radius: 16px; }
+.ps:not(.pinned) .ps-h { transform: none; font-size: clamp(44px, 13cqi, 180px); text-align: center; }
+.ps:not(.pinned) .ps-cols { display: flex; gap: 14px; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; padding: 20px var(--pad) 28px; scroll-padding-inline: var(--pad); scrollbar-width: none; }
+.ps:not(.pinned) .ps-cols::-webkit-scrollbar { display: none; }
+.ps.pinned .ps-cols { display: contents; }
+.ps:not(.pinned) .ps-col { width: min(78vw, 360px); height: auto; flex-shrink: 0; justify-content: flex-start; gap: 10px; padding: 0 0 72px; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; scroll-snap-align: start; background: var(--white); color: var(--ink); }
+.ps:not(.pinned) .ps-img { position: relative; left: auto; right: auto; top: auto; aspect-ratio: 4 / 3; border-radius: 0; opacity: 1; transform: none; margin-bottom: 8px; }
+.ps:not(.pinned) .ps-n, .ps:not(.pinned) .ps-t, .ps:not(.pinned) .ps-d { padding: 0 20px; opacity: 1; transform: none !important; color: inherit; }
+.ps:not(.pinned) .ps-n { color: var(--mute); }
+.ps:not(.pinned) .ps-d { color: var(--ink-2); max-width: none; }
+.ps:not(.pinned) .ps-fill { display: none; }
+.ps:not(.pinned) .ps-go { right: 18px; bottom: 18px; transform: scale(1); }
+.ps:not(.pinned) .ps-col:hover .ps-n, .ps:not(.pinned) .ps-col:hover .ps-t, .ps:not(.pinned) .ps-col:hover .ps-d { color: inherit; }
+.ps:not(.pinned) .ps-col:hover .ps-n { color: var(--mute); }
+
+/* Big footer word: plain text now (no ring inside the O) */
+.cn-big i { display: none; }
+
+@container site (max-width: 760px) {
+  /* "Every project represents our client": highlighted half always on its own line */
+  .rep-lines { font-size: 22px; gap: 14px; line-height: 1.2; }
+  .rep-lines b { display: block; }
+  .big-quote { font-size: 22px; line-height: 1.3; letter-spacing: -0.02em; }
+
+  /* Home hero: picture on top, words underneath, so the photo is actually visible */
+  .hc-frame { height: auto; min-height: 0; max-height: none; display: flex; flex-direction: column; padding-top: min(56svh, 118cqi); }
+  .hc-slide { inset: 0 0 auto 0; height: min(56svh, 118cqi); }
+  .hc-shade { inset: 0 0 auto 0; height: min(56svh, 118cqi); background: linear-gradient(0deg, rgba(17,17,17,0.9) 0%, rgba(17,17,17,0) 30%); }
+  .hc-copy { position: relative; left: auto; right: auto; top: auto; bottom: auto; padding: 20px 20px 0; gap: 14px; }
+  .hc-kicker { font-size: 11px; }
+  .hc-title { font-size: clamp(30px, 9cqi, 40px); }
+  .hc-bar { position: relative; left: auto; right: auto; bottom: auto; padding: 22px 20px 20px; }
+
+  .ph-media.fit { margin-inline: 16px; }
+  .ph-media.fit img { max-height: none; width: 100%; }
+}

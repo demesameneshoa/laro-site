@@ -6,17 +6,19 @@ import { ArrowUpRight } from './Icons';
 import FitImg from './FitImg';
 
 // "OUR SERVICES": the section pins, a green disc sweeps across the title, then the title panel
-// slides away and the service columns travel in horizontally, on every screen size.
-// With reduced motion it falls back to a vertical list.
+// slides away and the service columns travel in horizontally (wide screens with a mouse).
+// On touch devices, narrow screens or with reduced motion it is a green title block plus a native swipe row.
 export default function PinnedServices() {
   const sec = useRef<HTMLElement>(null);
   const track = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const s = sec.current, t = track.current; if (!s || !t) return;
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const coarse = window.matchMedia('(hover: none), (pointer: coarse)').matches;
     let raf = 0;
     const layout = () => {
-      const pin = !reduce;
+      // Pinned horizontal scroll only on wide screens with a mouse; touch devices get a native swipe row.
+      const pin = !reduce && !coarse && innerWidth > 900;
       s.classList.toggle('pinned', pin);
       if (!pin) { s.style.height = ''; t.style.transform = ''; return; }
       const dist = t.scrollWidth - s.clientWidth;
@@ -48,6 +50,7 @@ export default function PinnedServices() {
             <h2 id="ps-h" className="ps-h">Our Services</h2>
             <span className="ps-disc" aria-hidden="true"><span className="ps-h">Our Services</span></span>
           </div>
+          <div className="ps-cols">
           {services.map((s) => (
             <Link key={s.slug} href={`/services/${s.slug}`} className="ps-col" data-cursor="Explore">
               <span className="ps-fill" aria-hidden="true" />
@@ -58,6 +61,7 @@ export default function PinnedServices() {
               <span className="ps-go"><ArrowUpRight size={22} /></span>
             </Link>
           ))}
+          </div>
         </div>
       </div>
     </section>

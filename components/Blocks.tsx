@@ -20,7 +20,7 @@ export function PageHero({ crumb, title, lead, image, imagePos, imageFit, childr
         </div>
       </div>
       {image ? (
-        <div className="ph-media reveal" data-cursor="LARO">
+        <div className={`ph-media reveal${imageFit === 'contain' ? ' fit' : ''}`} data-cursor="LARO">
           <FitImg src={image} pos={imagePos} fit={imageFit} data-parallax={imageFit === 'contain' ? undefined : '0.12'} />
         </div>
       ) : null}

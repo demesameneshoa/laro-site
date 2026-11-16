@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import { useMemo, useState } from 'react';
 import { projects, services } from '@/lib/content';
+import FitImg from './FitImg';
 
 const svc = (t: string) => services.find((s) => s.tag === t)?.short ?? t;
 // Category filters follow the service list; a service shows a filter once it has projects.
@@ -45,7 +46,7 @@ export default function ProjectGrid() {
           return (
             <Link key={p.slug} href={`/work/${p.slug}`} className="pg-card in-anim" style={{ ['--d' as string]: `${(i % 3) * 70}ms` }} data-cursor="View">
               <span className="pg-img">
-                <img src={m.src} alt={p.client ? `${p.title} for ${p.client}` : p.title} loading="lazy" style={{ objectPosition: m.pos }} />
+                <FitImg src={m.src} alt={p.client ? `${p.title} for ${p.client}` : p.title} loading="lazy" pos={m.pos} fit={m.fit} />
                 <span className="pg-badge">{p.media.length} {p.media.length === 1 ? 'photo' : 'items'}{clips ? ` · ${clips} video${clips > 1 ? 's' : ''}` : ''}</span>
               </span>
               <span className="pg-svc">{p.services.map(svc).join(' · ')}</span>

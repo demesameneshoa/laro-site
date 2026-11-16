@@ -23,7 +23,7 @@ export default function Footer() {
         <span className="connect-pattern" aria-hidden="true" />
         <div className="container connect-grid">
           <div className="cn-l">
-            <h2 className="cn-big reveal"><span>Let’s</span><span>C<i aria-hidden="true" /><span className="sr-only">o</span>nnect!</span></h2>
+            <h2 className="cn-big reveal"><span>Let’s</span><span>Connect!</span></h2>
             <ul className="cn-info">
               {company.email ? <li><span className="ic"><Mail size={15} /></span><a href={`mailto:${company.email}`}>{company.email}</a></li> : null}
               <li><span className="ic"><Phone size={15} /></span><a href={company.phoneHref[0]}>{company.phones[0]}</a></li>
