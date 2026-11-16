@@ -20,7 +20,7 @@ const stats = [
 export default function AboutPage() {
   return (
     <>
-      <PageHero crumb="About" title="About Us" lead={intro.lead} image="/images/work/team-meeting.jpg" imagePos="50% 40%" />
+      <PageHero crumb="About" title="About Us" lead={intro.lead} image="/images/hero/laro-team-group.jpg" imagePos="50% 28%" />
       <section className="sec">
         <div className="container two-col">
           <span className="eyebrow reveal">Since 2012</span>

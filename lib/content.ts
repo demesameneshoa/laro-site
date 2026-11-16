@@ -145,7 +145,7 @@ export const services: Service[] = [
     items: ["Notebooks", "Branded & bamboo pens", "Bottles & mugs", "USB drives", "Power banks", "Umbrellas", "Caps, T-shirts & jackets", "Tote & recycled paper bags", "Premium corporate gifts", "Polo shirts & uniforms", "Crystal awards", "Keyholders & desk accessories", "Eco-friendly promotional items", "Conference materials"],
     outro: "Thoughtfully selected. Professionally branded. Memorable by design.",
     closer: "Thoughtfully selected. Professionally branded.",
-    image: "/images/work/rc76-polo-shirt.jpg", imagePos: "50% 50%",
+    image: "/images/work/wri-polo.jpg", imagePos: "50% 50%",
   },
   {
     slug: "corporate-gift-boxes", n: "06", group: "Products & Production", title: "Corporate Gift Boxes", short: "Gift Boxes", tag: "Gift Boxes",
@@ -163,7 +163,7 @@ export const services: Service[] = [
     items: ["Stage branding & backdrops", "Roll-up banners", "Exhibition displays & booths", "Directional signage", "VIP & protocol branding", "Installation & dismantling", "Conference branding", "Product launches", "Promotional activations", "Event printing", "Registration areas", "Event flags & carpets"],
     outro: "From concept and design to production and installation, we help create cohesive brand experiences from entrance to exit.",
     closer: "Your event is temporary. Your brand impression can last much longer.",
-    image: "/images/work/ceremonial-flag-line-up.jpg", imagePos: "50% 50%",
+    image: "/images/work/event-promotional-supplies.jpg", imagePos: "50% 50%",
   },
   {
     slug: "ict-supply-technical-materials", n: "08", group: "Events, Supply & Support", title: "ICT Supply & Technical Materials", short: "ICT Supply", tag: "ICT",
@@ -533,12 +533,11 @@ export const projects: Project[] = [
   },
   {
     slug: "branded-apparel", title: "Branded apparel", services: ["Gifts", "Events"],
-    summary: "Embroidered polo shirts and branded field vests for corporate teams and events.",
+    summary: "Embroidered polo shirts and branded field vests for corporate teams and events, including polo shirts for SUNVADO and the World Resources Institute.",
     scope: ["Embroidered polo shirts", "Event apparel", "Branded field vests"],
     media: [
-      {src: "/images/hero/branded-polo.jpg", pos: "50% 50%"},
-      {src: "/images/work/rc76-polo-shirt.jpg", pos: "50% 50%"},
-      {src: "/images/work/event-polo-shirts.jpg", pos: "50% 50%"},
+      {src: "/images/work/sunvado-polo.jpg", pos: "50% 50%"},
+      {src: "/images/work/wri-polo.jpg", pos: "50% 50%"},
       {src: "/images/work/branded-field-vest.jpg", pos: "50% 50%"},
     ],
   },
@@ -600,7 +599,7 @@ export const heroSlides = [
   { image: '/images/work/lobby-flag-line-up.jpg', label: 'Ceremonial flag line-ups', service: 'Corporate Flags & Institutional Supplies', href: '/work/ceremonial-flag-line-ups', pos: '50% 45%' },
   { image: '/images/hero/publications.jpg', label: 'Reports & publications', service: 'Creative Design & Commercial Printing', href: '/work/publications-folders', pos: '50% 55%' },
   { image: '/images/hero/bamboo-gift-set.jpg', label: 'Bamboo eco gift sets', service: 'Corporate Gifts & Promotional Products', href: '/work/bamboo-eco-gift-sets', pos: '45% 55%' },
-  { image: '/images/hero/branded-polo.jpg', label: 'Branded apparel', service: 'Corporate Gifts & Promotional Products', href: '/work/branded-apparel', pos: '50% 50%' },
+  { image: '/images/work/sunvado-polo.jpg', label: 'Branded apparel', service: 'Corporate Gifts & Promotional Products', href: '/work/branded-apparel', pos: '50% 50%' },
 ];
 
 export const tickerWords = ['Advertising & Marketing', 'Branding & Corporate Identity', 'Design & Commercial Printing', '3D Corporate Flags', 'Premium Corporate Gifts', 'Corporate Gift Boxes', 'Events & Promotion', 'ICT Supply', 'Support Services', 'Adey Abeba Carpet'];
