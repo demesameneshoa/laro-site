@@ -114,7 +114,7 @@ export const services: Service[] = [
     items: ["Company profiles", "Annual reports", "Books & magazines", "Brochures & catalogues", "Calendars", "Business cards", "Letterheads", "Certificates", "Roll label printing (roll-to-roll labels)", "Product labels & stickers", "Packaging labels", "Invitations & event stationery", "Graphic design", "Large-format printing", "Finishing, binding & packaging"],
     outro: "We coordinate the complete production process, from artwork preparation and material selection to printing, finishing, quality control, and delivery.",
     closer: "Your message deserves to be produced at the right standard.",
-    image: "/images/work/publications.jpg", imagePos: "50% 55%",
+    image: "/images/work/gdp-rebasing-report.jpg", imagePos: "50% 45%", imageFit: "contain",
     details: [
       { eyebrow: 'Labels & packaging', title: 'Roll-Type Label Printing: Features & Materials', rows: [
         { t: 'Material Versatility', d: 'Waterproof polypropylene (BOPP), paper, clear/transparent film, metallic foil, and direct thermal options.' },
@@ -430,6 +430,7 @@ export const projects: Project[] = [
     summary: "Country reports, investment booklets and presentation folders, designed and printed with professional finishing.",
     scope: ["Report and booklet printing", "Cover finishing", "Presentation folders"],
     media: [
+      {src: "/images/work/gdp-rebasing-report.jpg", pos: "50% 45%"},
       {src: "/images/hero/publications.jpg", pos: "50% 55%"},
       {src: "/images/work/publications-set.jpg", pos: "50% 50%"},
       {src: "/images/work/why-ethiopia-booklet.jpg", pos: "50% 70%"},
