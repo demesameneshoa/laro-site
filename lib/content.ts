@@ -150,8 +150,7 @@ export const services: Service[] = [
     closer: "Thoughtfully selected. Professionally branded.",
     image: "/images/work/wri-polo.jpg", imagePos: "50% 50%", imageFit: "contain", cardPos: "50% 35%",
     heroImages: [
-      { src: "/images/work/wri-polo.jpg", alt: "White polo shirt embroidered with the World Resources Institute logo" },
-      { src: "/images/work/sunvado-polo.jpg", alt: "Black polo shirt with green trim, embroidered with the SUNVADO Organic Avocado Oil logo" },
+      { src: "/images/hero/promo-polos.jpg", alt: "Branded polo shirts: a white World Resources Institute polo in front of a black SUNVADO Organic Avocado Oil polo with green trim" },
     ],
   },
   {
