@@ -500,10 +500,10 @@ export const projects: Project[] = [
     summary: "Promotional umbrellas in white and in the bank’s green and white, and an insulated tumbler, each printed with the Development Bank of Ethiopia emblem.",
     scope: ["Printed umbrellas, white and two-colour", "Insulated tumbler", "Logo printing"],
     media: [
-      {src: "/images/work/dbe-umbrella-green.jpg", pos: "50% 55%"},
-      {src: "/images/work/dbe-umbrella-white.jpg", pos: "50% 50%"},
+      {src: "/images/work/dbe-umbrella-green.jpg", pos: "50% 50%"},
       {src: "/images/work/dbe-umbrella-side.jpg", pos: "50% 50%"},
-      {src: "/images/work/dbe-tumbler.jpg", pos: "50% 55%"},
+      {src: "/images/work/dbe-tumbler.jpg", pos: "50% 40%"},
+      {src: "/images/work/dbe-umbrella-white.jpg", pos: "50% 50%"},
     ],
   },
   {
