@@ -470,10 +470,49 @@ export const projects: Project[] = [
   {
     slug: "planning-development-signage", title: "Signage & reception branding", client: "Ministry of Planning & Development", services: ["Branding", "Flags"],
     summary: "3D logo signage and reception branding for the ministry, with national and organizational flags.",
-    scope: ["3D logo signage", "Reception branding", "Flags and stands"],
+    scope: ["3D logo signage", "Reception branding", "Flags and stands", "On-site installation"],
     media: [
       {src: "/images/work/planning-development-signage.jpg", pos: "50% 45%"},
       {src: "/images/work/planning-development-reception.jpg", pos: "50% 45%"},
+      {src: "/images/work/planning-development-installation.jpg", pos: "65% 45%"},
+    ],
+  },
+  {
+    slug: "ethiopian-leadership-academy", title: "Reception & hall branding", client: "Ethiopian Leadership Academy", services: ["Branding", "Printing", "Flags"],
+    summary: "Bilingual dimensional lettering for the academy’s reception wall, a branded podium area with national and institutional flags, and framed official portraits for its halls and offices.",
+    scope: ["Bilingual 3D lettering (Amharic & English)", "Podium area with emblem, flags and stands", "Framed official portraits", "Installation"],
+    media: [
+      {src: "/images/work/leadership-academy-lettering-wall.jpg", pos: "50% 45%"},
+      {src: "/images/work/leadership-academy-podium.jpg", pos: "50% 50%"},
+      {src: "/images/work/leadership-academy-portraits.jpg", pos: "50% 40%"},
+    ],
+  },
+  {
+    slug: "esl-abbay-ii-roll-up-banners", title: "Abbay II maiden voyage roll-up banners", client: "Ethiopian Shipping & Logistics (ESL)", services: ["Events", "Printing"],
+    summary: "Bilingual roll-up banners announcing the maiden voyage of ESL’s vessel Abbay II, designed and printed for the launch event.",
+    scope: ["Bilingual banner design (Amharic & English)", "Large-format printing", "Roll-up stands"],
+    media: [
+      {src: "/images/work/esl-abbay-ii-roll-up-banners.jpg", pos: "50% 40%"},
+    ],
+  },
+  {
+    slug: "dbe-umbrellas-tumblers", title: "Branded umbrellas & tumblers", client: "Development Bank of Ethiopia", services: ["Gifts"],
+    summary: "Promotional umbrellas in white and in the bank’s green and white, and an insulated tumbler, each printed with the Development Bank of Ethiopia emblem.",
+    scope: ["Printed umbrellas, white and two-colour", "Insulated tumbler", "Logo printing"],
+    media: [
+      {src: "/images/work/dbe-umbrella-green.jpg", pos: "50% 55%"},
+      {src: "/images/work/dbe-umbrella-white.jpg", pos: "50% 50%"},
+      {src: "/images/work/dbe-umbrella-side.jpg", pos: "50% 50%"},
+      {src: "/images/work/dbe-tumbler.jpg", pos: "50% 55%"},
+    ],
+  },
+  {
+    slug: "on-site-installation", title: "On-site installation", services: ["Branding"],
+    summary: "Our installation crew fits what we produce on site: dimensional lettering, wall pieces and signage, set out, levelled and finished in place.",
+    scope: ["3D lettering and logo installation", "Wall pieces and frames", "Site coordination and finishing"],
+    media: [
+      {src: "/images/work/planning-development-installation.jpg", pos: "65% 45%"},
+      {src: "/images/work/wall-panel-installation.jpg", pos: "50% 45%"},
     ],
   },
   {

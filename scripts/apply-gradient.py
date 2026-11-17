@@ -17,7 +17,8 @@ PUBLIC = ROOT / 'public' / 'images'
 ORIG = ROOT / 'assets' / 'originals' / 'images'
 GRADIENT = ROOT / 'assets' / 'brand-gradient.png'
 FOLDERS = ['hero', 'work', 'services', 'brochure']
-SKIP = {'work/esl-brand-identity.jpg', 'work/production-and-branding.jpg'}  # supplied with the gradient already applied
+SKIP = {'work/esl-brand-identity.jpg', 'work/production-and-branding.jpg',  # supplied with the gradient already applied
+        'hero/promo-polos.jpg'}  # composed from already-tinted polo photos on the brand gradient
 STRENGTH = 1.0  # 0 = no tint, 1 = full multiply
 
 _g = Image.open(GRADIENT).convert('RGB')
