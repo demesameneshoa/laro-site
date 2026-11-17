@@ -1003,3 +1003,8 @@ img.is-contain { object-fit: contain !important; }
 
 /* Spam trap field in forms (hidden from people) */
 .hp { position: absolute !important; left: -9999px !important; width: 1px; height: 1px; opacity: 0; }
+
+/* Page hero, full width, whole photo (imageFit="full"): spans the page width and takes the photo's own height,
+   so nothing is cropped (top included) and there are no side fillers. */
+.ph-media.full { height: auto; background: none; }
+.ph-media.full img { display: block; width: 100%; height: auto; margin: 0; object-fit: fill; transform: none !important; }
