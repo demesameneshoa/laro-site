@@ -15,7 +15,7 @@ export default function QuoteForm() {
     e.preventDefault();
     const form = e.currentTarget;
     setState('sending');
-    const data = { ...Object.fromEntries(new FormData(form).entries()), services: picked.join(', '), budget, form: 'Quote request' };
+    const data = { ...Object.fromEntries(new FormData(form).entries()), services: picked.join(', '), budget, form: 'quote', page: window.location.pathname };
     try {
       const res = await fetch('/api/quote', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
       if (!res.ok) throw new Error();

@@ -25,7 +25,7 @@ All motion respects prefers-reduced-motion.
 | `/solutions` | Integrated projects, process and delivery |
 | `/about` | Company story, team, leadership, clients, testimonials, credentials, company profile download |
 | `/contact` | Request a quote form, phones, WhatsApp, address, map |
-| `/api/quote` | Receives the quote form (POST JSON) |
+| `/api/quote` | Emails the footer and quote forms to info@laroadvertising.com (POST JSON) |
 
 `/clients` and the old service addresses redirect to their new homes (see `next.config.mjs`).
 
@@ -43,7 +43,14 @@ npm run build && npm start
 2. In Vercel, choose **Add New → Project**, import the repository and keep the detected **Next.js** preset.
 3. Optional environment variables (Project → Settings → Environment Variables):
    - `NEXT_PUBLIC_SITE_URL`: the live domain, e.g. `https://laroadvertising.com` (used for metadata, sitemap and robots).
-   - `RESEND_API_KEY` (required for the forms): both website forms email to info@laroadvertising.com through [Resend](https://resend.com). Optional: `QUOTE_TO_EMAIL` (other recipient(s), comma-separated) and `QUOTE_FROM_EMAIL` (a sender on a domain verified in Resend, e.g. `LARO Website <website@laroadvertising.com>`). Without the key the forms show "Could not send, please call".
+   - Contact forms → **info@laroadvertising.com**. Both the footer form and the /contact quote form are emailed there through the existing mailbox's SMTP server:
+     - `SMTP_HOST`: the mail server, e.g. `mail.laroadvertising.com` (from your email host / cPanel "Connect Devices" page)
+     - `SMTP_PORT`: `465` (SSL, default) or `587` (STARTTLS, also set `SMTP_SECURE=false`)
+     - `SMTP_USER`: `info@laroadvertising.com`
+     - `SMTP_PASS`: that mailbox's password (keep it only in Vercel, never in the code)
+     - Optional: `MAIL_TO` (other recipient(s), comma-separated; `QUOTE_TO_EMAIL` also works), `MAIL_FROM` (sender, defaults to `"LARO Website" <SMTP_USER>`)
+     - Alternative: `RESEND_API_KEY` + `MAIL_FROM` (or `QUOTE_FROM_EMAIL`) on a domain verified in [Resend](https://resend.com). SMTP is used when both are set.
+     Emails arrive as "Website message from …" or "Quote request from …"; pressing Reply answers the visitor. Without a provider the forms show "Could not send, please call" instead of pretending to succeed.
 4. Add your domain under Project → Settings → Domains.
 
 ## Editing content
@@ -58,7 +65,7 @@ All copy lives in `lib/content.ts`: services, approach, sectors, why LARO, team,
 - **Testimonials**: `testimonials` in `lib/content.ts` (shown on Home and Clients).
 - **Credentials**: certificate scans in `public/images/credentials/`, listed in `credentials` in `lib/content.ts` (set `landscape: true` for wide certificates).
 - **Company profile**: `public/docs/LARO-Company-Profile-2026.pdf` (web-optimised copy of the 2026 profile), with preview pages in `public/images/brochure/`. Update `brochure` in `lib/content.ts` if the page count or size changes.
-- **Still to add**: public email address and social links in `company` in `lib/content.ts`.
+- **Still to add**: social links in `company` in `lib/content.ts`.
 
 ## Structure
 

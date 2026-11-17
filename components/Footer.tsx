@@ -12,7 +12,7 @@ export default function Footer() {
     const form = e.currentTarget;
     setState('sending');
     try {
-      const res = await fetch('/api/quote', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ ...Object.fromEntries(new FormData(form).entries()), form: 'Website message' }) });
+      const res = await fetch('/api/quote', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ ...Object.fromEntries(new FormData(form).entries()), form: 'message', page: window.location.pathname }) });
       if (!res.ok) throw new Error();
       setState('sent'); form.reset();
     } catch { setState('error'); }

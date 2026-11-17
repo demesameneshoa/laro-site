@@ -12,7 +12,7 @@ export const company = {
     { label: '+251 954 676 767', href: 'https://wa.me/251954676767' },
     { label: '+971 585 114 522', href: 'https://wa.me/971585114522' },
   ],
-  email: '', // TODO: add the public email address
+  email: 'info@laroadvertising.com',
   website: 'www.laroadvertising.com',
   // Legal & company information (company profile 2026, page 23)
   legal: [
