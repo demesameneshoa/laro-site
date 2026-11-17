@@ -77,6 +77,7 @@ export type Service = {
   imagePos?: string;
   imageFit?: 'contain'; // service page hero shows the whole picture (no cropping), e.g. square product shots
   cardPos?: string; // crop focus for the full-bleed service cards (defaults to imagePos)
+  heroImages?: { src: string; alt: string }[]; // service page hero: these photos side by side, full width, uncropped (replaces image there)
   tag: string;
   group: string;
   // optional extra blocks shown on the service page (title + numbered columns)
@@ -148,6 +149,10 @@ export const services: Service[] = [
     outro: "Thoughtfully selected. Professionally branded. Memorable by design.",
     closer: "Thoughtfully selected. Professionally branded.",
     image: "/images/work/wri-polo.jpg", imagePos: "50% 50%", imageFit: "contain", cardPos: "50% 35%",
+    heroImages: [
+      { src: "/images/work/wri-polo.jpg", alt: "White polo shirt embroidered with the World Resources Institute logo" },
+      { src: "/images/work/sunvado-polo.jpg", alt: "Black polo shirt with green trim, embroidered with the SUNVADO Organic Avocado Oil logo" },
+    ],
   },
   {
     slug: "corporate-gift-boxes", n: "06", group: "Products & Production", title: "Corporate Gift Boxes", short: "Gift Boxes", tag: "Gift Boxes",

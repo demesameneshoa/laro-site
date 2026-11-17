@@ -1008,3 +1008,6 @@ img.is-contain { object-fit: contain !important; }
    so nothing is cropped (top included) and there are no side fillers. */
 .ph-media.full { height: auto; background: none; }
 .ph-media.full img { display: block; width: 100%; height: auto; margin: 0; object-fit: fill; transform: none !important; }
+/* Two photos side by side (images prop), each shown whole at its own shape, together spanning the page width */
+.ph-media.pair { display: flex; align-items: flex-start; gap: clamp(8px, 1cqi, 16px); border-radius: 0; overflow: visible; }
+.ph-media.pair img { flex: 1 1 0; min-width: 0; border-radius: 12px; }

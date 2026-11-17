@@ -24,7 +24,7 @@ export default async function ServicePage({ params }: Props) {
   const related = projects.filter((x) => x.services.includes(s.tag)).slice(0, 6);
   return (
     <>
-      <PageHero crumb={`Services / ${s.n}`} title={s.title} lead={s.tagline} image={s.image} imagePos={s.imagePos} imageFit={s.imageFit}>
+      <PageHero crumb={`Services / ${s.n}`} title={s.title} lead={s.tagline} image={s.image} imagePos={s.imagePos} imageFit={s.imageFit} images={s.heroImages}>
         <ArrowBtn href="/contact">Request a quote</ArrowBtn>
       </PageHero>
       <section className="sec">

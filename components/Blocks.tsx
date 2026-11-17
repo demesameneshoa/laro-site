@@ -6,7 +6,7 @@ import Marquee from './Marquee';
 import FitImg from './FitImg';
 import { clients } from '@/lib/content';
 
-export function PageHero({ crumb, title, lead, image, imagePos, imageFit, children }: { crumb: string; title: string; lead?: string; image?: string; imagePos?: string; imageFit?: string; children?: ReactNode }) {
+export function PageHero({ crumb, title, lead, image, imagePos, imageFit, images, children }: { crumb: string; title: string; lead?: string; image?: string; imagePos?: string; imageFit?: string; images?: { src: string; alt: string }[]; children?: ReactNode }) {
   return (
     <section className="phero">
       <div className="container">
@@ -19,7 +19,11 @@ export function PageHero({ crumb, title, lead, image, imagePos, imageFit, childr
           </div>
         </div>
       </div>
-      {image ? (
+      {images?.length ? (
+        <div className="ph-media full pair reveal" data-cursor="LARO">
+          {images.map((m) => <img key={m.src} src={m.src} alt={m.alt} />)}
+        </div>
+      ) : image ? (
         <div className={`ph-media reveal${imageFit === 'contain' ? ' fit' : imageFit === 'full' ? ' full' : ''}`} data-cursor="LARO">
           <FitImg src={image} pos={imagePos} fit={imageFit === 'full' ? undefined : imageFit} data-parallax={imageFit === 'contain' || imageFit === 'full' ? undefined : '0.12'} />
         </div>
